@@ -1,6 +1,6 @@
 import logic.ComyServer
 import models.commands.Command
-import models.commands.CommandResult
+import models.responses.CommandResult
 
 fun main(args: Array<String>){
     val commands = arrayOf(

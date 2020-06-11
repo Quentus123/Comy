@@ -4,8 +4,8 @@ import com.beust.klaxon.Klaxon
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import models.commands.Command
-import models.commands.CommandResult
-import models.commands.ResultStatus
+import models.responses.CommandResult
+import models.responses.CommandResultStatus
 import models.messages.ExecuteCommandMessage
 import models.messages.Message
 import models.messages.NeedStateMessage
@@ -70,14 +70,14 @@ class ComyServer(val commands: Array<Command>, val timeout: Long = 15000L, port:
 
     private fun executeCommand(named: String, conn: WebSocket?){
         if(!commands.map { it.name }.contains(element = named)){
-            val result = CommandResult(result = "", status = ResultStatus(success = false, message = "Command named \"$named\" not found"))
+            val result = CommandResult(result = "", status = CommandResultStatus(success = false, message = "Command named \"$named\" not found"))
             conn?.send(Klaxon().toJsonString(result))
             return
         }
 
         val timer = Timer("CommandTimedOut", false)
         timer.schedule(timeout) {
-            val result = CommandResult(result = "", status = ResultStatus(success = false, message = "Command timed out"))
+            val result = CommandResult(result = "", status = CommandResultStatus(success = false, message = "Command timed out"))
             conn?.send(Klaxon().toJsonString(result))
         }
         val command = commands.first { it.name == named }
@@ -89,7 +89,7 @@ class ComyServer(val commands: Array<Command>, val timeout: Long = 15000L, port:
     }
 
     private fun sendUnexpectedError(conn: WebSocket?){
-        val result = CommandResult(result = "", status = ResultStatus(success = false, message = "Unexpected error"))
+        val result = CommandResult(result = "", status = CommandResultStatus(success = false, message = "Unexpected error"))
         conn?.send(Klaxon().toJsonString(result))
     }
 
