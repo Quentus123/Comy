@@ -1,4 +1,4 @@
-package models
+package models.commands
 
 data class CommandResult(val result: String, val status: ResultStatus){
     companion object{
