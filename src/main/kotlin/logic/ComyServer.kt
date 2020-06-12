@@ -18,15 +18,10 @@ import java.net.InetSocketAddress
 import java.util.*
 import kotlin.concurrent.schedule
 
-class ComyServer(val commands: Array<Command>, val timeout: Long = 15000L, port: Int) : WebSocketServer(InetSocketAddress(port)) {
+class ComyServer(var commands: Array<Command>, val timeout: Long = 15000L, port: Int) : WebSocketServer(InetSocketAddress(port)) {
 
     init {
-        val commandsNames = commands.map { it.name }
-        val commandsNamesDistinct = commandsNames.distinct()
-
-        require(commandsNames.count() == commandsNamesDistinct.count()){
-            "Duplicates names in commands"
-        }
+        require(assertNoDuplicate())
     }
 
     override fun onStart() {
@@ -65,7 +60,20 @@ class ComyServer(val commands: Array<Command>, val timeout: Long = 15000L, port:
     }
 
     override fun onError(conn: WebSocket?, ex: Exception?) {
-        TODO("Not yet implemented")
+        println(ex)
+    }
+
+    fun changeCommands(commands: Array<Command>) {
+        this.commands = commands
+        require(assertNoDuplicate())
+        sendState(conn = null)
+    }
+
+    private fun assertNoDuplicate(): Boolean {
+        val commandsNames = commands.map { it.name }
+        val commandsNamesDistinct = commandsNames.distinct()
+
+        return commandsNames.count() == commandsNamesDistinct.count()
     }
 
     private fun executeCommand(named: String, conn: WebSocket?){
@@ -95,6 +103,10 @@ class ComyServer(val commands: Array<Command>, val timeout: Long = 15000L, port:
 
     private fun sendState(conn: WebSocket?){
         val stateResponse = ServerStateResponse(state = commands)
-        conn?.send(Klaxon().toJsonString(stateResponse))
+        val json = Klaxon().toJsonString(stateResponse)
+        conn?.send(json)
+        if (conn == null){
+            broadcast(json)
+        }
     }
 }
