@@ -18,7 +18,7 @@ import java.net.InetSocketAddress
 import java.util.*
 import kotlin.concurrent.schedule
 
-class ComyServer(var commands: Array<Command>, val timeout: Long = 15000L, port: Int) : WebSocketServer(InetSocketAddress(port)) {
+class ComyServer(val name: String, var commands: Array<Command>, val timeout: Long = 15000L, port: Int) : WebSocketServer(InetSocketAddress(port)) {
 
     init {
         require(assertNoDuplicate())
@@ -102,7 +102,7 @@ class ComyServer(var commands: Array<Command>, val timeout: Long = 15000L, port:
     }
 
     private fun sendState(conn: WebSocket?){
-        val stateResponse = ServerStateResponse(state = commands)
+        val stateResponse = ServerStateResponse(name = name, commands = commands)
         val json = Klaxon().toJsonString(stateResponse)
         conn?.send(json)
         if (conn == null){
