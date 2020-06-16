@@ -9,6 +9,7 @@ import models.responses.CommandResultStatus
 import models.messages.ExecuteCommandMessage
 import models.messages.Message
 import models.messages.NeedStateMessage
+import models.responses.CommandResponse
 import models.responses.ServerStateResponse
 import org.java_websocket.WebSocket
 import org.java_websocket.handshake.ClientHandshake
@@ -78,27 +79,31 @@ class ComyServer(val name: String, var commands: Array<Command>, val timeout: Lo
 
     private fun executeCommand(named: String, conn: WebSocket?){
         if(!commands.map { it.name }.contains(element = named)){
-            val result = CommandResult(result = "", status = CommandResultStatus(success = false, message = "Command named \"$named\" not found"))
-            conn?.send(Klaxon().toJsonString(result))
+            val result = CommandResult(message = "", status = CommandResultStatus(success = false, message = "Command named \"$named\" not found"))
+            val response = CommandResponse(commandName = named, result = result)
+            conn?.send(Klaxon().toJsonString(response))
             return
         }
 
         val timer = Timer("CommandTimedOut", false)
         timer.schedule(timeout) {
-            val result = CommandResult(result = "", status = CommandResultStatus(success = false, message = "Command timed out"))
-            conn?.send(Klaxon().toJsonString(result))
+            val result = CommandResult(message = "", status = CommandResultStatus(success = false, message = "Command timed out"))
+            val response = CommandResponse(commandName = named, result = result)
+            conn?.send(Klaxon().toJsonString(response))
         }
         val command = commands.first { it.name == named }
         GlobalScope.launch {
             val result = command.function()
+            val response = CommandResponse(commandName = named, result = result)
             timer.cancel()
-            conn?.send(Klaxon().toJsonString(result))
+            conn?.send(Klaxon().toJsonString(response))
         }
     }
 
     private fun sendUnexpectedError(conn: WebSocket?){
-        val result = CommandResult(result = "", status = CommandResultStatus(success = false, message = "Unexpected error"))
-        conn?.send(Klaxon().toJsonString(result))
+        val result = CommandResult(message = "", status = CommandResultStatus(success = false, message = "Unexpected error"))
+        val response = CommandResponse(commandName = "", result = result)
+        conn?.send(Klaxon().toJsonString(response))
     }
 
     private fun sendState(conn: WebSocket?){

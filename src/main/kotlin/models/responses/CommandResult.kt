@@ -1,8 +1,7 @@
 package models.responses
 
-data class CommandResult(val result: String, val status: CommandResultStatus): Response(type = type){
+data class CommandResult(val message: String, val status: CommandResultStatus){
     companion object{
-        val type = "CommandResult"
-        val DEFAULT_RESULT = CommandResult(result = "", status = CommandResultStatus.DEFAULT_SUCCESS)
+        val DEFAULT_RESULT = CommandResult(message = "", status = CommandResultStatus.DEFAULT_SUCCESS)
     }
 }

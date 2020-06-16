@@ -1,3 +1,4 @@
+import kotlinx.coroutines.delay
 import logic.ComyServer
 import models.commands.Command
 import models.responses.CommandResult
@@ -9,7 +10,7 @@ fun main(args: Array<String>){
             name = "Fake dice",
             imageURL = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/6sided_dice.jpg/800px-6sided_dice.jpg",
             function = {
-                return@Command CommandResult(result = "Dice is ${Random.nextInt(from = 1, until = 7)}", status = CommandResultStatus.DEFAULT_SUCCESS)
+                return@Command CommandResult(message = "Dice is ${Random.nextInt(from = 1, until = 7)}", status = CommandResultStatus.DEFAULT_SUCCESS)
             })
     val test1Command = Command(
             name = "Test1",
