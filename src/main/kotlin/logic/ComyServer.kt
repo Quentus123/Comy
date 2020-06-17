@@ -1,20 +1,20 @@
 package logic
 
 import com.beust.klaxon.Klaxon
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
+import models.commands.AsyncCommand
 import models.commands.Command
-import models.responses.CommandResult
-import models.responses.CommandResultStatus
+import models.commands.SyncCommand
 import models.messages.ExecuteCommandMessage
 import models.messages.Message
 import models.messages.NeedStateMessage
 import models.responses.CommandResponse
+import models.responses.CommandResult
+import models.responses.CommandResultStatus
 import models.responses.ServerStateResponse
 import org.java_websocket.WebSocket
 import org.java_websocket.handshake.ClientHandshake
 import org.java_websocket.server.WebSocketServer
-import java.lang.Exception
 import java.net.InetSocketAddress
 import java.util.*
 import kotlin.concurrent.schedule
@@ -84,19 +84,37 @@ class ComyServer(val name: String, var commands: Array<Command>, val timeout: Lo
             conn?.send(Klaxon().toJsonString(response))
             return
         }
-
-        val timer = Timer("CommandTimedOut", false)
-        timer.schedule(timeout) {
-            val result = CommandResult(message = "", status = CommandResultStatus(success = false, message = "Command timed out"))
-            val response = CommandResponse(commandName = named, result = result)
-            conn?.send(Klaxon().toJsonString(response))
-        }
         val command = commands.first { it.name == named }
         GlobalScope.launch {
-            val result = command.function()
-            val response = CommandResponse(commandName = named, result = result)
-            timer.cancel()
-            conn?.send(Klaxon().toJsonString(response))
+
+            if (command is SyncCommand){
+                val result = command.function()
+                val response = CommandResponse(commandName = named, result = result)
+                conn?.send(Klaxon().toJsonString(response))
+            } else if (command is AsyncCommand){
+                var executionSuccessful = false
+                var isTimeout = false
+                val timer = Timer("Timeout async command", false).schedule(timeout) {
+                    isTimeout = true
+                    if (!executionSuccessful){
+                        val result = CommandResult(message = "", status = CommandResultStatus(success = false, message = "Command timed out"))
+                        val response = CommandResponse(commandName = named, result = result)
+                        conn?.send(Klaxon().toJsonString(response))
+                    }
+                }
+
+                command.function({
+                    executionSuccessful = true
+                    if(!isTimeout) {
+                        timer.cancel()
+                        val result = it
+                        val response = CommandResponse(commandName = named, result = result)
+                        conn?.send(Klaxon().toJsonString(response))
+                    }
+                }, {
+                    isTimeout
+                })
+            }
         }
     }
 
