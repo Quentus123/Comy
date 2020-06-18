@@ -1,15 +1,21 @@
 import logic.ComyServer
+import logic.jwt.JWTServices
 import models.commands.AsyncCommand
 import models.commands.SyncCommand
 import models.responses.CommandResult
 import models.responses.CommandResultStatus
+import models.users.SecurityConfiguration
+import models.users.User
 import kotlin.random.Random
 
 fun main(args: Array<String>){
+
+    val user = User(id = "xXShadowXx", password = "password", refreshKey = "FWympsbtEjhTlav2WqA")
+
     val fakeDiceCommand = AsyncCommand(
             name = "Fake dice",
             imageURL = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/6sided_dice.jpg/800px-6sided_dice.jpg",
-            function = { completion, _ ->
+            function = { _ , completion, _ ->
                 completion(CommandResult(message = "Dice is ${Random.nextInt(from = 1, until = 7)}", status = CommandResultStatus.DEFAULT_SUCCESS))
             })
     val test1Command = SyncCommand(

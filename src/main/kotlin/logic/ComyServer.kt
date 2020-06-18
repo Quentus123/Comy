@@ -2,16 +2,15 @@ package logic
 
 import com.beust.klaxon.Klaxon
 import kotlinx.coroutines.*
+import logic.jwt.JWTServices
+import logic.jwt.UsersDataSource
 import models.commands.AsyncCommand
 import models.commands.Command
 import models.commands.SyncCommand
-import models.messages.ExecuteCommandMessage
-import models.messages.Message
-import models.messages.NeedStateMessage
-import models.responses.CommandResponse
-import models.responses.CommandResult
-import models.responses.CommandResultStatus
-import models.responses.ServerStateResponse
+import models.messages.*
+import models.responses.*
+import models.users.SecurityConfiguration
+import models.users.User
 import org.java_websocket.WebSocket
 import org.java_websocket.handshake.ClientHandshake
 import org.java_websocket.server.WebSocketServer
@@ -19,10 +18,16 @@ import java.net.InetSocketAddress
 import java.util.*
 import kotlin.concurrent.schedule
 
-class ComyServer(val name: String, var commands: Array<Command>, val timeout: Long = 15000L, port: Int) : WebSocketServer(InetSocketAddress(port)) {
+class ComyServer(val name: String,
+                 var commands: Array<Command>,
+                 val timeout: Long = 15000L,
+                 val securityConfiguration: SecurityConfiguration = SecurityConfiguration(isSecured = false, usersAllowed = mutableListOf()), port: Int) : WebSocketServer(InetSocketAddress(port)), UsersDataSource {
+
+    private val jwtServices: JWTServices
 
     init {
         require(assertNoDuplicate())
+        jwtServices = JWTServices(secret = "AWonderfulFrenchWordIsRaclette", dataSource = this)
     }
 
     override fun onStart() {
@@ -30,7 +35,10 @@ class ComyServer(val name: String, var commands: Array<Command>, val timeout: Lo
     }
 
     override fun onOpen(conn: WebSocket?, handshake: ClientHandshake?) {
-        sendState(conn = conn)
+        conn?.send(Klaxon().toJsonString(ServerInfoResponse(
+            serverName = name,
+            isSecured = securityConfiguration.isSecured
+        )))
     }
 
     override fun onClose(conn: WebSocket?, code: Int, reason: String?, remote: Boolean) {
@@ -51,7 +59,25 @@ class ComyServer(val name: String, var commands: Array<Command>, val timeout: Lo
                 ExecuteCommandMessage.type -> {
                     val parsedMessage = Klaxon().parse<ExecuteCommandMessage>(message)
                     if(parsedMessage != null){
-                        executeCommand(named = parsedMessage.commandName, conn = conn)
+                        executeCommand(named = parsedMessage.commandName, token = parsedMessage.token, conn = conn)
+                    }
+                }
+                AuthentificateUserMessage.type -> {
+                    val parsedMessage = Klaxon().parse<AuthentificateUserMessage>(message)
+                    if(parsedMessage != null){
+                        authentificate(conn = conn, id = parsedMessage.id, password = parsedMessage.password)
+                    }
+                }
+                AuthentificateTokenMessage.type -> {
+                    val parsedMessage = Klaxon().parse<AuthentificateTokenMessage>(message)
+                    if(parsedMessage != null){
+                        authentificate(conn = conn, token = parsedMessage.token)
+                    }
+                }
+                RefreshTokenMessage.type -> {
+                    val parsedMessage = Klaxon().parse<RefreshTokenMessage>(message)
+                    if(parsedMessage != null){
+                        refreshToken(conn = conn, refreshToken = parsedMessage.refreshToken)
                     }
                 }
                 else -> sendUnexpectedError(conn = conn)
@@ -77,7 +103,79 @@ class ComyServer(val name: String, var commands: Array<Command>, val timeout: Lo
         return commandsNames.count() == commandsNamesDistinct.count()
     }
 
-    private fun executeCommand(named: String, conn: WebSocket?){
+    private fun authentificate(conn: WebSocket?, id: String, password: String) {
+        val authentificationResult = jwtServices.authentificateUser(id = id, password = password)
+        if (authentificationResult.token != null && authentificationResult.refreshToken != null && authentificationResult.userId != null) {
+            conn?.send(Klaxon().toJsonString(AuthentificationResponse(
+                token = authentificationResult.token,
+                refreshToken = authentificationResult.refreshToken,
+                userId = authentificationResult.userId,
+                message = "Successfully authentificated",
+                code = 200,
+                tokenExpiredError = false,
+                wrongCredentialsError = false
+            )))
+        } else {
+            conn?.send(Klaxon().toJsonString(AuthentificationResponse(
+                token = null,
+                refreshToken = null,
+                userId = null,
+                message = "Wrong credentials",
+                code = 401,
+                tokenExpiredError = false,
+                wrongCredentialsError = true
+            )))
+        }
+    }
+
+    private fun authentificate(conn: WebSocket?, token: String) {
+        val authentificationTokenResult = jwtServices.verifyUserToken(token)
+        if (authentificationTokenResult.user != null) {
+            conn?.send(Klaxon().toJsonString(AuthentificationResponse(
+                token = null,
+                refreshToken = null,
+                userId = authentificationTokenResult.user.id,
+                message = "Successfully authentificated",
+                code = 200,
+                tokenExpiredError = false,
+                wrongCredentialsError = false
+            )))
+        } else {
+            conn?.send(Klaxon().toJsonString(AuthentificationResponse(
+                token = null,
+                refreshToken = null,
+                userId = null,
+                message = "Error with token",
+                code = 401,
+                tokenExpiredError = authentificationTokenResult.tokenExpired,
+                wrongCredentialsError = false
+            )))
+        }
+    }
+
+    private fun refreshToken(conn: WebSocket?, refreshToken: String) {
+        val newToken = jwtServices.refreshToken(refreshToken)
+        if(newToken != null) {
+            authentificate(conn = conn, token = newToken)
+        } else {
+            conn?.send(Klaxon().toJsonString(AuthentificationResponse(
+                token = null,
+                refreshToken = null,
+                userId = null,
+                message = "Error with refresh token",
+                code = 401,
+                tokenExpiredError = false,
+                wrongCredentialsError = false
+            )))
+        }
+    }
+
+    private fun authorize(token: String): User? {
+        val user = jwtServices.verifyUserToken(token)
+        return user.user
+    }
+
+    private fun executeCommand(named: String, token: String?, conn: WebSocket?){
         if(!commands.map { it.name }.contains(element = named)){
             val result = CommandResult(message = "", status = CommandResultStatus(success = false, message = "Command named \"$named\" not found"))
             val response = CommandResponse(commandName = named, result = result)
@@ -87,8 +185,22 @@ class ComyServer(val name: String, var commands: Array<Command>, val timeout: Lo
         val command = commands.first { it.name == named }
         GlobalScope.launch {
 
+            //First, check if client is auth (or server is not secured)
+            var user: User? = null
+            if(token != null) {
+                user = authorize(token)
+            }
+
+            if(securityConfiguration.isSecured && user == null) { //unauthorized to execute command
+                val result = CommandResult(message = "", status = CommandResultStatus(success = false, message = "Permissions missing"))
+                val response = CommandResponse(commandName = named, result = result)
+                conn?.send(Klaxon().toJsonString(response))
+                return@launch
+            }
+
+            //Execute the command
             if (command is SyncCommand){
-                val result = command.function()
+                val result = command.function(user)
                 val response = CommandResponse(commandName = named, result = result)
                 conn?.send(Klaxon().toJsonString(response))
             } else if (command is AsyncCommand){
@@ -103,7 +215,8 @@ class ComyServer(val name: String, var commands: Array<Command>, val timeout: Lo
                     }
                 }
 
-                command.function({
+                command.function(user,
+                    {
                     executionSuccessful = true
                     if(!isTimeout) {
                         timer.cancel()
@@ -132,4 +245,6 @@ class ComyServer(val name: String, var commands: Array<Command>, val timeout: Lo
             broadcast(json)
         }
     }
+
+    override fun allowedUsers(): MutableList<User> = securityConfiguration.usersAllowed
 }
