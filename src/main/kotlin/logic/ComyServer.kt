@@ -7,6 +7,7 @@ import logic.jwt.UsersDataSource
 import models.commands.AsyncCommand
 import models.commands.Command
 import models.commands.SyncCommand
+import models.jwt.UserTokenVerificationResult
 import models.messages.*
 import models.responses.*
 import models.users.SecurityConfiguration
@@ -54,7 +55,10 @@ class ComyServer(val name: String,
         if(messageType != null){
             when(messageType){
                 NeedStateMessage.type -> {
-                    sendState(conn = conn)
+                    val parsedMessage = Klaxon().parse<NeedStateMessage>(message)
+                    if (parsedMessage != null){
+                        sendState(conn = conn, token = parsedMessage.token)
+                    }
                 }
                 ExecuteCommandMessage.type -> {
                     val parsedMessage = Klaxon().parse<ExecuteCommandMessage>(message)
@@ -93,7 +97,7 @@ class ComyServer(val name: String,
     fun changeCommands(commands: Array<Command>) {
         this.commands = commands
         require(assertNoDuplicate())
-        sendState(conn = null)
+        sendState(conn = null, token = null)
     }
 
     private fun assertNoDuplicate(): Boolean {
@@ -153,16 +157,37 @@ class ComyServer(val name: String,
         }
     }
 
+    private fun authorize(token: String?): Pair<Boolean, UserTokenVerificationResult?> {
+        var authResult: UserTokenVerificationResult? = null
+        if(token != null) {
+            authResult = jwtServices.verifyUserToken(token)
+        }
+
+        return if(securityConfiguration.isSecured && authResult?.user == null) { //unauthorized
+            false to authResult
+        } else {
+            true to authResult
+        }
+    }
+
     private fun refreshToken(conn: WebSocket?, refreshToken: String) {
         val newToken = jwtServices.refreshToken(refreshToken)
         if(newToken != null) {
-            authentificate(conn = conn, token = newToken)
+            conn?.send(Klaxon().toJsonString(AuthentificationResponse(
+                    token = newToken,
+                    refreshToken = null,
+                    userId = null,
+                    message = "refreshed token",
+                    code = 200,
+                    tokenExpiredError = false,
+                    wrongCredentialsError = false
+            )))
         } else {
             conn?.send(Klaxon().toJsonString(AuthentificationResponse(
                 token = null,
                 refreshToken = null,
                 userId = null,
-                message = "Error with refresh token",
+                message = "error with refresh token",
                 code = 401,
                 tokenExpiredError = false,
                 wrongCredentialsError = false
@@ -170,38 +195,36 @@ class ComyServer(val name: String,
         }
     }
 
-    private fun authorize(token: String): User? {
-        val user = jwtServices.verifyUserToken(token)
-        return user.user
-    }
-
     private fun executeCommand(named: String, token: String?, conn: WebSocket?){
         if(!commands.map { it.name }.contains(element = named)){
             val result = CommandResult(message = "", status = CommandResultStatus(success = false, message = "Command named \"$named\" not found"))
-            val response = CommandResponse(commandName = named, result = result)
+            val response = CommandResponse(commandName = named, result = result, authError = null)
             conn?.send(Klaxon().toJsonString(response))
             return
         }
         val command = commands.first { it.name == named }
         GlobalScope.launch {
 
-            //First, check if client is auth (or server is not secured)
-            var user: User? = null
-            if(token != null) {
-                user = authorize(token)
-            }
-
-            if(securityConfiguration.isSecured && user == null) { //unauthorized to execute command
+            //Check if client is allowed
+            val authorizeResult = authorize(token)
+            if (!authorizeResult.first) {
                 val result = CommandResult(message = "", status = CommandResultStatus(success = false, message = "Permissions missing"))
-                val response = CommandResponse(commandName = named, result = result)
+                val response = CommandResponse(commandName = named, result = result, authError = AuthentificationResponse(
+                        token = token,
+                        refreshToken = null,
+                        userId = null,
+                        message = "Unauthorized",
+                        code = 401,
+                        tokenExpiredError = authorizeResult.second?.tokenExpired ?: false,
+                        wrongCredentialsError = false
+                ))
                 conn?.send(Klaxon().toJsonString(response))
-                return@launch
             }
 
             //Execute the command
             if (command is SyncCommand){
-                val result = command.function(user)
-                val response = CommandResponse(commandName = named, result = result)
+                val result = command.function(authorizeResult.second?.user)
+                val response = CommandResponse(commandName = named, result = result, authError = null)
                 conn?.send(Klaxon().toJsonString(response))
             } else if (command is AsyncCommand){
                 var executionSuccessful = false
@@ -210,18 +233,18 @@ class ComyServer(val name: String,
                     isTimeout = true
                     if (!executionSuccessful){
                         val result = CommandResult(message = "", status = CommandResultStatus(success = false, message = "Command timed out"))
-                        val response = CommandResponse(commandName = named, result = result)
+                        val response = CommandResponse(commandName = named, result = result, authError = null)
                         conn?.send(Klaxon().toJsonString(response))
                     }
                 }
 
-                command.function(user,
+                command.function(authorizeResult.second?.user,
                     {
                     executionSuccessful = true
                     if(!isTimeout) {
                         timer.cancel()
                         val result = it
-                        val response = CommandResponse(commandName = named, result = result)
+                        val response = CommandResponse(commandName = named, result = result, authError = null)
                         conn?.send(Klaxon().toJsonString(response))
                     }
                 }, {
@@ -233,17 +256,30 @@ class ComyServer(val name: String,
 
     private fun sendUnexpectedError(conn: WebSocket?){
         val result = CommandResult(message = "", status = CommandResultStatus(success = false, message = "Unexpected error"))
-        val response = CommandResponse(commandName = "", result = result)
+        val response = CommandResponse(commandName = "", result = result, authError = null)
         conn?.send(Klaxon().toJsonString(response))
     }
 
-    private fun sendState(conn: WebSocket?){
-        val stateResponse = ServerStateResponse(name = name, commands = commands)
+    private fun sendState(conn: WebSocket?, token: String?){
+
+        //Check if client is allowed
+        val authorizeResult = authorize(token)
+        if (!authorizeResult.first) {
+            val stateResponse = ServerStateResponse(name = name, commands = arrayOf(), authError = AuthentificationResponse(
+                    token = token,
+                    refreshToken = null,
+                    userId = null,
+                    message = "Unauthorized",
+                    code = 401,
+                    tokenExpiredError = authorizeResult.second?.tokenExpired ?: false,
+                    wrongCredentialsError = false
+            ))
+            conn?.send(Klaxon().toJsonString(stateResponse))
+        }
+
+        val stateResponse = ServerStateResponse(name = name, commands = commands, authError = null)
         val json = Klaxon().toJsonString(stateResponse)
         conn?.send(json)
-        if (conn == null){
-            broadcast(json)
-        }
     }
 
     override fun allowedUsers(): MutableList<User> = securityConfiguration.usersAllowed

@@ -1,6 +1,6 @@
 package models.messages
 
-class NeedStateMessage: Message(type = type){
+class NeedStateMessage(val token: String? = null): Message(type = type){
     companion object{
         val type = "Need refresh"
     }

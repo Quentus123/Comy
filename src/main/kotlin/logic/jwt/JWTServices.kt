@@ -25,7 +25,7 @@ class JWTServices(private val secret: String, var dataSource: UsersDataSource) {
             val nowDate = Date()
             val calendar = Calendar.getInstance()
             calendar.time = nowDate
-            calendar.add(Calendar.MINUTE, 2)
+            calendar.add(Calendar.MINUTE, 10)
             val expDate = calendar.time
             return JWT.create()
                 .withIssuer("comy")
@@ -44,7 +44,7 @@ class JWTServices(private val secret: String, var dataSource: UsersDataSource) {
             val nowDate = Date()
             val calendar = Calendar.getInstance()
             calendar.time = nowDate
-            calendar.add(Calendar.MONTH, 1)
+            calendar.add(Calendar.MONTH, 2)
             val expDate = calendar.time
             val refreshKey = generateRefreshKey()
             user.refreshKey = refreshKey
@@ -102,7 +102,7 @@ class JWTServices(private val secret: String, var dataSource: UsersDataSource) {
             if (user.refreshKey != refreshKey.asString()) throw RefreshTokenException()
             return createToken(user)
         } catch (e: Exception){
-            if (e is ClaimNotFoundException || e is UserNotFoundException || e is RefreshTokenException){
+            if (e is ClaimNotFoundException || e is UserNotFoundException || e is RefreshTokenException || e is TokenExpiredException){
                 return null
             } else throw e
         }
