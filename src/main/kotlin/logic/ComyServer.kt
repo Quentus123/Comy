@@ -6,6 +6,7 @@ import logic.jwt.JWTServices
 import logic.jwt.UsersDataSource
 import models.commands.AsyncCommand
 import models.commands.Command
+import models.commands.CommandInfos
 import models.commands.SyncCommand
 import models.jwt.UserTokenVerificationResult
 import models.messages.*
@@ -63,7 +64,7 @@ class ComyServer(val name: String,
                 ExecuteCommandMessage.type -> {
                     val parsedMessage = Klaxon().parse<ExecuteCommandMessage>(message)
                     if(parsedMessage != null){
-                        executeCommand(named = parsedMessage.commandName, token = parsedMessage.token, conn = conn)
+                        executeCommand(named = parsedMessage.commandName, token = parsedMessage.token, params = parsedMessage.params, conn = conn)
                     }
                 }
                 AuthentificateUserMessage.type -> {
@@ -195,7 +196,7 @@ class ComyServer(val name: String,
         }
     }
 
-    private fun executeCommand(named: String, token: String?, conn: WebSocket?){
+    private fun executeCommand(named: String, token: String?, params: Map<String, Any>, conn: WebSocket?){
         if(!commands.map { it.name }.contains(element = named)){
             val result = CommandResult(message = "", status = CommandResultStatus(success = false, message = "Command named \"$named\" not found"))
             val response = CommandResponse(commandName = named, result = result, authError = null)
@@ -222,8 +223,12 @@ class ComyServer(val name: String,
             }
 
             //Execute the command
+            val infos = CommandInfos(
+                    user = authorizeResult.second?.user,
+                    params = params
+            )
             if (command is SyncCommand){
-                val result = command.function(authorizeResult.second?.user)
+                val result = command.function(infos)
                 val response = CommandResponse(commandName = named, result = result, authError = null)
                 conn?.send(Klaxon().toJsonString(response))
             } else if (command is AsyncCommand){
@@ -238,7 +243,7 @@ class ComyServer(val name: String,
                     }
                 }
 
-                command.function(authorizeResult.second?.user,
+                command.function(infos,
                     {
                     executionSuccessful = true
                     if(!isTimeout) {
