@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id 'org.jetbrains.kotlin.jvm' version '1.3.72'
+    id 'org.jetbrains.dokka' version '0.10.1'
 }
 
 group 'org.example'
@@ -25,6 +26,11 @@ compileKotlin {
 }
 compileTestKotlin {
     kotlinOptions.jvmTarget = "1.8"
+}
+
+dokka {
+    outputFormat = 'html'
+    outputDirectory = "$buildDir/dokka"
 }
 
 jar {
