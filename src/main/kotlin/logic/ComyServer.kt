@@ -8,6 +8,8 @@ import models.commands.AsyncCommand
 import models.commands.Command
 import models.commands.CommandInfos
 import models.commands.SyncCommand
+import models.commands.params.IntCommandParameter
+import models.commands.params.Parameter
 import models.jwt.UserTokenVerificationResult
 import models.messages.*
 import models.responses.*
@@ -223,9 +225,36 @@ class ComyServer(val name: String,
             }
 
             //Execute the command
+            //We need to check and convert params types
+            val commandParams = mutableListOf<Parameter>()
+            if (command.mainParameter != null) commandParams.add(command.mainParameter!!)
+            commandParams.addAll(command.secondariesParameters ?: arrayOf())
+            val convertedParams: MutableMap<String, Any> = mutableMapOf()
+            for (param in params) {
+                val correspondingType = commandParams.firstOrNull { it.name == param.key }?.typeCode
+                if (correspondingType == null) {
+                    val result = CommandResult(message = "", status = CommandResultStatus(success = false, message = "Parameter error"))
+                    val response = CommandResponse(commandName = named, result = result, authError = null)
+                    conn?.send(Klaxon().toJsonString(response))
+                    return@launch
+                } else {
+                    val rightTypeParam: Any? = when (correspondingType) {
+                        IntCommandParameter.typeCode -> (param.value as? String)?.toIntOrNull()
+                        else -> null
+                    }
+                    if (rightTypeParam == null) {
+                        val result = CommandResult(message = "", status = CommandResultStatus(success = false, message = "Parameter type error"))
+                        val response = CommandResponse(commandName = named, result = result, authError = null)
+                        conn?.send(Klaxon().toJsonString(response))
+                        return@launch
+                    } else {
+                        convertedParams[param.key] = rightTypeParam
+                    }
+                }
+            }
             val infos = CommandInfos(
                     user = authorizeResult.second?.user,
-                    params = params
+                    params = convertedParams
             )
             if (command is SyncCommand){
                 val result = command.function(infos)
