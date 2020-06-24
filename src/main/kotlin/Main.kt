@@ -53,6 +53,9 @@ fun main(args: Array<String>){
                 return@SyncCommand CommandResult.DEFAULT_RESULT
             })
 
-    val server = ComyServer(name = "Test server", timeout = 3000, commands = arrayOf(fakeDiceCommand, test1Command, test2Command), port = 12478)
+    val server = ComyServer(name = "Test server", timeout = 3000, securityConfiguration = SecurityConfiguration(
+        isSecured = true,
+        usersAllowed = mutableListOf(user)
+    ), commands = arrayOf(fakeDiceCommand, test1Command, test2Command), port = 12479)
     server.start()
 }

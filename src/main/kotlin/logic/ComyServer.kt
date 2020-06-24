@@ -31,7 +31,7 @@ class ComyServer(val name: String,
 
     init {
         require(assertNoDuplicate())
-        jwtServices = JWTServices(secret = "AWonderfulFrenchWordIsRaclette", dataSource = this)
+        jwtServices = JWTServices(secret = securityConfiguration.secretKey, dataSource = this)
     }
 
     override fun onStart() {
