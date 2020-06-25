@@ -3,6 +3,7 @@ package models.commands
 import com.beust.klaxon.Json
 import models.commands.params.Parameter
 import models.responses.CommandResult
+import models.security.SecurityGroup
 
 /**
  * A synchronous command.
@@ -30,12 +31,12 @@ import models.responses.CommandResult
 class SyncCommand(override val name: String,
                   override val imageURL: String?,
                   override val mainParameter: Parameter? = null,
-                  override val secondariesParameters: Array<Parameter>? = null,
+                  override val secondariesParameters: Array<Parameter> = arrayOf(),
+                  @Json(ignored = true) override val securityGroups: Array<SecurityGroup> = arrayOf(),
                   @Json(ignored = true) val function: (CommandInfos) -> CommandResult): Command {
 
     init {
-        val parametersNames = (arrayOf(mainParameter?.name).filterNotNull() union (secondariesParameters?.map { it.name }
-                ?: arrayListOf()))
+        val parametersNames = (arrayOf(mainParameter?.name).filterNotNull() union (secondariesParameters.map { it.name }))
         require(parametersNames.count() == parametersNames.distinct().count()) {
             "Error in command named $name: duplicate parameter name"
         }

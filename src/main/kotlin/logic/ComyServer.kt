@@ -13,6 +13,7 @@ import models.commands.params.Parameter
 import models.jwt.UserTokenVerificationResult
 import models.messages.*
 import models.responses.*
+import models.security.SecurityGroup
 import models.users.SecurityConfiguration
 import models.users.User
 import org.java_websocket.WebSocket
@@ -25,9 +26,11 @@ import kotlin.concurrent.schedule
 class ComyServer(val name: String,
                  var commands: Array<Command>,
                  val timeout: Long = 15000L,
-                 val securityConfiguration: SecurityConfiguration = SecurityConfiguration(isSecured = false, usersAllowed = mutableListOf()), port: Int) : WebSocketServer(InetSocketAddress(port)), UsersDataSource {
+                 val securityConfiguration: SecurityConfiguration = SecurityConfiguration(isSecured = false), port: Int) : WebSocketServer(InetSocketAddress(port)), UsersDataSource {
 
     private val jwtServices: JWTServices
+    private val allowedUsers: MutableList<User> = mutableListOf()
+    private val securityGroups: MutableList<SecurityGroup> = mutableListOf()
 
     init {
         require(assertNoDuplicate())
@@ -141,7 +144,7 @@ class ComyServer(val name: String,
             conn?.send(Klaxon().toJsonString(AuthentificationResponse(
                 token = null,
                 refreshToken = null,
-                userId = authentificationTokenResult.user.id,
+                userId = authentificationTokenResult.user.username,
                 message = "Successfully authentificated",
                 code = 200,
                 tokenExpiredError = false,
@@ -160,16 +163,44 @@ class ComyServer(val name: String,
         }
     }
 
-    private fun authorize(token: String?): Pair<Boolean, UserTokenVerificationResult?> {
+    private fun authorize(token: String?, securityGroups: Array<SecurityGroup>): Pair<Boolean, UserTokenVerificationResult?> {
         var authResult: UserTokenVerificationResult? = null
         if(token != null) {
             authResult = jwtServices.verifyUserToken(token)
         }
 
-        return if(securityConfiguration.isSecured && authResult?.user == null) { //unauthorized
+        var checkPermission = securityGroups.count() == 0
+        if (!checkPermission && authResult?.user?.securityGroup != null) {
+            for (group in securityGroups) {
+                checkPermission = checkRecursivelyPermissions(userSecurityGroup = authResult.user!!.securityGroup!!, targetSecurityGroup = group)
+                if(checkPermission) { break }
+            }
+        }
+
+        return if(securityConfiguration.isSecured && (authResult?.user == null || !checkPermission)) { //unauthorized
             false to authResult
         } else {
             true to authResult
+        }
+    }
+
+    /**
+     * Check is user has at least the same permissions of target security group.
+     *
+     * In fact this function simply check if user's security group is the target security group or one of the super group.
+     *
+     * @param userSecurityGroup user's security group.
+     * @param targetSecurityGroup the security group we want to check if user has permissions.
+     */
+    private fun checkRecursivelyPermissions(userSecurityGroup: SecurityGroup, targetSecurityGroup: SecurityGroup): Boolean {
+        return if (userSecurityGroup.name == targetSecurityGroup.name) {
+            true
+        } else {
+            if (targetSecurityGroup.superGroup != null) {
+                checkRecursivelyPermissions(userSecurityGroup = userSecurityGroup, targetSecurityGroup = targetSecurityGroup.superGroup)
+            } else {
+                false
+            }
         }
     }
 
@@ -209,7 +240,7 @@ class ComyServer(val name: String,
         GlobalScope.launch {
 
             //Check if client is allowed
-            val authorizeResult = authorize(token)
+            val authorizeResult = authorize(token, command.securityGroups)
             if (!authorizeResult.first) {
                 val result = CommandResult(message = "", status = CommandResultStatus(success = false, message = "Permissions missing"))
                 val response = CommandResponse(commandName = named, result = result, authError = AuthentificationResponse(
@@ -296,25 +327,67 @@ class ComyServer(val name: String,
 
     private fun sendState(conn: WebSocket?, token: String?){
 
-        //Check if client is allowed
-        val authorizeResult = authorize(token)
-        if (!authorizeResult.first) {
+        val authorizedCommands: MutableList<Command> = mutableListOf()
+        var isTokenExpirated = false
+        for (command in commands) {
+            val authorizeResult = authorize(token, securityGroups = command.securityGroups)
+            if (authorizeResult.second?.tokenExpired == true) {
+                isTokenExpirated = true
+            }
+            if (authorizeResult.first) {
+                authorizedCommands.add(command)
+            }
+        }
+
+        if (authorizedCommands.count() == 0) {
             val stateResponse = ServerStateResponse(name = name, commands = arrayOf(), authError = AuthentificationResponse(
                     token = token,
                     refreshToken = null,
                     userId = null,
                     message = "Unauthorized",
                     code = 401,
-                    tokenExpiredError = authorizeResult.second?.tokenExpired ?: false,
+                    tokenExpiredError = isTokenExpirated,
                     wrongCredentialsError = false
             ))
             conn?.send(Klaxon().toJsonString(stateResponse))
+        } else {
+            val stateResponse = ServerStateResponse(name = name, commands = authorizedCommands.toTypedArray(), authError = null)
+            val json = Klaxon().toJsonString(stateResponse)
+            conn?.send(json)
         }
 
-        val stateResponse = ServerStateResponse(name = name, commands = commands, authError = null)
-        val json = Klaxon().toJsonString(stateResponse)
-        conn?.send(json)
     }
 
-    override fun allowedUsers(): MutableList<User> = securityConfiguration.usersAllowed
+    override fun allowedUsers(): MutableList<User> = allowedUsers
+
+    /**
+     * Will register a security group and recursively every super group to the server.
+     *
+     * @param securityGroup The security group.
+     */
+    fun registerSecurityGroup(securityGroup: SecurityGroup) {
+        if (!securityGroups.map { it.name }.contains(securityGroup.name)) {
+            securityGroups.add(securityGroup)
+            if (securityGroup.superGroup != null) {
+                registerSecurityGroup(securityGroup = securityGroup.superGroup)
+            }
+        }
+    }
+
+    /**
+     * Will ad an user to the server, will check if the user's security group is already registered to the server, if not throw an error.
+     *
+     * @param user The user.
+     */
+    fun addUser(user: User) {
+        if (user.securityGroup == null ||(securityGroups.map { it.name }.contains(user.securityGroup.name)) ) {
+            if (!allowedUsers.map { it.username }.contains(user.username)) {
+                allowedUsers.add(user)
+            } else {
+                throw  Exception("\"User named ${user.username} already registered.\"")
+            }
+        } else {
+            throw Exception("User's security group named ${user.securityGroup?.name} not registered.")
+        }
+    }
 }

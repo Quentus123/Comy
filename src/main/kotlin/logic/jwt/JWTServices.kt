@@ -6,11 +6,9 @@ import com.auth0.jwt.exceptions.JWTCreationException
 import com.auth0.jwt.exceptions.JWTVerificationException
 import com.auth0.jwt.exceptions.TokenExpiredException
 import com.auth0.jwt.interfaces.DecodedJWT
-import com.beust.klaxon.Klaxon
 import models.jwt.UserAuthentificationResult
 import models.jwt.UserTokenVerificationResult
 import models.users.User
-import java.lang.Exception
 import java.util.*
 
 class JWTServices(private val secret: String, var dataSource: UsersDataSource) {
@@ -29,7 +27,7 @@ class JWTServices(private val secret: String, var dataSource: UsersDataSource) {
             val expDate = calendar.time
             return JWT.create()
                 .withIssuer("comy")
-                .withClaim("id", user.id)
+                .withClaim("id", user.username)
                 .withExpiresAt(expDate)
                 .sign(algo)
         } catch (e: JWTCreationException){
@@ -50,7 +48,7 @@ class JWTServices(private val secret: String, var dataSource: UsersDataSource) {
             user.refreshKey = refreshKey
             return JWT.create()
                 .withIssuer("comy")
-                .withClaim("id", user.id)
+                .withClaim("id", user.username)
                 .withClaim("refreshKey", refreshKey)
                 .withExpiresAt(expDate)
                 .sign(algo)
@@ -97,7 +95,7 @@ class JWTServices(private val secret: String, var dataSource: UsersDataSource) {
             val refreshKey = decodedRefreshToken.getClaim("refreshKey")
             if (id.isNull) throw ClaimNotFoundException(claim = "id")
             if (refreshKey.isNull) throw ClaimNotFoundException(claim = "refreshKey")
-            val user = dataSource.allowedUsers().firstOrNull { it.id == id.asString() }
+            val user = dataSource.allowedUsers().firstOrNull { it.username == id.asString() }
             if (user == null) throw UserNotFoundException(id = id.asString())
             if (user.refreshKey != refreshKey.asString()) throw RefreshTokenException()
             return createToken(user)
@@ -109,7 +107,7 @@ class JWTServices(private val secret: String, var dataSource: UsersDataSource) {
     }
 
     fun authentificateUser(id: String, password: String): UserAuthentificationResult {
-        val user = dataSource.allowedUsers().firstOrNull { it.id == id }
+        val user = dataSource.allowedUsers().firstOrNull { it.username == id }
         if (user == null || user.password != password) {
             return UserAuthentificationResult(
                 token = null,
@@ -122,7 +120,7 @@ class JWTServices(private val secret: String, var dataSource: UsersDataSource) {
         return UserAuthentificationResult(
             token = tokens.first,
             refreshToken = tokens.second,
-            userId = user.id,
+            userId = user.username,
             wrongLoginPassword = false
         )
 
@@ -133,7 +131,7 @@ class JWTServices(private val secret: String, var dataSource: UsersDataSource) {
             val decodedToken = verifyToken(token)
             val decodedId = decodedToken.getClaim("id")
             if (decodedId.isNull) throw ClaimNotFoundException(claim = "id")
-            val user = dataSource.allowedUsers().firstOrNull { it.id == decodedId.asString() }
+            val user = dataSource.allowedUsers().firstOrNull { it.username == decodedId.asString() }
             if (user == null) throw  UserNotFoundException(id = decodedId.asString())
             return UserTokenVerificationResult(
                 user = user,
