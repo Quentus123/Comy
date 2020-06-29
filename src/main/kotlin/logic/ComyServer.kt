@@ -8,6 +8,7 @@ import models.commands.AsyncCommand
 import models.commands.Command
 import models.commands.CommandInfos
 import models.commands.SyncCommand
+import models.commands.params.BooleanCommandParameter
 import models.commands.params.IntCommandParameter
 import models.commands.params.Parameter
 import models.jwt.UserTokenVerificationResult
@@ -259,7 +260,7 @@ class ComyServer(val name: String,
             //We need to check and convert params types
             val commandParams = mutableListOf<Parameter>()
             if (command.mainParameter != null) commandParams.add(command.mainParameter!!)
-            commandParams.addAll(command.secondariesParameters ?: arrayOf())
+            commandParams.addAll(command.secondariesParameters)
             val convertedParams: MutableMap<String, Any> = mutableMapOf()
             for (param in params) {
                 val correspondingType = commandParams.firstOrNull { it.name == param.key }?.typeCode
@@ -270,6 +271,7 @@ class ComyServer(val name: String,
                     return@launch
                 } else {
                     val rightTypeParam: Any? = when (correspondingType) {
+                        BooleanCommandParameter.typeCode -> (param.value as? String)?.toBoolean()
                         IntCommandParameter.typeCode -> (param.value as? String)?.toIntOrNull()
                         else -> null
                     }
@@ -387,7 +389,7 @@ class ComyServer(val name: String,
                 throw  Exception("\"User named ${user.username} already registered.\"")
             }
         } else {
-            throw Exception("User's security group named ${user.securityGroup?.name} not registered.")
+            throw Exception("User's security group named ${user.securityGroup.name} not registered.")
         }
     }
 }

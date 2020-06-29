@@ -89,19 +89,19 @@ class JWTServices(private val secret: String, var dataSource: UsersDataSource) {
     }
 
     fun refreshToken(refreshToken: String): String?{
-        try {
+        return try {
             val decodedRefreshToken = verifyToken(refreshToken)
             val id = decodedRefreshToken.getClaim("id")
             val refreshKey = decodedRefreshToken.getClaim("refreshKey")
             if (id.isNull) throw ClaimNotFoundException(claim = "id")
             if (refreshKey.isNull) throw ClaimNotFoundException(claim = "refreshKey")
             val user = dataSource.allowedUsers().firstOrNull { it.username == id.asString() }
-            if (user == null) throw UserNotFoundException(id = id.asString())
+                    ?: throw UserNotFoundException(id = id.asString())
             if (user.refreshKey != refreshKey.asString()) throw RefreshTokenException()
-            return createToken(user)
+            createToken(user)
         } catch (e: Exception){
             if (e is ClaimNotFoundException || e is UserNotFoundException || e is RefreshTokenException || e is TokenExpiredException){
-                return null
+                null
             } else throw e
         }
     }
@@ -132,7 +132,7 @@ class JWTServices(private val secret: String, var dataSource: UsersDataSource) {
             val decodedId = decodedToken.getClaim("id")
             if (decodedId.isNull) throw ClaimNotFoundException(claim = "id")
             val user = dataSource.allowedUsers().firstOrNull { it.username == decodedId.asString() }
-            if (user == null) throw  UserNotFoundException(id = decodedId.asString())
+                    ?: throw  UserNotFoundException(id = decodedId.asString())
             return UserTokenVerificationResult(
                 user = user,
                 tokenExpired = false,
