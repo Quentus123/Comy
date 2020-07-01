@@ -1,0 +1,31 @@
+{
+  "ownKey": "home",
+  "ownPages": [
+    {
+      "reference": {
+        "path": "",
+        "baseUrl": "https://github.com/Quentus123/Comy",
+        "fileName": "",
+        "extension": "html",
+        "usePrettyUrl": true,
+        "link": "https://github.com/Quentus123/Comy"
+      },
+      "description": "",
+      "title": "Home",
+      "content": "<p><img src=\"https://github.com/Quentus123/Comy/blob/master/assets/logo_readme.png?raw=true\" alt=\"logo\" /><\/p>\n<p>Comy is a library that make server creation easier, a mobile application is provided with the server.<\/p>\n<h2 id=\"features\"><a href=\"#features\" id=\"features\" class=\"anchor\"><\/a>Features<\/h2>\n<ul>\n<li class=\"task-list-item\"><input type=\"checkbox\" class=\"task-list-item-checkbox\" checked=\"checked\" disabled=\"disabled\" readonly=\"readonly\" />&nbsp;No need to create an user interface thanks to Comy iOS, an application designated for your users !<\/li>\n<li class=\"task-list-item\"><input type=\"checkbox\" class=\"task-list-item-checkbox\" checked=\"checked\" disabled=\"disabled\" readonly=\"readonly\" />&nbsp;Create commands that can be trigerred from users.<\/li>\n<li class=\"task-list-item\"><input type=\"checkbox\" class=\"task-list-item-checkbox\" checked=\"checked\" disabled=\"disabled\" readonly=\"readonly\" />&nbsp;Let users to pass parameters to commands<\/li>\n<li class=\"task-list-item\"><input type=\"checkbox\" class=\"task-list-item-checkbox\" checked=\"checked\" disabled=\"disabled\" readonly=\"readonly\" />&nbsp;User authentification<\/li>\n<\/ul>\n<h2 id=\"in-the-future\"><a href=\"#in-the-future\" id=\"in-the-future\" class=\"anchor\"><\/a>In the future<\/h2>\n<ul>\n<li class=\"task-list-item\"><input type=\"checkbox\" class=\"task-list-item-checkbox\" checked=\"checked\" disabled=\"disabled\" readonly=\"readonly\" />&nbsp;Create a chat server with channels, etc...<\/li>\n<li class=\"task-list-item\"><input type=\"checkbox\" class=\"task-list-item-checkbox\" checked=\"checked\" disabled=\"disabled\" readonly=\"readonly\" />&nbsp;Send notifications to users<\/li>\n<li class=\"task-list-item\"><input type=\"checkbox\" class=\"task-list-item-checkbox\" checked=\"checked\" disabled=\"disabled\" readonly=\"readonly\" />&nbsp;Create permissions groups of users (Admins, Members, ...)<\/li>\n<\/ul>\n<h2 id=\"availability\"><a href=\"#availability\" id=\"availability\" class=\"anchor\"><\/a>Availability<\/h2>\n<p>Beta version of Comy will be released soon (next week probably), feel free to message me for any question!<\/p>\n<h2 id=\"mobile-app\"><a href=\"#mobile-app\" id=\"mobile-app\" class=\"anchor\"><\/a>Mobile App<\/h2>\n<p>Open Source iOS app is currently under devloppement, you can see code here : https://github.com/Quentus123/Comy-iOS<\/p>\n"
+    },
+    {
+      "reference": {
+        "path": "",
+        "baseUrl": "https://github.com/Quentus123/Comy",
+        "fileName": "404",
+        "extension": "html",
+        "usePrettyUrl": false,
+        "link": "https://github.com/Quentus123/Comy/404.html"
+      },
+      "description": "",
+      "title": "Not Found",
+      "content": ""
+    }
+  ]
+}

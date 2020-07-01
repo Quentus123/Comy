@@ -26,3 +26,11 @@ kotlindoc:
     name: 'comy'
     sourceDirs:
         - './../../../../Comy/src/main/kotlin'
+        
+services:
+    publications:
+      stages:
+        ghPages:
+          branch: gh-pages
+          repo: 'Comy'
+          username: 'Quentus123'

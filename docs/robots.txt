@@ -1,0 +1,8 @@
+User-agent: *
+
+Disallow: /meta/
+
+
+
+Sitemap: https://github.com/Quentus123/Comy/sitemap.xml
+

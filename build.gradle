@@ -29,7 +29,7 @@ dependencies {
 
 orchid {
     theme = "Editorial"
-    baseUrl = "https://username.github.io/project"
+    baseUrl = "https://github.com/Quentus123/Comy"
     version = "1.0.0"
 }
 

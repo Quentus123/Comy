@@ -1,0 +1,494 @@
+<!DOCTYPE HTML>
+<!--
+    Editorial by HTML5 UP
+    html5up.net | @ajlkn
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+<head>
+
+
+
+
+
+
+<meta charset="utf-8"/>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+<meta name="generator" content="Orchid 0.21.0"/>
+<link rel="icon" href="http://localhost:8080/favicon.ico">
+
+
+<meta name="robots" content="index, follow">
+
+
+
+<title>CommandResponse</title>
+
+
+<meta name="description" content="">
+
+
+
+
+
+<!-- start:inject styles -->
+<link rel="stylesheet" type="text/css" href="http://localhost:8080/Editorial/91c145a6/assets/css/editorial_main.css"  />
+<link rel="stylesheet" type="text/css" href="http://localhost:8080/Editorial/91c145a6/assets/css/editorial_orchidCustomizations.css"  />
+<link rel="stylesheet" type="text/css" href="http://localhost:8080/Editorial/91c145a6/assets/css/orchidSearch.css"  />
+<link rel="stylesheet" type="text/css" href="http://localhost:8080/assets/css/orchidSourceDoc.css"  />
+<!-- end:inject styles -->
+
+
+
+
+
+<!-- start:debug info -->
+
+<!-- THEME -->
+<!-- Type: Editorial -->
+<!-- Class: com.eden.orchid.editorial.EditorialTheme -->
+
+<!-- PAGE -->
+<!-- Type: classes -->
+<!-- Class: com.eden.orchid.sourcedoc.page.SourceDocPage -->
+<!-- Layout: index -->
+<!-- Resolved Layout: templates/layouts/index.peb -->
+<!-- Page Template: kotlindocClass, sourceDocPage, classes, page -->
+<!-- Resolved Page Template: templates/pages/sourceDocPage.peb -->
+
+<!-- RESOURCE -->
+<!-- Class: com.eden.orchid.sourcedoc.page.SourceDocResource -->
+<!-- Source Filename:  -->
+
+<!-- COMPLETE PAGE CONFIGURATION -->
+<script>
+    window.allData = {"reference":{"path":"kotlindoc/project-name","baseUrl":"http://localhost:8080","fileName":"models/responses/commandresponse","extension":"html","usePrettyUrl":true,"link":"http://localhost:8080/kotlindoc/project-name/models/responses/commandresponse"},"description":"","title":"CommandResponse"};
+</script>
+
+<!-- end:debug info -->
+
+
+
+<script>
+    window.site = {"orchidVersion":"0.21.0","baseUrl":"http://localhost:8080","environment":"debug","version":"1.0.0"};
+</script>
+
+
+    <!-- start:inject meta-components [head] -->
+    
+    <!-- end:inject meta-components [head] -->
+
+
+
+    <!-- start:inject meta-components [head] -->
+    
+    <!-- end:inject meta-components [head] -->
+
+
+
+
+
+
+
+</head>
+<body class="is-loading">
+
+
+
+
+
+    <!-- start:inject meta-components [bodyStart] -->
+    
+    <!-- end:inject meta-components [bodyStart] -->
+
+
+
+    <!-- start:inject meta-components [bodyStart] -->
+    
+    <!-- end:inject meta-components [bodyStart] -->
+
+
+
+
+
+<!-- Wrapper -->
+<div id="wrapper">
+
+    <!-- Main -->
+    <div id="main">
+        <div class="inner">
+
+            <!-- Header -->
+            
+                <header id="header">
+    <a href="http://localhost:8080" class="logo"></a>
+    <ul class="icons">
+    
+    
+    
+    </ul>
+</header>
+
+            
+            
+            
+            
+                <section id="pageContent">
+                    <header class="major"><h2>CommandResponse</h2></header>
+                    <article>
+                        
+    <!-- start:inject components -->
+    
+        
+            
+                
+                    
+                        <div class="sourcedoc-page orchid-sourcedoc content">
+  
+<div class="sourcedoc-section section-root section-level-1" id="CommandResponse">
+
+
+  
+
+  
+    <div class="sourcedoc-section section-element" id="bfe53075987df4bd12bcc9909cbe66d764e11572">
+      
+      <p class="sourcedoc-section section-signature">
+        <code>data class CommandResponse: Response</code>
+      </p>
+
+      
+        
+    <!-- start:inject components -->
+    
+    <!-- end:inject components -->
+
+
+      
+
+      <div class="sourcedoc-section section-comments"><p>A response from the server that tell to the client the result of a command.</p>
+</div>
+
+      
+      
+        
+          
+<div class="sourcedoc-section section-root section-level-2" id="fields">
+
+
+  <p class="sourcedoc-section section-name"><strong>Fields</strong></p>
+
+  <div class="table-container">
+    <table class="table is-fullwidth is-bordered">
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      
+      <tr class="sourcedoc-section section-element" id="f32d4a7a78e5cd688d07b6dd917de813283cb11d">
+        <td class="sourcedoc-section section-signature">
+          <code>val commandName: String</code>
+        </td>
+        <td class="sourcedoc-section section-comments content">
+        <p>The name of the executed command.</p>
+
+        </td>
+      </tr>
+      
+      <tr class="sourcedoc-section section-element" id="9c30304261ecc218c77bce443fe3bdfc556f66ab">
+        <td class="sourcedoc-section section-signature">
+          <code>val result: CommandResult</code>
+        </td>
+        <td class="sourcedoc-section section-comments content">
+        <p>The command's result.</p>
+
+        </td>
+      </tr>
+      
+      <tr class="sourcedoc-section section-element" id="a79a0fdd5661a0690f21d1a044ef84e3d074c6a2">
+        <td class="sourcedoc-section section-signature">
+          <code>val authError: AuthenticationResponse?</code>
+        </td>
+        <td class="sourcedoc-section section-comments content">
+        <p>An AuthenticationResponse object. Null if there is no authentication error.</p>
+
+        </td>
+      </tr>
+      
+      </tbody>
+    </table>
+  </div>
+
+
+</div>
+
+        
+          
+<div class="sourcedoc-section section-root section-level-2" id="constructors">
+
+
+  
+    <h2 class="sourcedoc-section section-name">Constructors</h2>
+  
+
+  
+    <div class="sourcedoc-section section-element" id="d52eee40ed0a93d4b3496971107df1b6ed5e8322">
+      
+      <h3 class="sourcedoc-section element-name">&lt;init&gt;</h3>
+      
+      <p class="sourcedoc-section section-signature">
+        <code>constructor(commandName: String, result: CommandResult, authError: AuthenticationResponse?)</code>
+      </p>
+
+      
+
+      <div class="sourcedoc-section section-comments"><p>A response from the server that tell to the client the result of a command.</p>
+</div>
+
+      
+      
+        
+          
+<div class="sourcedoc-section section-root section-level-3" id="2b32322b02cd215a8f60e386d592f087ca49697f">
+
+
+  <p class="sourcedoc-section section-name"><strong>Parameters</strong></p>
+
+  <div class="table-container">
+    <table class="table is-fullwidth is-bordered">
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      
+      <tr class="sourcedoc-section section-element" id="75082dce32db9d06287f2979f9f0eb462ca5f728">
+        <td class="sourcedoc-section section-signature">
+          <code>commandName: String</code>
+        </td>
+        <td class="sourcedoc-section section-comments content">
+        <p>The name of the executed command.</p>
+
+        </td>
+      </tr>
+      
+      <tr class="sourcedoc-section section-element" id="57b34f50c28b58f8aa6f036df645732bea85ae6f">
+        <td class="sourcedoc-section section-signature">
+          <code>result: CommandResult</code>
+        </td>
+        <td class="sourcedoc-section section-comments content">
+        <p>The command's result.</p>
+
+        </td>
+      </tr>
+      
+      <tr class="sourcedoc-section section-element" id="2c342e4ec8be8970fcdf3afb5e5e47e2fbda002c">
+        <td class="sourcedoc-section section-signature">
+          <code>authError: AuthenticationResponse?</code>
+        </td>
+        <td class="sourcedoc-section section-comments content">
+        <p>An AuthenticationResponse object. Null if there is no authentication error.</p>
+
+        </td>
+      </tr>
+      
+      </tbody>
+    </table>
+  </div>
+
+
+</div>
+
+        
+      
+    </div>
+  
+
+</div>
+
+        
+          
+<div class="sourcedoc-section section-root section-level-2" id="companionObject">
+
+
+  
+    <h2 class="sourcedoc-section section-name">CompanionObject</h2>
+  
+
+  
+    <div class="sourcedoc-section section-element" id="bfe53075987df4bd12bcc9909cbe66d764e11572">
+      
+      <h3 class="sourcedoc-section element-name">CommandResponse</h3>
+      
+      <p class="sourcedoc-section section-signature">
+        <code>data class CommandResponse: Response</code>
+      </p>
+
+      
+
+      <div class="sourcedoc-section section-comments"><p>A response from the server that tell to the client the result of a command.</p>
+</div>
+
+      
+      
+        
+          
+<div class="sourcedoc-section section-root section-level-3" id="4087601b9699e37e822dcd822fcebda1718a847f">
+
+
+  <p class="sourcedoc-section section-name"><strong>Fields</strong></p>
+
+  <div class="table-container">
+    <table class="table is-fullwidth is-bordered">
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      
+      <tr class="sourcedoc-section section-element" id="2965d4e1c441451b700a1c1589bf22f01f58635f">
+        <td class="sourcedoc-section section-signature">
+          <code>const type: String</code>
+        </td>
+        <td class="sourcedoc-section section-comments content">
+        
+        </td>
+      </tr>
+      
+      </tbody>
+    </table>
+  </div>
+
+
+</div>
+
+        
+      
+    </div>
+  
+
+</div>
+
+        
+      
+    </div>
+  
+
+</div>
+
+</div>
+
+
+
+
+
+
+                    
+                
+            
+        
+    
+    <!-- end:inject components -->
+
+
+                    </article>
+                </section>
+            
+        </div>
+        <hr>
+
+        <!-- Page Footer -->
+        <div class="inner">
+    <footer id="footer">
+        <div class="clearfix">
+            
+            
+        </div>
+    </footer>
+</div>
+
+    </div>
+
+    <!-- Sidebar -->
+    <div id="sidebar">
+    <div class="inner">
+
+        <!-- Search -->
+        <section id="search" class="alt">
+            <form data-orchid-search="">
+                <input type="text" name="query" id="query" placeholder="Search"/>
+            </form>
+            <div class="box" id="search-results" data-orchid-search-results style="display: none;">
+                <b>Search Results</b>
+                <ul></ul>
+            </div>
+            <div class="box" id="search-progress" data-orchid-search-progress style="display: none;">
+                <div class="loader">Loading...</div>
+            </div>
+        </section>
+
+        <!-- Menu -->
+        <nav id="siteNav" class="menu">
+            <header class="major">
+                <h2></h2>
+            </header>
+            <ul class="top-level">
+                
+            </ul>
+        </nav>
+        
+
+        <!-- Section -->
+        <section>
+            <p class="text-center">
+                Currently 1.0.0. Created with <a href="https://orchid.run">Orchid </a> and <b>Orchid Editorial Theme</b>.
+            </p>
+        </section>
+
+        <!-- Footer -->
+        <footer id="footer">
+            <p class="copyright text-center">&copy; . All rights reserved.<br>Design by <a href="https://html5up.net">HTML5 UP</a></p>
+        </footer>
+
+    </div>
+</div>
+
+</div>
+
+
+
+
+
+
+    <!-- start:inject meta-components [bodyEnd] -->
+    
+    <!-- end:inject meta-components [bodyEnd] -->
+
+
+
+    <!-- start:inject meta-components [bodyEnd] -->
+    
+    <!-- end:inject meta-components [bodyEnd] -->
+
+
+
+
+<!-- start:inject scripts -->
+<script  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script  src="https://cdnjs.cloudflare.com/ajax/libs/skel/3.0.1/skel.min.js"></script>
+<script  src="http://localhost:8080/Editorial/91c145a6/assets/js/editorial_util.js"></script>
+<script  src="http://localhost:8080/Editorial/91c145a6/assets/js/editorial_main.js"></script>
+<script  src="http://localhost:8080/Editorial/91c145a6/assets/js/editorial_orchidCustomizations.js"></script>
+<!-- end:inject scripts -->
+
+
+</body>
+</html>

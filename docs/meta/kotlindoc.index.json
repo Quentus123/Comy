@@ -1,0 +1,756 @@
+{
+  "ownKey": "kotlindoc",
+  "childrenPages": {"kotlindoc": {
+    "ownKey": "kotlindoc",
+    "childrenPages": {"comy": {
+      "ownKey": "comy",
+      "childrenPages": {
+        "models": {
+          "ownKey": "models",
+          "childrenPages": {
+            "security": {
+              "ownKey": "security",
+              "childrenPages": {"securitygroup": {
+                "ownKey": "securitygroup",
+                "ownPages": [{
+                  "reference": {
+                    "path": "kotlindoc/comy",
+                    "baseUrl": "https://github.com/Quentus123/Comy",
+                    "fileName": "models/security/securitygroup",
+                    "extension": "html",
+                    "usePrettyUrl": true,
+                    "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/models/security/securitygroup"
+                  },
+                  "description": "",
+                  "title": "SecurityGroup",
+                  "content": "<p>Represent a permissions group.<\/p><p>Each command will be linked to a group, every user associated to the group or a super group in the tree will be allowed to execute the command.<\/p>name\n<p>Name of the group, MUST be unique, if not, Comy will throw an error.<\/p>\nsuperGroup\n<p>Super group of the group. The super group will have at least the same permissions than the current group.<\/p>\n<init>\n<p>Represent a permissions group.<\/p><p>Each command will be linked to a group, every user associated to the group or a super group in the tree will be allowed to execute the command.<\/p>\n"
+                }]
+              }},
+              "ownPages": [{
+                "reference": {
+                  "path": "kotlindoc/comy",
+                  "baseUrl": "https://github.com/Quentus123/Comy",
+                  "fileName": "models/security",
+                  "extension": "html",
+                  "usePrettyUrl": true,
+                  "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/models/security"
+                },
+                "description": "",
+                "title": "models.security",
+                "content": "<p>SecurityGroup<\/p>\n<p>Represent a permissions group.<\/p><p>Each command will be linked to a group, every user associated to the group or a super group in the tree will be allowed to execute the command.<\/p>\n"
+              }]
+            },
+            "jwt": {
+              "ownKey": "jwt",
+              "childrenPages": {
+                "usertokenverificationresult": {
+                  "ownKey": "usertokenverificationresult",
+                  "ownPages": [{
+                    "reference": {
+                      "path": "kotlindoc/comy",
+                      "baseUrl": "https://github.com/Quentus123/Comy",
+                      "fileName": "models/jwt/usertokenverificationresult",
+                      "extension": "html",
+                      "usePrettyUrl": true,
+                      "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/models/jwt/usertokenverificationresult"
+                    },
+                    "description": "",
+                    "title": "UserTokenVerificationResult",
+                    "content": "<p>The result of an user authentication by username and password.<\/p>user\n<p>The user. Null if authentication failed.<\/p>\ntokenExpired\n<p>true if verification failed because of an expried access token.<\/p>\nuserNotFound\n<p>true if user is not found in the UsersDataSource<\/p>\nverificationError\n<p>true if there is an unexpected error during verification.<\/p>\n<init>\n<p>The result of an user authentication by username and password.<\/p>\n"
+                  }]
+                },
+                "userauthenticationresult": {
+                  "ownKey": "userauthenticationresult",
+                  "ownPages": [{
+                    "reference": {
+                      "path": "kotlindoc/comy",
+                      "baseUrl": "https://github.com/Quentus123/Comy",
+                      "fileName": "models/jwt/userauthenticationresult",
+                      "extension": "html",
+                      "usePrettyUrl": true,
+                      "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/models/jwt/userauthenticationresult"
+                    },
+                    "description": "",
+                    "title": "UserAuthenticationResult",
+                    "content": "<p>The result of an user authentication by username and password.<\/p>token\n<p>The user's access token. Null if authentication failed.<\/p>\nrefreshToken\n<p>The user's refresh token. Null if Authentication failed.<\/p>\nusername\n<p>The user's username. Null if authentication failed.<\/p>\nwrongLoginPassword\n<p>true if username and password given are not valid, false else.<\/p>\n<init>\n<p>The result of an user authentication by username and password.<\/p>\n"
+                  }]
+                }
+              },
+              "ownPages": [{
+                "reference": {
+                  "path": "kotlindoc/comy",
+                  "baseUrl": "https://github.com/Quentus123/Comy",
+                  "fileName": "models/jwt",
+                  "extension": "html",
+                  "usePrettyUrl": true,
+                  "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/models/jwt"
+                },
+                "description": "",
+                "title": "models.jwt",
+                "content": "<p>UserAuthenticationResult<\/p>\n<p>The result of an user authentication by username and password.<\/p>\nUserTokenVerificationResult\n<p>The result of an user authentication by username and password.<\/p>\n"
+              }]
+            },
+            "messages": {
+              "ownKey": "messages",
+              "childrenPages": {
+                "executecommandmessage": {
+                  "ownKey": "executecommandmessage",
+                  "ownPages": [{
+                    "reference": {
+                      "path": "kotlindoc/comy",
+                      "baseUrl": "https://github.com/Quentus123/Comy",
+                      "fileName": "models/messages/executecommandmessage",
+                      "extension": "html",
+                      "usePrettyUrl": true,
+                      "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/models/messages/executecommandmessage"
+                    },
+                    "description": "",
+                    "title": "ExecuteCommandMessage",
+                    "content": "<p>A message from the client that ask the server to execute a command.<\/p>commandName\n<p>The name of the command.<\/p>\ntoken\n<p>The client's access token. Null if the user is not logged.<\/p>\nparams\n<p>Params to execute with the command.<\/p>\n<init>\n<p>A message from the client that ask the server to execute a command.<\/p>\nExecuteCommandMessage\n<p>A message from the client that ask the server to execute a command.<\/p>\n"
+                  }]
+                },
+                "authenticatetokenmessage": {
+                  "ownKey": "authenticatetokenmessage",
+                  "ownPages": [{
+                    "reference": {
+                      "path": "kotlindoc/comy",
+                      "baseUrl": "https://github.com/Quentus123/Comy",
+                      "fileName": "models/messages/authenticatetokenmessage",
+                      "extension": "html",
+                      "usePrettyUrl": true,
+                      "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/models/messages/authenticatetokenmessage"
+                    },
+                    "description": "",
+                    "title": "AuthenticateTokenMessage",
+                    "content": "<p>A message from the client that ask the server to authenticate user with an access token.<\/p>token\n<p>The client's access token.<\/p>\n<init>\n<p>A message from the client that ask the server to authenticate user with an access token.<\/p>\nAuthenticateTokenMessage\n<p>A message from the client that ask the server to authenticate user with an access token.<\/p>\n"
+                  }]
+                },
+                "message": {
+                  "ownKey": "message",
+                  "ownPages": [{
+                    "reference": {
+                      "path": "kotlindoc/comy",
+                      "baseUrl": "https://github.com/Quentus123/Comy",
+                      "fileName": "models/messages/message",
+                      "extension": "html",
+                      "usePrettyUrl": true,
+                      "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/models/messages/message"
+                    },
+                    "description": "",
+                    "title": "Message",
+                    "content": "<p>Represent a message from the client to the server.<\/p>type\n<p><init><\/p>\n<p>Represent a message from the client to the server.<\/p>\n"
+                  }]
+                },
+                "refreshtokenmessage": {
+                  "ownKey": "refreshtokenmessage",
+                  "ownPages": [{
+                    "reference": {
+                      "path": "kotlindoc/comy",
+                      "baseUrl": "https://github.com/Quentus123/Comy",
+                      "fileName": "models/messages/refreshtokenmessage",
+                      "extension": "html",
+                      "usePrettyUrl": true,
+                      "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/models/messages/refreshtokenmessage"
+                    },
+                    "description": "",
+                    "title": "RefreshTokenMessage",
+                    "content": "<p>A message from the client that ask the server to refresh access token.<\/p>refreshToken\n<p>The client's refresh token.<\/p>\n<init>\n<p>A message from the client that ask the server to refresh access token.<\/p>\nRefreshTokenMessage\n<p>A message from the client that ask the server to refresh access token.<\/p>\n"
+                  }]
+                },
+                "needstatemessage": {
+                  "ownKey": "needstatemessage",
+                  "ownPages": [{
+                    "reference": {
+                      "path": "kotlindoc/comy",
+                      "baseUrl": "https://github.com/Quentus123/Comy",
+                      "fileName": "models/messages/needstatemessage",
+                      "extension": "html",
+                      "usePrettyUrl": true,
+                      "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/models/messages/needstatemessage"
+                    },
+                    "description": "",
+                    "title": "NeedStateMessage",
+                    "content": "<p>A message from the client that ask the server to send his state.<\/p>token\n<p>The client's access token. Null if the user is not logged.<\/p>\n<init>\n<p>A message from the client that ask the server to send his state.<\/p>\nNeedStateMessage\n<p>A message from the client that ask the server to send his state.<\/p>\n"
+                  }]
+                },
+                "authenticateusermessage": {
+                  "ownKey": "authenticateusermessage",
+                  "ownPages": [{
+                    "reference": {
+                      "path": "kotlindoc/comy",
+                      "baseUrl": "https://github.com/Quentus123/Comy",
+                      "fileName": "models/messages/authenticateusermessage",
+                      "extension": "html",
+                      "usePrettyUrl": true,
+                      "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/models/messages/authenticateusermessage"
+                    },
+                    "description": "",
+                    "title": "AuthenticateUserMessage",
+                    "content": "<p>A message from the client that ask the server to authenticate user with username and password.<\/p>username\n<p>The client's username.<\/p>\npassword\n<p>The client's password.<\/p>\n<init>\n<p>A message from the client that ask the server to authenticate user with username and password.<\/p>\nAuthenticateUserMessage\n<p>A message from the client that ask the server to authenticate user with username and password.<\/p>\n"
+                  }]
+                }
+              },
+              "ownPages": [{
+                "reference": {
+                  "path": "kotlindoc/comy",
+                  "baseUrl": "https://github.com/Quentus123/Comy",
+                  "fileName": "models/messages",
+                  "extension": "html",
+                  "usePrettyUrl": true,
+                  "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/models/messages"
+                },
+                "description": "",
+                "title": "models.messages",
+                "content": "<p>AuthenticateTokenMessage<\/p>\n<p>A message from the client that ask the server to authenticate user with an access token.<\/p>\nAuthenticateUserMessage\n<p>A message from the client that ask the server to authenticate user with username and password.<\/p>\nExecuteCommandMessage\n<p>A message from the client that ask the server to execute a command.<\/p>\nMessage\n<p>Represent a message from the client to the server.<\/p>\nNeedStateMessage\n<p>A message from the client that ask the server to send his state.<\/p>\nRefreshTokenMessage\n<p>A message from the client that ask the server to refresh access token.<\/p>\n"
+              }]
+            },
+            "responses": {
+              "ownKey": "responses",
+              "childrenPages": {
+                "serverstateresponse": {
+                  "ownKey": "serverstateresponse",
+                  "ownPages": [{
+                    "reference": {
+                      "path": "kotlindoc/comy",
+                      "baseUrl": "https://github.com/Quentus123/Comy",
+                      "fileName": "models/responses/serverstateresponse",
+                      "extension": "html",
+                      "usePrettyUrl": true,
+                      "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/models/responses/serverstateresponse"
+                    },
+                    "description": "",
+                    "title": "ServerStateResponse",
+                    "content": "<p>name<\/p>\n<p>commands<\/p>\n<p>authError<\/p>\n<p><init><\/p>\n<p>ServerStateResponse<\/p>\n"
+                  }]
+                },
+                "serverinforesponse": {
+                  "ownKey": "serverinforesponse",
+                  "ownPages": [{
+                    "reference": {
+                      "path": "kotlindoc/comy",
+                      "baseUrl": "https://github.com/Quentus123/Comy",
+                      "fileName": "models/responses/serverinforesponse",
+                      "extension": "html",
+                      "usePrettyUrl": true,
+                      "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/models/responses/serverinforesponse"
+                    },
+                    "description": "",
+                    "title": "ServerInfoResponse",
+                    "content": "<p>A response from the server to the client with some infos about the server.<\/p>serverName\n<p>The server's name.<\/p>\nisSecured\n<p>Determine if logging is required to access to the server.<\/p>\n<init>\n<p>A response from the server to the client with some infos about the server.<\/p>\nServerInfoResponse\n<p>A response from the server to the client with some infos about the server.<\/p>\n"
+                  }]
+                },
+                "commandresponse": {
+                  "ownKey": "commandresponse",
+                  "ownPages": [{
+                    "reference": {
+                      "path": "kotlindoc/comy",
+                      "baseUrl": "https://github.com/Quentus123/Comy",
+                      "fileName": "models/responses/commandresponse",
+                      "extension": "html",
+                      "usePrettyUrl": true,
+                      "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/models/responses/commandresponse"
+                    },
+                    "description": "",
+                    "title": "CommandResponse",
+                    "content": "<p>A response from the server that tell to the client the result of a command.<\/p>commandName\n<p>The name of the executed command.<\/p>\nresult\n<p>The command's result.<\/p>\nauthError\n<p>An AuthenticationResponse object. Null if there is no authentication error.<\/p>\n<init>\n<p>A response from the server that tell to the client the result of a command.<\/p>\nCommandResponse\n<p>A response from the server that tell to the client the result of a command.<\/p>\n"
+                  }]
+                },
+                "response": {
+                  "ownKey": "response",
+                  "ownPages": [{
+                    "reference": {
+                      "path": "kotlindoc/comy",
+                      "baseUrl": "https://github.com/Quentus123/Comy",
+                      "fileName": "models/responses/response",
+                      "extension": "html",
+                      "usePrettyUrl": true,
+                      "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/models/responses/response"
+                    },
+                    "description": "",
+                    "title": "Response",
+                    "content": "<p>Represent a response from the server to the client.<\/p>type\n<p><init><\/p>\n<p>Represent a response from the server to the client.<\/p>\n"
+                  }]
+                },
+                "authenticationresponse": {
+                  "ownKey": "authenticationresponse",
+                  "ownPages": [{
+                    "reference": {
+                      "path": "kotlindoc/comy",
+                      "baseUrl": "https://github.com/Quentus123/Comy",
+                      "fileName": "models/responses/authenticationresponse",
+                      "extension": "html",
+                      "usePrettyUrl": true,
+                      "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/models/responses/authenticationresponse"
+                    },
+                    "description": "",
+                    "title": "AuthenticationResponse",
+                    "content": "<p>A response from the server that tells to the client the result of an authentication.<\/p>token\n<p>The access token.<\/p>\nrefreshToken\n<p>The refresh token.<\/p>\nusername\n<p>The user's username if verification is a success.<\/p>\nmessage\n<p>The authentication's message.<\/p>\ncode\n<p>The authentication's result code.<\/p>\ntokenExpiredError\n<p>True if the token given by client is expired.<\/p>\nwrongCredentialsError\n<p>True is username/password givem by client are not valid.<\/p>\n<init>\n<p>A response from the server that tells to the client the result of an authentication.<\/p>\nAuthenticationResponse\n<p>A response from the server that tells to the client the result of an authentication.<\/p>\n"
+                  }]
+                }
+              },
+              "ownPages": [{
+                "reference": {
+                  "path": "kotlindoc/comy",
+                  "baseUrl": "https://github.com/Quentus123/Comy",
+                  "fileName": "models/responses",
+                  "extension": "html",
+                  "usePrettyUrl": true,
+                  "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/models/responses"
+                },
+                "description": "",
+                "title": "models.responses",
+                "content": "<p>AuthenticationResponse<\/p>\n<p>A response from the server that tells to the client the result of an authentication.<\/p>\nCommandResponse\n<p>A response from the server that tell to the client the result of a command.<\/p>\nResponse\n<p>Represent a response from the server to the client.<\/p>\nServerInfoResponse\n<p>A response from the server to the client with some infos about the server.<\/p>\nServerStateResponse\n"
+              }]
+            },
+            "users": {
+              "ownKey": "users",
+              "childrenPages": {
+                "securityconfiguration": {
+                  "ownKey": "securityconfiguration",
+                  "ownPages": [{
+                    "reference": {
+                      "path": "kotlindoc/comy",
+                      "baseUrl": "https://github.com/Quentus123/Comy",
+                      "fileName": "models/users/securityconfiguration",
+                      "extension": "html",
+                      "usePrettyUrl": true,
+                      "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/models/users/securityconfiguration"
+                    },
+                    "description": "",
+                    "title": "SecurityConfiguration",
+                    "content": "<p>Describe how the server manage security.<\/p>isSecured\n<p>Determine if logging is required.<\/p>\nsecretKey\n<p>The secret key that will be used to create and verify json web tokens.<\/p>\n<init>\n<p>Describe how the server manage security.<\/p>\n"
+                  }]
+                },
+                "user": {
+                  "ownKey": "user",
+                  "ownPages": [{
+                    "reference": {
+                      "path": "kotlindoc/comy",
+                      "baseUrl": "https://github.com/Quentus123/Comy",
+                      "fileName": "models/users/user",
+                      "extension": "html",
+                      "usePrettyUrl": true,
+                      "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/models/users/user"
+                    },
+                    "description": "",
+                    "title": "User",
+                    "content": "<p>Represent an user of the server.<\/p>username\n<p>The user's username.<\/p>\npassword\n<p>The user's password.<\/p>\nsecurityGroup\n<p>The security group of the user, nullable. If securityGroup is null, user will have the same permissions than an not authenticated user.<\/p>\nrefreshKey\n<p>Will be used by Comy to provide new access token after expiration. You should not manipulate this property.<\/p>\n<init>\n<p>Represent an user of the server.<\/p>\n"
+                  }]
+                }
+              },
+              "ownPages": [{
+                "reference": {
+                  "path": "kotlindoc/comy",
+                  "baseUrl": "https://github.com/Quentus123/Comy",
+                  "fileName": "models/users",
+                  "extension": "html",
+                  "usePrettyUrl": true,
+                  "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/models/users"
+                },
+                "description": "",
+                "title": "models.users",
+                "content": "<p>SecurityConfiguration<\/p>\n<p>Describe how the server manage security.<\/p>\nUser\n<p>Represent an user of the server.<\/p>\n"
+              }]
+            },
+            "commands": {
+              "ownKey": "commands",
+              "childrenPages": {
+                "synccommand": {
+                  "ownKey": "synccommand",
+                  "ownPages": [{
+                    "reference": {
+                      "path": "kotlindoc/comy",
+                      "baseUrl": "https://github.com/Quentus123/Comy",
+                      "fileName": "models/commands/synccommand",
+                      "extension": "html",
+                      "usePrettyUrl": true,
+                      "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/models/commands/synccommand"
+                    },
+                    "description": "",
+                    "title": "SyncCommand",
+                    "content": "<p>A synchronous command.<\/p><p>The first sample describe a command that does nothing, this is the minimal stuff to make a command valid\nThe second sample describe a command that will simulate n dices, where n is an integer paramater given by the user :<\/p><pre class=\"language-kotlin\"><code class=\"language-kotlin\">val commandThatDoesNothing = SyncCommand(\n    name = \"An useless command\",\n    imageURL = null,\n    function = {\n        CommandResult.DEFAULT_RESULT\n    }\n)<\/code><\/pre><pre class=\"language-kotlin\"><code class=\"language-kotlin\">val fakeDiceCommand = SyncCommand(\n    name = \"Dices simulator\",\n    imageURL = \"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/6sided_dice.jpg/800px-6sided_dice.jpg\",\n    mainParameter = IntCommandParameter(\n        name = \"Number of dices\",\n        defaultValue = 1\n    ),\n    function = { infos ->\n        if (infos.params[\"Number of dices\"] != null) { //Check if number of dices parameter is given, if yes it is an Int\n            val numberOfDices = infos.params[\"Number of dices\"] as Int // Cast Any to Int, we already check that parameter is not null so this cast will not fail\n            if (numberOfDices <= 0) { // We can't simulate zero or less dice!\n                CommandResult(message = \"\", status = CommandResultStatus(success = false, message = \"Number of dices must be positive\"))\n            } else { //Everything is ok, just simule dices and send result to user\n                val dices = mutableListOf<Int>()\n                for (i in 0 until numberOfDices) {\n                    dices.add(Random.nextInt(from = 1, until = 7))\n                }\n                var dicesString = \"Dice${if (dices.count() > 1) \"s\" else \"\"} ${if (dices.count() > 1) \"are \" else \"is \"}\"\n                for (dice in dices) {\n                    dicesString += \"$dice \"\n                }\n                CommandResult(message = dicesString, status = CommandResultStatus.DEFAULT_SUCCESS)\n            }\n        } else {\n            CommandResult(message = \"\", status = CommandResultStatus(success = false, message = \"Parameter missing\"))\n        }\n    })<\/code><\/pre>name\n<p>The name of the command. This will be show to the user.<\/p>\nimageURL\n<p>The command image url, user device will download it.<\/p>\nmainParameter\n<p>Optional: Describe the most important parameter of the command, this MUST be an IntCommandParameter. The user will be able to set this parameter without going in the settings screen.<\/p>\nsecondariesParameters\n<p>Optional: Less important params. To modify them, user must go in settings screen.<\/p>\nsecurityGroups\n<p>function<\/p>\n<p>What will be done when user execute the command. It MUST be a synchronous function. If you want an asynchronous function, look for AsyncCommand. When executing the command, Comy will pass a CommandInfos instance to the function, this where you can see which user execute the command (null if there is no user) and params given. You also need to cast params type. The function must return a CommandResult object that show if command execution is a success or not (and give result or error message)<\/p>\n<init>\n<p>A synchronous command.<\/p><p>The first sample describe a command that does nothing, this is the minimal stuff to make a command valid\nThe second sample describe a command that will simulate n dices, where n is an integer paramater given by the user :<\/p><pre class=\"language-kotlin\"><code class=\"language-kotlin\">val commandThatDoesNothing = SyncCommand(\n    name = \"An useless command\",\n    imageURL = null,\n    function = {\n        CommandResult.DEFAULT_RESULT\n    }\n)<\/code><\/pre><pre class=\"language-kotlin\"><code class=\"language-kotlin\">val fakeDiceCommand = SyncCommand(\n    name = \"Dices simulator\",\n    imageURL = \"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/6sided_dice.jpg/800px-6sided_dice.jpg\",\n    mainParameter = IntCommandParameter(\n        name = \"Number of dices\",\n        defaultValue = 1\n    ),\n    function = { infos ->\n        if (infos.params[\"Number of dices\"] != null) { //Check if number of dices parameter is given, if yes it is an Int\n            val numberOfDices = infos.params[\"Number of dices\"] as Int // Cast Any to Int, we already check that parameter is not null so this cast will not fail\n            if (numberOfDices <= 0) { // We can't simulate zero or less dice!\n                CommandResult(message = \"\", status = CommandResultStatus(success = false, message = \"Number of dices must be positive\"))\n            } else { //Everything is ok, just simule dices and send result to user\n                val dices = mutableListOf<Int>()\n                for (i in 0 until numberOfDices) {\n                    dices.add(Random.nextInt(from = 1, until = 7))\n                }\n                var dicesString = \"Dice${if (dices.count() > 1) \"s\" else \"\"} ${if (dices.count() > 1) \"are \" else \"is \"}\"\n                for (dice in dices) {\n                    dicesString += \"$dice \"\n                }\n                CommandResult(message = dicesString, status = CommandResultStatus.DEFAULT_SUCCESS)\n            }\n        } else {\n            CommandResult(message = \"\", status = CommandResultStatus(success = false, message = \"Parameter missing\"))\n        }\n    })<\/code><\/pre>\n"
+                  }]
+                },
+                "commandresultstatus": {
+                  "ownKey": "commandresultstatus",
+                  "ownPages": [{
+                    "reference": {
+                      "path": "kotlindoc/comy",
+                      "baseUrl": "https://github.com/Quentus123/Comy",
+                      "fileName": "models/commands/commandresultstatus",
+                      "extension": "html",
+                      "usePrettyUrl": true,
+                      "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/models/commands/commandresultstatus"
+                    },
+                    "description": "",
+                    "title": "CommandResultStatus",
+                    "content": "<p>Represent a command execution's status.<\/p>success\n<p>determine if command has been executed successfully.<\/p>\nmessage\n<p>The status message.<\/p>\n<init>\n<p>Represent a command execution's status.<\/p>\nCommandResultStatus\n<p>Represent a command execution's status.<\/p>\n"
+                  }]
+                },
+                "commandresult": {
+                  "ownKey": "commandresult",
+                  "ownPages": [{
+                    "reference": {
+                      "path": "kotlindoc/comy",
+                      "baseUrl": "https://github.com/Quentus123/Comy",
+                      "fileName": "models/commands/commandresult",
+                      "extension": "html",
+                      "usePrettyUrl": true,
+                      "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/models/commands/commandresult"
+                    },
+                    "description": "",
+                    "title": "CommandResult",
+                    "content": "<p>Represent a command execution's result.<\/p>message\n<p>The result.<\/p>\nstatus\n<p>The command execution status.<\/p>\n<init>\n<p>Represent a command execution's result.<\/p>\nCommandResult\n<p>Represent a command execution's result.<\/p>\n"
+                  }]
+                },
+                "asynccommand": {
+                  "ownKey": "asynccommand",
+                  "ownPages": [{
+                    "reference": {
+                      "path": "kotlindoc/comy",
+                      "baseUrl": "https://github.com/Quentus123/Comy",
+                      "fileName": "models/commands/asynccommand",
+                      "extension": "html",
+                      "usePrettyUrl": true,
+                      "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/models/commands/asynccommand"
+                    },
+                    "description": "",
+                    "title": "AsyncCommand",
+                    "content": "<p>A asynchronous command.<\/p><p>Here is a sample that simule an asynchronous command :<\/p><pre class=\"language-kotlin\"><code class=\"language-kotlin\">val annoyingComputation = AsyncCommand(\n    name = \"An useless computation\",\n    imageURL = null,\n    function = { infos, completion, isActive ->\n        for (i in 0 until 10000) {\n            for (j in 0 until 10000) {\n                println(i + j)\n                if (!isActive()) { //Command timed out, error is automatically send to user\n                    break\n                }\n            }\n        }\n\n        if (isActive()) { //Computation finished before timeout, send a success message to user\n            completion(CommandResult.DEFAULT_RESULT)\n        }\n    }\n)<\/code><\/pre>name\n<p>The name of the command. This will be show to the user.<\/p>\nimageURL\n<p>The command image url, user device will download it.<\/p>\nmainParameter\n<p>Optional: Describe the most important parameter of the command, this MUST be an IntCommandParameter. The user will be able to set this parameter without going in the settings screen.<\/p>\nsecondariesParameters\n<p>Optional: Less important params. To modify them, user must go in settings screen.<\/p>\nsecurityGroups\n<p>Optional: All the security groups allowed to execute this command. Important note: you only need to add groups add the end of the tree, no need to add super groups.<\/p>\nfunction\n<p>What will be done when user execute the command. It could be an asynchronous function. For synchronous commands, you should use SyncCommand. When executing the command, Comy will pass three objects to the function : First, a CommandInfos instance to the function, this where you can see which user execute the command (null if there is no user) and params given. You also need to cast params type. Second, an completion handler that you must call when your async task is finished. Third, an function that give a boolean to indicate if the command is not timed out, use it to stop every computation.<\/p>\n<init>\n<p>A asynchronous command.<\/p><p>Here is a sample that simule an asynchronous command :<\/p><pre class=\"language-kotlin\"><code class=\"language-kotlin\">val annoyingComputation = AsyncCommand(\n    name = \"An useless computation\",\n    imageURL = null,\n    function = { infos, completion, isActive ->\n        for (i in 0 until 10000) {\n            for (j in 0 until 10000) {\n                println(i + j)\n                if (!isActive()) { //Command timed out, error is automatically send to user\n                    break\n                }\n            }\n        }\n\n        if (isActive()) { //Computation finished before timeout, send a success message to user\n            completion(CommandResult.DEFAULT_RESULT)\n        }\n    }\n)<\/code><\/pre>\n"
+                  }]
+                },
+                "params": {
+                  "ownKey": "params",
+                  "childrenPages": {
+                    "booleancommandparameter": {
+                      "ownKey": "booleancommandparameter",
+                      "ownPages": [{
+                        "reference": {
+                          "path": "kotlindoc/comy",
+                          "baseUrl": "https://github.com/Quentus123/Comy",
+                          "fileName": "models/commands/params/booleancommandparameter",
+                          "extension": "html",
+                          "usePrettyUrl": true,
+                          "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/models/commands/params/booleancommandparameter"
+                        },
+                        "description": "",
+                        "title": "BooleanCommandParameter",
+                        "content": "<p>A boolean paramater.<\/p>typeCode\n<p>defaultValue<\/p>\n<p>canBeMain<\/p>\n<p>name<\/p>\n<p>The parameter's name.<\/p>\ngroupIndex\n<p>The parameter's group index. User will see parameters grouped by this value, lower value means higher priority.<\/p>\n<init>\n<p>A boolean paramater.<\/p>\nBooleanCommandParameter\n<p>A boolean paramater.<\/p>\n"
+                      }]
+                    },
+                    "parameter": {
+                      "ownKey": "parameter",
+                      "ownPages": [{
+                        "reference": {
+                          "path": "kotlindoc/comy",
+                          "baseUrl": "https://github.com/Quentus123/Comy",
+                          "fileName": "models/commands/params/parameter",
+                          "extension": "html",
+                          "usePrettyUrl": true,
+                          "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/models/commands/params/parameter"
+                        },
+                        "description": "",
+                        "title": "Parameter",
+                        "content": "<p>name<\/p>\n<p>typeCode<\/p>\n<p>defaultValue<\/p>\n<p>canBeMain<\/p>\n<p>groupIndex<\/p>\n"
+                      }]
+                    },
+                    "stringcommandparameter": {
+                      "ownKey": "stringcommandparameter",
+                      "ownPages": [{
+                        "reference": {
+                          "path": "kotlindoc/comy",
+                          "baseUrl": "https://github.com/Quentus123/Comy",
+                          "fileName": "models/commands/params/stringcommandparameter",
+                          "extension": "html",
+                          "usePrettyUrl": true,
+                          "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/models/commands/params/stringcommandparameter"
+                        },
+                        "description": "",
+                        "title": "StringCommandParameter",
+                        "content": "<p>A string paramater.<\/p>typeCode\n<p>canBeMain<\/p>\n<p>name<\/p>\n<p>The parameter's name.<\/p>\ndefaultValue\n<p>The first value that will appear to the client. Note: This value will be converted to string in runtime.<\/p>\ngroupIndex\n<p>The parameter's group index. User will see parameters grouped by this value, lower value means higher priority.<\/p>\n<init>\n<p>A string paramater.<\/p>\nStringCommandParameter\n<p>A string paramater.<\/p>\n"
+                      }]
+                    },
+                    "intcommandparameter": {
+                      "ownKey": "intcommandparameter",
+                      "ownPages": [{
+                        "reference": {
+                          "path": "kotlindoc/comy",
+                          "baseUrl": "https://github.com/Quentus123/Comy",
+                          "fileName": "models/commands/params/intcommandparameter",
+                          "extension": "html",
+                          "usePrettyUrl": true,
+                          "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/models/commands/params/intcommandparameter"
+                        },
+                        "description": "",
+                        "title": "IntCommandParameter",
+                        "content": "<p>An integer paramater.<\/p>typeCode\n<p>defaultValue<\/p>\n<p>canBeMain<\/p>\n<p>name<\/p>\n<p>The parameter's name.<\/p>\ngroupIndex\n<p>The parameter's group index. User will see parameters grouped by this value, lower value means higher priority.<\/p>\n<init>\n<p>An integer paramater.<\/p>\nIntCommandParameter\n<p>An integer paramater.<\/p>\n"
+                      }]
+                    }
+                  },
+                  "ownPages": [{
+                    "reference": {
+                      "path": "kotlindoc/comy",
+                      "baseUrl": "https://github.com/Quentus123/Comy",
+                      "fileName": "models/commands/params",
+                      "extension": "html",
+                      "usePrettyUrl": true,
+                      "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/models/commands/params"
+                    },
+                    "description": "",
+                    "title": "models.commands.params",
+                    "content": "<p>BooleanCommandParameter<\/p>\n<p>A boolean paramater.<\/p>\nIntCommandParameter\n<p>An integer paramater.<\/p>\nParameter\n<p>StringCommandParameter<\/p>\n<p>A string paramater.<\/p>\n"
+                  }]
+                },
+                "command": {
+                  "ownKey": "command",
+                  "ownPages": [{
+                    "reference": {
+                      "path": "kotlindoc/comy",
+                      "baseUrl": "https://github.com/Quentus123/Comy",
+                      "fileName": "models/commands/command",
+                      "extension": "html",
+                      "usePrettyUrl": true,
+                      "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/models/commands/command"
+                    },
+                    "description": "",
+                    "title": "Command",
+                    "content": "<p>Describe a command.<\/p>name\n<p>imageURL<\/p>\n<p>mainParameter<\/p>\n<p>secondariesParameters<\/p>\n<p>securityGroups<\/p>\n"
+                  }]
+                },
+                "commandinfos": {
+                  "ownKey": "commandinfos",
+                  "ownPages": [{
+                    "reference": {
+                      "path": "kotlindoc/comy",
+                      "baseUrl": "https://github.com/Quentus123/Comy",
+                      "fileName": "models/commands/commandinfos",
+                      "extension": "html",
+                      "usePrettyUrl": true,
+                      "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/models/commands/commandinfos"
+                    },
+                    "description": "",
+                    "title": "CommandInfos",
+                    "content": "<p>All the infos from the command execution.<\/p>user\n<p>The user that trigerred the command. Null means that user is not logged.<\/p>\nparams\n<p>The params given by the user.<\/p>\n<init>\n<p>All the infos from the command execution.<\/p>\n"
+                  }]
+                }
+              },
+              "ownPages": [{
+                "reference": {
+                  "path": "kotlindoc/comy",
+                  "baseUrl": "https://github.com/Quentus123/Comy",
+                  "fileName": "models/commands",
+                  "extension": "html",
+                  "usePrettyUrl": true,
+                  "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/models/commands"
+                },
+                "description": "",
+                "title": "models.commands",
+                "content": "<p>AsyncCommand\n<p>A asynchronous command.<\/p><p>Here is a sample that simule an asynchronous command :<\/p><pre class=\"language-kotlin\"><code class=\"language-kotlin\">val annoyingComputation = AsyncCommand(\nname = &quot;An useless computation&quot;,\nimageURL = null,\nfunction = { infos, completion, isActive -&gt;\nfor (i in 0 until 10000) {\nfor (j in 0 until 10000) {\nprintln(i + j)\nif (!isActive()) { //Command timed out, error is automatically send to user\nbreak\n}\n}\n}<\/p>\n<pre><code>    if (isActive()) { //Computation finished before timeout, send a success message to user\n        completion(CommandResult.DEFAULT_RESULT)\n    }\n}\n<\/code><\/pre>\n<p>)<\/code><\/pre>\nCommand<\/p>\n<p>Describe a command.<\/p>\nCommandInfos\n<p>All the infos from the command execution.<\/p>\nCommandResult\n<p>Represent a command execution's result.<\/p>\nCommandResultStatus\n<p>Represent a command execution's status.<\/p>\nSyncCommand\n<p>A synchronous command.<\/p><p>The first sample describe a command that does nothing, this is the minimal stuff to make a command valid\nThe second sample describe a command that will simulate n dices, where n is an integer paramater given by the user :<\/p><pre class=\"language-kotlin\"><code class=\"language-kotlin\">val commandThatDoesNothing = SyncCommand(\n    name = \"An useless command\",\n    imageURL = null,\n    function = {\n        CommandResult.DEFAULT_RESULT\n    }\n)<\/code><\/pre><pre class=\"language-kotlin\"><code class=\"language-kotlin\">val fakeDiceCommand = SyncCommand(\n    name = \"Dices simulator\",\n    imageURL = \"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/6sided_dice.jpg/800px-6sided_dice.jpg\",\n    mainParameter = IntCommandParameter(\n        name = \"Number of dices\",\n        defaultValue = 1\n    ),\n    function = { infos ->\n        if (infos.params[\"Number of dices\"] != null) { //Check if number of dices parameter is given, if yes it is an Int\n            val numberOfDices = infos.params[\"Number of dices\"] as Int // Cast Any to Int, we already check that parameter is not null so this cast will not fail\n            if (numberOfDices <= 0) { // We can't simulate zero or less dice!\n                CommandResult(message = \"\", status = CommandResultStatus(success = false, message = \"Number of dices must be positive\"))\n            } else { //Everything is ok, just simule dices and send result to user\n                val dices = mutableListOf<Int>()\n                for (i in 0 until numberOfDices) {\n                    dices.add(Random.nextInt(from = 1, until = 7))\n                }\n                var dicesString = \"Dice${if (dices.count() > 1) \"s\" else \"\"} ${if (dices.count() > 1) \"are \" else \"is \"}\"\n                for (dice in dices) {\n                    dicesString += \"$dice \"\n                }\n                CommandResult(message = dicesString, status = CommandResultStatus.DEFAULT_SUCCESS)\n            }\n        } else {\n            CommandResult(message = \"\", status = CommandResultStatus(success = false, message = \"Parameter missing\"))\n        }\n    })<\/code><\/pre>\nmodels.commands.params\n"
+              }]
+            }
+          }
+        },
+        "dokka": {
+          "ownKey": "dokka",
+          "childrenPages": {"samples": {
+            "ownKey": "samples",
+            "childrenPages": {
+              "synccommandsamples": {
+                "ownKey": "synccommandsamples",
+                "ownPages": [{
+                  "reference": {
+                    "path": "kotlindoc/comy",
+                    "baseUrl": "https://github.com/Quentus123/Comy",
+                    "fileName": "dokka/samples/synccommandsamples",
+                    "extension": "html",
+                    "usePrettyUrl": true,
+                    "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/dokka/samples/synccommandsamples"
+                  },
+                  "description": "",
+                  "title": "SyncCommandSamples",
+                  "content": "<p><init><\/p>\n<p>createEasiestCommand<\/p>\n<p>createDicesSimulatorCommand<\/p>\n"
+                }]
+              },
+              "asynccommandsamples": {
+                "ownKey": "asynccommandsamples",
+                "ownPages": [{
+                  "reference": {
+                    "path": "kotlindoc/comy",
+                    "baseUrl": "https://github.com/Quentus123/Comy",
+                    "fileName": "dokka/samples/asynccommandsamples",
+                    "extension": "html",
+                    "usePrettyUrl": true,
+                    "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/dokka/samples/asynccommandsamples"
+                  },
+                  "description": "",
+                  "title": "AsyncCommandSamples",
+                  "content": "<p><init><\/p>\n<p>createAnnoyingComputationCommand<\/p>\n"
+                }]
+              }
+            },
+            "ownPages": [{
+              "reference": {
+                "path": "kotlindoc/comy",
+                "baseUrl": "https://github.com/Quentus123/Comy",
+                "fileName": "dokka/samples",
+                "extension": "html",
+                "usePrettyUrl": true,
+                "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/dokka/samples"
+              },
+              "description": "",
+              "title": "dokka.samples",
+              "content": "<p>AsyncCommandSamples<\/p>\n<p>SyncCommandSamples<\/p>\n"
+            }]
+          }}
+        },
+        "logic": {
+          "ownKey": "logic",
+          "childrenPages": {
+            "jwt": {
+              "ownKey": "jwt",
+              "childrenPages": {
+                "jwtservices": {
+                  "ownKey": "jwtservices",
+                  "childrenPages": {
+                    "usernotfoundexception": {
+                      "ownKey": "usernotfoundexception",
+                      "ownPages": [{
+                        "reference": {
+                          "path": "kotlindoc/comy",
+                          "baseUrl": "https://github.com/Quentus123/Comy",
+                          "fileName": "logic/jwt/jwtservices/usernotfoundexception",
+                          "extension": "html",
+                          "usePrettyUrl": true,
+                          "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/logic/jwt/jwtservices/usernotfoundexception"
+                        },
+                        "description": "",
+                        "title": "UserNotFoundException",
+                        "content": "<p>id<\/p>\n<p><init><\/p>\n"
+                      }]
+                    },
+                    "refreshtokenexception": {
+                      "ownKey": "refreshtokenexception",
+                      "ownPages": [{
+                        "reference": {
+                          "path": "kotlindoc/comy",
+                          "baseUrl": "https://github.com/Quentus123/Comy",
+                          "fileName": "logic/jwt/jwtservices/refreshtokenexception",
+                          "extension": "html",
+                          "usePrettyUrl": true,
+                          "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/logic/jwt/jwtservices/refreshtokenexception"
+                        },
+                        "description": "",
+                        "title": "RefreshTokenException",
+                        "content": "<p><init><\/p>\n"
+                      }]
+                    },
+                    "claimnotfoundexception": {
+                      "ownKey": "claimnotfoundexception",
+                      "ownPages": [{
+                        "reference": {
+                          "path": "kotlindoc/comy",
+                          "baseUrl": "https://github.com/Quentus123/Comy",
+                          "fileName": "logic/jwt/jwtservices/claimnotfoundexception",
+                          "extension": "html",
+                          "usePrettyUrl": true,
+                          "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/logic/jwt/jwtservices/claimnotfoundexception"
+                        },
+                        "description": "",
+                        "title": "ClaimNotFoundException",
+                        "content": "<p>claim<\/p>\n<p><init><\/p>\n"
+                      }]
+                    }
+                  },
+                  "ownPages": [{
+                    "reference": {
+                      "path": "kotlindoc/comy",
+                      "baseUrl": "https://github.com/Quentus123/Comy",
+                      "fileName": "logic/jwt/jwtservices",
+                      "extension": "html",
+                      "usePrettyUrl": true,
+                      "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/logic/jwt/jwtservices"
+                    },
+                    "description": "",
+                    "title": "JWTServices",
+                    "content": "<p>Is responsible to create and verify tokens.<\/p>dataSource\n<p>A class that provide users. Useful to manipulate their refreshKey property.<\/p>\n<init>\n<p>Is responsible to create and verify tokens.<\/p>\nrefreshToken\n\nauthenticateUser\n<p>Authenticate an user and generated tokens.<\/p>\nverifyUserToken\n<p>Verify is an access token is valid.<\/p>\n"
+                  }]
+                },
+                "usersdatasource": {
+                  "ownKey": "usersdatasource",
+                  "ownPages": [{
+                    "reference": {
+                      "path": "kotlindoc/comy",
+                      "baseUrl": "https://github.com/Quentus123/Comy",
+                      "fileName": "logic/jwt/usersdatasource",
+                      "extension": "html",
+                      "usePrettyUrl": true,
+                      "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/logic/jwt/usersdatasource"
+                    },
+                    "description": "",
+                    "title": "UsersDataSource",
+                    "content": "<p>Describe a class' ability to provide users.<\/p>allowedUsers\n"
+                  }]
+                }
+              },
+              "ownPages": [{
+                "reference": {
+                  "path": "kotlindoc/comy",
+                  "baseUrl": "https://github.com/Quentus123/Comy",
+                  "fileName": "logic/jwt",
+                  "extension": "html",
+                  "usePrettyUrl": true,
+                  "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/logic/jwt"
+                },
+                "description": "",
+                "title": "logic.jwt",
+                "content": "<p>JWTServices<\/p>\n<p>Is responsible to create and verify tokens.<\/p>\nUsersDataSource\n<p>Describe a class' ability to provide users.<\/p>\n"
+              }]
+            },
+            "comyserver": {
+              "ownKey": "comyserver",
+              "ownPages": [{
+                "reference": {
+                  "path": "kotlindoc/comy",
+                  "baseUrl": "https://github.com/Quentus123/Comy",
+                  "fileName": "logic/comyserver",
+                  "extension": "html",
+                  "usePrettyUrl": true,
+                  "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/logic/comyserver"
+                },
+                "description": "",
+                "title": "ComyServer",
+                "content": "<p>Represent the server.<\/p>name\n<p>The server's name.<\/p>\ncommands\n<p>The list of commands available. IMPORTANT: Commands must not have duplicates names. If two commands have the same name, an error will occur.<\/p>\ntimeout\n<p>Optional: Timeout in milliseconds before AsyncCommands return an timeout result. Default value: 15000 = 15 seconds.<\/p>\nsecurityConfiguration\n<p>Optional: Represent how the server must manage security. Default value: No security.<\/p>\n<init>\n<p>Represent the server.<\/p>\nonStart\n\nonOpen\n\nonClose\n\nonMessage\n\nonError\n\nchangeCommands\n<p>Change commands of the server.<\/p>\nallowedUsers\n\nregisterSecurityGroup\n<p>Will register a security group and recursively every super group to the server.<\/p>\naddUser\n<p>Will ad an user to the server, will check if the user's security group is already registered to the server, if not throw an error.<\/p>\n"
+              }]
+            }
+          },
+          "ownPages": [{
+            "reference": {
+              "path": "kotlindoc/comy",
+              "baseUrl": "https://github.com/Quentus123/Comy",
+              "fileName": "logic",
+              "extension": "html",
+              "usePrettyUrl": true,
+              "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/logic"
+            },
+            "description": "",
+            "title": "logic",
+            "content": "<p>ComyServer<\/p>\n<p>Represent the server.<\/p>\nlogic.jwt\n"
+          }]
+        }
+      },
+      "ownPages": [{
+        "reference": {
+          "path": "kotlindoc",
+          "baseUrl": "https://github.com/Quentus123/Comy",
+          "fileName": "comy",
+          "extension": "html",
+          "usePrettyUrl": true,
+          "link": "https://github.com/Quentus123/Comy/kotlindoc/comy"
+        },
+        "description": "",
+        "title": "comy",
+        "content": "<h1 id=\"comy\"><a href=\"#comy\" id=\"comy\" class=\"anchor\"><\/a>Comy<\/h1>\n<p>Comy is a library that make server creation easier, a mobile application is provided with the server.<\/p>\n<h2 id=\"features\"><a href=\"#features\" id=\"features\" class=\"anchor\"><\/a>Features<\/h2>\n<ul>\n<li class=\"task-list-item\"><input type=\"checkbox\" class=\"task-list-item-checkbox\" checked=\"checked\" disabled=\"disabled\" readonly=\"readonly\" />&nbsp;No need to create an user interface thanks to Comy iOS, an application designated for your users !<\/li>\n<li class=\"task-list-item\"><input type=\"checkbox\" class=\"task-list-item-checkbox\" checked=\"checked\" disabled=\"disabled\" readonly=\"readonly\" />&nbsp;Create commands that can be trigerred from users.<\/li>\n<li class=\"task-list-item\"><input type=\"checkbox\" class=\"task-list-item-checkbox\" checked=\"checked\" disabled=\"disabled\" readonly=\"readonly\" />&nbsp;Let users to pass parameters to commands<\/li>\n<li class=\"task-list-item\"><input type=\"checkbox\" class=\"task-list-item-checkbox\" checked=\"checked\" disabled=\"disabled\" readonly=\"readonly\" />&nbsp;User authentification<\/li>\n<\/ul>\n<h2 id=\"in-the-future\"><a href=\"#in-the-future\" id=\"in-the-future\" class=\"anchor\"><\/a>In the future<\/h2>\n<ul>\n<li class=\"task-list-item\"><input type=\"checkbox\" class=\"task-list-item-checkbox\" checked=\"checked\" disabled=\"disabled\" readonly=\"readonly\" />&nbsp;Create a chat server with channels, etc...<\/li>\n<li class=\"task-list-item\"><input type=\"checkbox\" class=\"task-list-item-checkbox\" checked=\"checked\" disabled=\"disabled\" readonly=\"readonly\" />&nbsp;Send notifications to users<\/li>\n<li class=\"task-list-item\"><input type=\"checkbox\" class=\"task-list-item-checkbox\" checked=\"checked\" disabled=\"disabled\" readonly=\"readonly\" />&nbsp;Create permissions groups of users (Admins, Members, ...)<\/li>\n<\/ul>\n<h2 id=\"availability\"><a href=\"#availability\" id=\"availability\" class=\"anchor\"><\/a>Availability<\/h2>\n<p>Beta version of Comy will be released soon (next week probably), feel free to message me for any question!<\/p>\n<h2 id=\"mobile-app\"><a href=\"#mobile-app\" id=\"mobile-app\" class=\"anchor\"><\/a>Mobile App<\/h2>\n<p>Open Source iOS app is currently under devloppement, you can see code here : https://github.com/Quentus123/Comy-iOS<\/p>\n"
+      }]
+    }}
+  }}
+}

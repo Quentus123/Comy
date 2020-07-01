@@ -1,0 +1,791 @@
+<!DOCTYPE HTML>
+<!--
+    Editorial by HTML5 UP
+    html5up.net | @ajlkn
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+<head>
+
+
+
+
+
+
+<meta charset="utf-8"/>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+<meta name="generator" content="Orchid 0.21.0"/>
+<link rel="icon" href="https://github.com/Quentus123/Comy/favicon.ico">
+
+
+<meta name="robots" content="index, follow">
+
+
+
+<title>SecurityConfiguration</title>
+
+
+<meta name="description" content="This is a short description of this project.">
+
+
+
+
+
+<!-- start:inject styles -->
+<link rel="stylesheet" type="text/css" href="https://github.com/Quentus123/Comy/Editorial/cbc7ede8/assets/css/editorial_main.css"  />
+<link rel="stylesheet" type="text/css" href="https://github.com/Quentus123/Comy/Editorial/cbc7ede8/assets/css/editorial_orchidCustomizations.css"  />
+<link rel="stylesheet" type="text/css" href="https://github.com/Quentus123/Comy/Editorial/cbc7ede8/assets/css/orchidSearch.css"  />
+<link rel="stylesheet" type="text/css" href="https://github.com/Quentus123/Comy/assets/css/orchidSearch.css"  />
+<link rel="stylesheet" type="text/css" href="https://github.com/Quentus123/Comy/assets/css/orchidSourceDoc.css"  />
+<!-- end:inject styles -->
+
+
+
+<script>
+    window.site = {"orchidVersion":"0.21.0","baseUrl":"https://github.com/Quentus123/Comy","environment":"prod","version":"1.0.0"};
+</script>
+
+
+    <!-- start:inject meta-components [head] -->
+    
+
+        
+            
+        
+
+        
+            
+        
+    
+    <!-- end:inject meta-components [head] -->
+
+
+
+    <!-- start:inject meta-components [head] -->
+    
+    <!-- end:inject meta-components [head] -->
+
+
+
+
+
+
+
+</head>
+<body class="is-loading">
+
+
+
+
+
+    <!-- start:inject meta-components [bodyStart] -->
+    
+
+        
+            
+        
+
+        
+    
+    <!-- end:inject meta-components [bodyStart] -->
+
+
+
+    <!-- start:inject meta-components [bodyStart] -->
+    
+    <!-- end:inject meta-components [bodyStart] -->
+
+
+
+
+
+<!-- Wrapper -->
+<div id="wrapper">
+
+    <!-- Main -->
+    <div id="main">
+        <div class="inner">
+
+            <!-- Header -->
+            
+                <header id="header">
+    <a href="https://github.com/Quentus123/Comy" class="logo">Comy</a>
+    <ul class="icons">
+    
+    
+        <li>
+            <a href="https://github.com/Quentus123/Comy" class="icon fa-github">
+                <span class="label">github</span>
+            </a>
+        </li>
+    
+    
+    </ul>
+</header>
+
+            
+            
+            
+            
+                <section id="pageContent">
+                    <header class="major"><h2>SecurityConfiguration</h2></header>
+                    <article>
+                        
+    <!-- start:inject components -->
+    
+        
+            
+                
+                    
+                        <div class="sourcedoc-page orchid-sourcedoc content">
+  
+<div class="sourcedoc-section section-root section-level-1" id="SecurityConfiguration">
+
+
+  
+
+  
+    <div class="sourcedoc-section section-element" id="ac6eddb41098d2d27955ca6cf1d965c9008fea2d">
+      
+      <p class="sourcedoc-section section-signature">
+        <code>data class SecurityConfiguration: Any</code>
+      </p>
+
+      
+        
+    <!-- start:inject components -->
+    
+    <!-- end:inject components -->
+
+
+      
+
+      <div class="sourcedoc-section section-comments"><p>Describe how the server manage security.</p>
+</div>
+
+      
+      
+        
+          
+<div class="sourcedoc-section section-root section-level-2" id="fields">
+
+
+  <p class="sourcedoc-section section-name"><strong>Fields</strong></p>
+
+  <div class="table-container">
+    <table class="table is-fullwidth is-bordered">
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      
+      <tr class="sourcedoc-section section-element" id="3cbbc45ce2e04141cea92c1a7140abcd03479d0a">
+        <td class="sourcedoc-section section-signature">
+          <code>val isSecured: Boolean</code>
+        </td>
+        <td class="sourcedoc-section section-comments content">
+        <p>Determine if logging is required.</p>
+
+        </td>
+      </tr>
+      
+      <tr class="sourcedoc-section section-element" id="e5def342a83b94a7eb84c97f0fad347a396810f0">
+        <td class="sourcedoc-section section-signature">
+          <code>val secretKey: String</code>
+        </td>
+        <td class="sourcedoc-section section-comments content">
+        <p>The secret key that will be used to create and verify json web tokens.</p>
+
+        </td>
+      </tr>
+      
+      </tbody>
+    </table>
+  </div>
+
+
+</div>
+
+        
+          
+<div class="sourcedoc-section section-root section-level-2" id="constructors">
+
+
+  
+    <h2 class="sourcedoc-section section-name">Constructors</h2>
+  
+
+  
+    <div class="sourcedoc-section section-element" id="5025f2cfddc3dbe6f4f7402bf69f8cb370b60e8e">
+      
+      <h3 class="sourcedoc-section element-name">&lt;init&gt;</h3>
+      
+      <p class="sourcedoc-section section-signature">
+        <code>constructor(isSecured: Boolean, secretKey: String)</code>
+      </p>
+
+      
+
+      <div class="sourcedoc-section section-comments"><p>Describe how the server manage security.</p>
+</div>
+
+      
+      
+        
+          
+<div class="sourcedoc-section section-root section-level-3" id="08f46f8fa8e4ff7a23ecb0403ee168cc1a9d3e9f">
+
+
+  <p class="sourcedoc-section section-name"><strong>Parameters</strong></p>
+
+  <div class="table-container">
+    <table class="table is-fullwidth is-bordered">
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      
+      <tr class="sourcedoc-section section-element" id="5d1eac7f9ff497cabb1ace8ee7642a24072634d9">
+        <td class="sourcedoc-section section-signature">
+          <code>isSecured: Boolean</code>
+        </td>
+        <td class="sourcedoc-section section-comments content">
+        <p>Determine if logging is required.</p>
+
+        </td>
+      </tr>
+      
+      <tr class="sourcedoc-section section-element" id="f6d9aac6d316d08a2f62f9acb9a1b20829a38ed0">
+        <td class="sourcedoc-section section-signature">
+          <code>secretKey: String</code>
+        </td>
+        <td class="sourcedoc-section section-comments content">
+        <p>The secret key that will be used to create and verify json web tokens.</p>
+
+        </td>
+      </tr>
+      
+      </tbody>
+    </table>
+  </div>
+
+
+</div>
+
+        
+      
+    </div>
+  
+
+</div>
+
+        
+      
+    </div>
+  
+
+</div>
+
+</div>
+
+
+
+
+
+
+                    
+                
+            
+        
+    
+    <!-- end:inject components -->
+
+
+                    </article>
+                </section>
+            
+        </div>
+        <hr>
+
+        <!-- Page Footer -->
+        <div class="inner">
+    <footer id="footer">
+        <div class="clearfix">
+            
+            
+        </div>
+    </footer>
+</div>
+
+    </div>
+
+    <!-- Sidebar -->
+    <div id="sidebar">
+    <div class="inner">
+
+        <!-- Search -->
+        <section id="search" class="alt">
+            <form data-orchid-search="">
+                <input type="text" name="query" id="query" placeholder="Search"/>
+            </form>
+            <div class="box" id="search-results" data-orchid-search-results style="display: none;">
+                <b>Search Results</b>
+                <ul></ul>
+            </div>
+            <div class="box" id="search-progress" data-orchid-search-progress style="display: none;">
+                <div class="loader">Loading...</div>
+            </div>
+        </section>
+
+        <!-- Menu -->
+        <nav id="siteNav" class="menu">
+            <header class="major">
+                <h2>Comy</h2>
+            </header>
+            <ul class="top-level">
+                
+                    
+    
+    <li>
+        <a class="subheader">API Docs</a>
+    </li>
+    
+
+                
+                    
+    <li>
+        <span class="opener">Classes</span>
+        <ul>
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/models/commands/asynccommand">AsyncCommand</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/dokka/samples/asynccommandsamples">AsyncCommandSamples</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/models/messages/authenticatetokenmessage">AuthenticateTokenMessage</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/models/messages/authenticateusermessage">AuthenticateUserMessage</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/models/responses/authenticationresponse">AuthenticationResponse</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/models/commands/params/booleancommandparameter">BooleanCommandParameter</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/logic/jwt/jwtservices/claimnotfoundexception">ClaimNotFoundException</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/models/commands/command">Command</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/models/commands/commandinfos">CommandInfos</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/models/responses/commandresponse">CommandResponse</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/models/commands/commandresult">CommandResult</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/models/commands/commandresultstatus">CommandResultStatus</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/logic/comyserver">ComyServer</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/models/messages/executecommandmessage">ExecuteCommandMessage</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/models/commands/params/intcommandparameter">IntCommandParameter</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/logic/jwt/jwtservices">JWTServices</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/models/messages/message">Message</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/models/messages/needstatemessage">NeedStateMessage</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/models/commands/params/parameter">Parameter</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/logic/jwt/jwtservices/refreshtokenexception">RefreshTokenException</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/models/messages/refreshtokenmessage">RefreshTokenMessage</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/models/responses/response">Response</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/models/users/securityconfiguration">SecurityConfiguration</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/models/security/securitygroup">SecurityGroup</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/models/responses/serverinforesponse">ServerInfoResponse</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/models/responses/serverstateresponse">ServerStateResponse</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/models/commands/params/stringcommandparameter">StringCommandParameter</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/models/commands/synccommand">SyncCommand</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/dokka/samples/synccommandsamples">SyncCommandSamples</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/models/users/user">User</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/models/jwt/userauthenticationresult">UserAuthenticationResult</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/logic/jwt/jwtservices/usernotfoundexception">UserNotFoundException</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/models/jwt/usertokenverificationresult">UserTokenVerificationResult</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/logic/jwt/usersdatasource">UsersDataSource</a>
+    </li>
+    
+
+        
+        </ul>
+    </li>
+
+                
+                    
+    <li>
+        <span class="opener">Packages</span>
+        <ul>
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/dokka/samples">dokka.samples</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/logic">logic</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/logic/jwt">logic.jwt</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/models/commands">models.commands</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/models/commands/params">models.commands.params</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/models/jwt">models.jwt</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/models/messages">models.messages</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/models/responses">models.responses</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/models/security">models.security</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/models/users">models.users</a>
+    </li>
+    
+
+        
+        </ul>
+    </li>
+
+                
+            </ul>
+        </nav>
+        
+
+        <!-- Section -->
+        <section>
+            <p class="text-center">
+                Currently 1.0.0. Created with <a href="https://orchid.run">Orchid </a> and <b>Orchid Editorial Theme</b>.
+            </p>
+        </section>
+
+        <!-- Footer -->
+        <footer id="footer">
+            <p class="copyright text-center">&copy; Comy. All rights reserved.<br>Design by <a href="https://html5up.net">HTML5 UP</a></p>
+        </footer>
+
+    </div>
+</div>
+
+</div>
+
+
+
+
+
+
+    <!-- start:inject meta-components [bodyEnd] -->
+    
+
+        
+            
+        
+
+        
+    
+    <!-- end:inject meta-components [bodyEnd] -->
+
+
+
+    <!-- start:inject meta-components [bodyEnd] -->
+    
+    <!-- end:inject meta-components [bodyEnd] -->
+
+
+
+
+<!-- start:inject scripts -->
+<script  src="https://github.com/Quentus123/Comy/Editorial/cbc7ede8/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script  src="https://github.com/Quentus123/Comy/Editorial/cbc7ede8/ajax/libs/skel/3.0.1/skel.min.js"></script>
+<script  src="https://github.com/Quentus123/Comy/Editorial/cbc7ede8/assets/js/editorial_util.js"></script>
+<script  src="https://github.com/Quentus123/Comy/Editorial/cbc7ede8/assets/js/editorial_main.js"></script>
+<script  src="https://github.com/Quentus123/Comy/Editorial/cbc7ede8/assets/js/editorial_orchidCustomizations.js"></script>
+<script  src="https://github.com/Quentus123/Comy/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script  src="https://github.com/Quentus123/Comy/lunr/lunr.js"></script>
+<script  src="https://github.com/Quentus123/Comy/assets/js/orchidSearch.js"></script>
+<!-- end:inject scripts -->
+
+
+</body>
+</html>

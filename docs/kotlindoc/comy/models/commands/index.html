@@ -1,0 +1,837 @@
+<!DOCTYPE HTML>
+<!--
+    Editorial by HTML5 UP
+    html5up.net | @ajlkn
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+<head>
+
+
+
+
+
+
+<meta charset="utf-8"/>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+<meta name="generator" content="Orchid 0.21.0"/>
+<link rel="icon" href="https://github.com/Quentus123/Comy/favicon.ico">
+
+
+<meta name="robots" content="index, follow">
+
+
+
+<title>models.commands</title>
+
+
+<meta name="description" content="This is a short description of this project.">
+
+
+
+
+
+<!-- start:inject styles -->
+<link rel="stylesheet" type="text/css" href="https://github.com/Quentus123/Comy/Editorial/cbc7ede8/assets/css/editorial_main.css"  />
+<link rel="stylesheet" type="text/css" href="https://github.com/Quentus123/Comy/Editorial/cbc7ede8/assets/css/editorial_orchidCustomizations.css"  />
+<link rel="stylesheet" type="text/css" href="https://github.com/Quentus123/Comy/Editorial/cbc7ede8/assets/css/orchidSearch.css"  />
+<link rel="stylesheet" type="text/css" href="https://github.com/Quentus123/Comy/assets/css/orchidSearch.css"  />
+<link rel="stylesheet" type="text/css" href="https://github.com/Quentus123/Comy/assets/css/orchidSourceDoc.css"  />
+<!-- end:inject styles -->
+
+
+
+<script>
+    window.site = {"orchidVersion":"0.21.0","baseUrl":"https://github.com/Quentus123/Comy","environment":"prod","version":"1.0.0"};
+</script>
+
+
+    <!-- start:inject meta-components [head] -->
+    
+
+        
+            
+        
+
+        
+            
+        
+    
+    <!-- end:inject meta-components [head] -->
+
+
+
+    <!-- start:inject meta-components [head] -->
+    
+    <!-- end:inject meta-components [head] -->
+
+
+
+
+
+
+
+</head>
+<body class="is-loading">
+
+
+
+
+
+    <!-- start:inject meta-components [bodyStart] -->
+    
+
+        
+            
+        
+
+        
+    
+    <!-- end:inject meta-components [bodyStart] -->
+
+
+
+    <!-- start:inject meta-components [bodyStart] -->
+    
+    <!-- end:inject meta-components [bodyStart] -->
+
+
+
+
+
+<!-- Wrapper -->
+<div id="wrapper">
+
+    <!-- Main -->
+    <div id="main">
+        <div class="inner">
+
+            <!-- Header -->
+            
+                <header id="header">
+    <a href="https://github.com/Quentus123/Comy" class="logo">Comy</a>
+    <ul class="icons">
+    
+    
+        <li>
+            <a href="https://github.com/Quentus123/Comy" class="icon fa-github">
+                <span class="label">github</span>
+            </a>
+        </li>
+    
+    
+    </ul>
+</header>
+
+            
+            
+            
+            
+                <section id="pageContent">
+                    <header class="major"><h2>models.commands</h2></header>
+                    <article>
+                        
+    <!-- start:inject components -->
+    
+        
+            
+                
+                    
+                        <div class="sourcedoc-page orchid-sourcedoc content">
+  
+<div class="sourcedoc-section section-root section-level-1" id="models.commands">
+
+
+  
+
+  
+    <div class="sourcedoc-section section-element" id="20da4cfeebce73bbe478c802d2abc400abe4ba46">
+      
+      <p class="sourcedoc-section section-signature">
+        <code>package models.commands</code>
+      </p>
+
+      
+        
+    <!-- start:inject components -->
+    
+    <!-- end:inject components -->
+
+
+      
+
+      <div class="sourcedoc-section section-comments"></div>
+
+      
+      
+        
+          
+<div class="sourcedoc-section section-root section-level-2" id="classes">
+
+
+  <p class="sourcedoc-section section-name"><strong>Classes</strong></p>
+
+  <div class="table-container">
+    <table class="table is-fullwidth is-bordered">
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      
+      <tr class="sourcedoc-section section-element" id="c6e01edf120a46cc7fa8512aaeeb868e26dad1d9">
+        <td class="sourcedoc-section section-signature">
+          <code>class AsyncCommand: Command, Any</code>
+        </td>
+        <td class="sourcedoc-section section-comments content">
+        <p>A asynchronous command.</p><p>Here is a sample that simule an asynchronous command :</p><pre class="language-kotlin"><code class="language-kotlin">val annoyingComputation = AsyncCommand(
+    name = "An useless computation",
+    imageURL = null,
+    function = { infos, completion, isActive ->
+        for (i in 0 until 10000) {
+            for (j in 0 until 10000) {
+                println(i + j)
+                if (!isActive()) { //Command timed out, error is automatically send to user
+                    break
+                }
+            }
+        }
+
+        if (isActive()) { //Computation finished before timeout, send a success message to user
+            completion(CommandResult.DEFAULT_RESULT)
+        }
+    }
+)</code></pre>
+
+        </td>
+      </tr>
+      
+      <tr class="sourcedoc-section section-element" id="d7d2cbfae64059d265f27b37dc2eaedec302fe68">
+        <td class="sourcedoc-section section-signature">
+          <code>interface Command: Any</code>
+        </td>
+        <td class="sourcedoc-section section-comments content">
+        <p>Describe a command.</p>
+
+        </td>
+      </tr>
+      
+      <tr class="sourcedoc-section section-element" id="482424130c966d4abae032f928d97ced02fa036a">
+        <td class="sourcedoc-section section-signature">
+          <code>class CommandInfos: Any</code>
+        </td>
+        <td class="sourcedoc-section section-comments content">
+        <p>All the infos from the command execution.</p>
+
+        </td>
+      </tr>
+      
+      <tr class="sourcedoc-section section-element" id="6fa9e1b28c28dcec6a241066cc2a12ce8f76d5f8">
+        <td class="sourcedoc-section section-signature">
+          <code>data class CommandResult: Any</code>
+        </td>
+        <td class="sourcedoc-section section-comments content">
+        <p>Represent a command execution's result.</p>
+
+        </td>
+      </tr>
+      
+      <tr class="sourcedoc-section section-element" id="1289c371873c83fff37fec92301df083d0c9ae3b">
+        <td class="sourcedoc-section section-signature">
+          <code>data class CommandResultStatus: Any</code>
+        </td>
+        <td class="sourcedoc-section section-comments content">
+        <p>Represent a command execution's status.</p>
+
+        </td>
+      </tr>
+      
+      <tr class="sourcedoc-section section-element" id="fcdc8ce9df6157cdaa1dea6982563850ba8e07f2">
+        <td class="sourcedoc-section section-signature">
+          <code>class SyncCommand: Command, Any</code>
+        </td>
+        <td class="sourcedoc-section section-comments content">
+        <p>A synchronous command.</p><p>The first sample describe a command that does nothing, this is the minimal stuff to make a command valid
+The second sample describe a command that will simulate n dices, where n is an integer paramater given by the user :</p><pre class="language-kotlin"><code class="language-kotlin">val commandThatDoesNothing = SyncCommand(
+    name = "An useless command",
+    imageURL = null,
+    function = {
+        CommandResult.DEFAULT_RESULT
+    }
+)</code></pre><pre class="language-kotlin"><code class="language-kotlin">val fakeDiceCommand = SyncCommand(
+    name = "Dices simulator",
+    imageURL = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/6sided_dice.jpg/800px-6sided_dice.jpg",
+    mainParameter = IntCommandParameter(
+        name = "Number of dices",
+        defaultValue = 1
+    ),
+    function = { infos ->
+        if (infos.params["Number of dices"] != null) { //Check if number of dices parameter is given, if yes it is an Int
+            val numberOfDices = infos.params["Number of dices"] as Int // Cast Any to Int, we already check that parameter is not null so this cast will not fail
+            if (numberOfDices <= 0) { // We can't simulate zero or less dice!
+                CommandResult(message = "", status = CommandResultStatus(success = false, message = "Number of dices must be positive"))
+            } else { //Everything is ok, just simule dices and send result to user
+                val dices = mutableListOf<Int>()
+                for (i in 0 until numberOfDices) {
+                    dices.add(Random.nextInt(from = 1, until = 7))
+                }
+                var dicesString = "Dice${if (dices.count() > 1) "s" else ""} ${if (dices.count() > 1) "are " else "is "}"
+                for (dice in dices) {
+                    dicesString += "$dice "
+                }
+                CommandResult(message = dicesString, status = CommandResultStatus.DEFAULT_SUCCESS)
+            }
+        } else {
+            CommandResult(message = "", status = CommandResultStatus(success = false, message = "Parameter missing"))
+        }
+    })</code></pre>
+
+        </td>
+      </tr>
+      
+      </tbody>
+    </table>
+  </div>
+
+
+</div>
+
+        
+          
+<div class="sourcedoc-section section-root section-level-2" id="subpackages">
+
+
+  <p class="sourcedoc-section section-name"><strong>Subpackages</strong></p>
+
+  <div class="table-container">
+    <table class="table is-fullwidth is-bordered">
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      
+      <tr class="sourcedoc-section section-element" id="84fcf3cd1323fb79d7f62b815d266bd78d016e84">
+        <td class="sourcedoc-section section-signature">
+          <code>package models.commands.params</code>
+        </td>
+        <td class="sourcedoc-section section-comments content">
+        
+        </td>
+      </tr>
+      
+      </tbody>
+    </table>
+  </div>
+
+
+</div>
+
+        
+      
+    </div>
+  
+
+</div>
+
+</div>
+
+
+
+
+
+
+                    
+                
+            
+        
+    
+    <!-- end:inject components -->
+
+
+                    </article>
+                </section>
+            
+        </div>
+        <hr>
+
+        <!-- Page Footer -->
+        <div class="inner">
+    <footer id="footer">
+        <div class="clearfix">
+            
+            
+        </div>
+    </footer>
+</div>
+
+    </div>
+
+    <!-- Sidebar -->
+    <div id="sidebar">
+    <div class="inner">
+
+        <!-- Search -->
+        <section id="search" class="alt">
+            <form data-orchid-search="">
+                <input type="text" name="query" id="query" placeholder="Search"/>
+            </form>
+            <div class="box" id="search-results" data-orchid-search-results style="display: none;">
+                <b>Search Results</b>
+                <ul></ul>
+            </div>
+            <div class="box" id="search-progress" data-orchid-search-progress style="display: none;">
+                <div class="loader">Loading...</div>
+            </div>
+        </section>
+
+        <!-- Menu -->
+        <nav id="siteNav" class="menu">
+            <header class="major">
+                <h2>Comy</h2>
+            </header>
+            <ul class="top-level">
+                
+                    
+    
+    <li>
+        <a class="subheader">API Docs</a>
+    </li>
+    
+
+                
+                    
+    <li>
+        <span class="opener">Classes</span>
+        <ul>
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/models/commands/asynccommand">AsyncCommand</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/dokka/samples/asynccommandsamples">AsyncCommandSamples</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/models/messages/authenticatetokenmessage">AuthenticateTokenMessage</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/models/messages/authenticateusermessage">AuthenticateUserMessage</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/models/responses/authenticationresponse">AuthenticationResponse</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/models/commands/params/booleancommandparameter">BooleanCommandParameter</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/logic/jwt/jwtservices/claimnotfoundexception">ClaimNotFoundException</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/models/commands/command">Command</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/models/commands/commandinfos">CommandInfos</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/models/responses/commandresponse">CommandResponse</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/models/commands/commandresult">CommandResult</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/models/commands/commandresultstatus">CommandResultStatus</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/logic/comyserver">ComyServer</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/models/messages/executecommandmessage">ExecuteCommandMessage</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/models/commands/params/intcommandparameter">IntCommandParameter</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/logic/jwt/jwtservices">JWTServices</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/models/messages/message">Message</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/models/messages/needstatemessage">NeedStateMessage</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/models/commands/params/parameter">Parameter</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/logic/jwt/jwtservices/refreshtokenexception">RefreshTokenException</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/models/messages/refreshtokenmessage">RefreshTokenMessage</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/models/responses/response">Response</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/models/users/securityconfiguration">SecurityConfiguration</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/models/security/securitygroup">SecurityGroup</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/models/responses/serverinforesponse">ServerInfoResponse</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/models/responses/serverstateresponse">ServerStateResponse</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/models/commands/params/stringcommandparameter">StringCommandParameter</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/models/commands/synccommand">SyncCommand</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/dokka/samples/synccommandsamples">SyncCommandSamples</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/models/users/user">User</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/models/jwt/userauthenticationresult">UserAuthenticationResult</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/logic/jwt/jwtservices/usernotfoundexception">UserNotFoundException</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/models/jwt/usertokenverificationresult">UserTokenVerificationResult</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/logic/jwt/usersdatasource">UsersDataSource</a>
+    </li>
+    
+
+        
+        </ul>
+    </li>
+
+                
+                    
+    <li>
+        <span class="opener">Packages</span>
+        <ul>
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/dokka/samples">dokka.samples</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/logic">logic</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/logic/jwt">logic.jwt</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/models/commands">models.commands</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/models/commands/params">models.commands.params</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/models/jwt">models.jwt</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/models/messages">models.messages</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/models/responses">models.responses</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/models/security">models.security</a>
+    </li>
+    
+
+        
+            
+    
+    <li>
+        <a href="https://github.com/Quentus123/Comy/kotlindoc/comy/models/users">models.users</a>
+    </li>
+    
+
+        
+        </ul>
+    </li>
+
+                
+            </ul>
+        </nav>
+        
+
+        <!-- Section -->
+        <section>
+            <p class="text-center">
+                Currently 1.0.0. Created with <a href="https://orchid.run">Orchid </a> and <b>Orchid Editorial Theme</b>.
+            </p>
+        </section>
+
+        <!-- Footer -->
+        <footer id="footer">
+            <p class="copyright text-center">&copy; Comy. All rights reserved.<br>Design by <a href="https://html5up.net">HTML5 UP</a></p>
+        </footer>
+
+    </div>
+</div>
+
+</div>
+
+
+
+
+
+
+    <!-- start:inject meta-components [bodyEnd] -->
+    
+
+        
+            
+        
+
+        
+    
+    <!-- end:inject meta-components [bodyEnd] -->
+
+
+
+    <!-- start:inject meta-components [bodyEnd] -->
+    
+    <!-- end:inject meta-components [bodyEnd] -->
+
+
+
+
+<!-- start:inject scripts -->
+<script  src="https://github.com/Quentus123/Comy/Editorial/cbc7ede8/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script  src="https://github.com/Quentus123/Comy/Editorial/cbc7ede8/ajax/libs/skel/3.0.1/skel.min.js"></script>
+<script  src="https://github.com/Quentus123/Comy/Editorial/cbc7ede8/assets/js/editorial_util.js"></script>
+<script  src="https://github.com/Quentus123/Comy/Editorial/cbc7ede8/assets/js/editorial_main.js"></script>
+<script  src="https://github.com/Quentus123/Comy/Editorial/cbc7ede8/assets/js/editorial_orchidCustomizations.js"></script>
+<script  src="https://github.com/Quentus123/Comy/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script  src="https://github.com/Quentus123/Comy/lunr/lunr.js"></script>
+<script  src="https://github.com/Quentus123/Comy/assets/js/orchidSearch.js"></script>
+<!-- end:inject scripts -->
+
+
+</body>
+</html>
