@@ -5,4 +5,5 @@ interface Parameter {
     val typeCode: Int
     val defaultValue: Any
     val canBeMain: Boolean
+    val groupIndex: Int
 }

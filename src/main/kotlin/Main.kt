@@ -43,6 +43,7 @@ fun main() {
                     ),
                     BooleanCommandParameter(
                             name = "Pip dices with max value",
+                            groupIndex = 1,
                             defaultValue = false
                     )
             ),
@@ -125,7 +126,7 @@ fun main() {
 
     val server = ComyServer(name = "Test server", timeout = 3000, securityConfiguration = SecurityConfiguration(
         isSecured = true
-    ), commands = arrayOf(fakeDiceCommand, turnLightOn, test1Command, test2Command, test3Command), port = 12477)
+    ), commands = arrayOf(fakeDiceCommand, turnLightOn, test1Command, test2Command, test3Command), port = 12478)
 
     server.registerSecurityGroup(securityGroup = memberGroup)
     server.addUser(user = rootUser)

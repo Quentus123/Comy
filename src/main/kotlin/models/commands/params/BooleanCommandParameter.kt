@@ -2,7 +2,7 @@ package models.commands.params
 
 import com.beust.klaxon.Json
 
-class BooleanCommandParameter(override val name: String, defaultValue: Boolean): Parameter {
+class BooleanCommandParameter(override val name: String, defaultValue: Boolean, override val groupIndex: Int = 0): Parameter {
     override val typeCode = BooleanCommandParameter.typeCode
     override val defaultValue: String = defaultValue.toString()
     @Json(ignored = true)
