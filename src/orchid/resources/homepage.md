@@ -4,9 +4,10 @@ components:
   - type: 'readme'
 ---
 
-![Test](https://github.com/Quentus123/Comy/blob/master/assets/logo.png?raw=true)
-
 # Comy
+
+![logo](https://github.com/Quentus123/Comy/blob/master/assets/logo_150.png?raw=true)
+
 Comy is a library that make server creation easier, a mobile application is provided with the server.
 
 ## Features 
