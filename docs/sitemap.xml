@@ -4,43 +4,43 @@
     xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/siteindex.xsd"
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <sitemap>
-        <loc>https://github.com/Quentus123/Comy/sitemap-assets.xml</loc>
+        <loc>https://quentus123.github.io/Comy/sitemap-assets.xml</loc>
         <lastmod>2020-07-01</lastmod>
     </sitemap>
     <sitemap>
-        <loc>https://github.com/Quentus123/Comy/sitemap-external.xml</loc>
+        <loc>https://quentus123.github.io/Comy/sitemap-external.xml</loc>
         <lastmod>2020-07-01</lastmod>
     </sitemap>
     <sitemap>
-        <loc>https://github.com/Quentus123/Comy/sitemap-changelog.xml</loc>
+        <loc>https://quentus123.github.io/Comy/sitemap-changelog.xml</loc>
         <lastmod>2020-07-01</lastmod>
     </sitemap>
     <sitemap>
-        <loc>https://github.com/Quentus123/Comy/sitemap-forms.xml</loc>
+        <loc>https://quentus123.github.io/Comy/sitemap-forms.xml</loc>
         <lastmod>2020-07-01</lastmod>
     </sitemap>
     <sitemap>
-        <loc>https://github.com/Quentus123/Comy/sitemap-home.xml</loc>
+        <loc>https://quentus123.github.io/Comy/sitemap-home.xml</loc>
         <lastmod>2020-07-01</lastmod>
     </sitemap>
     <sitemap>
-        <loc>https://github.com/Quentus123/Comy/sitemap-kotlindoc.xml</loc>
+        <loc>https://quentus123.github.io/Comy/sitemap-kotlindoc.xml</loc>
         <lastmod>2020-07-01</lastmod>
     </sitemap>
     <sitemap>
-        <loc>https://github.com/Quentus123/Comy/sitemap-pages.xml</loc>
+        <loc>https://quentus123.github.io/Comy/sitemap-pages.xml</loc>
         <lastmod>2020-07-01</lastmod>
     </sitemap>
     <sitemap>
-        <loc>https://github.com/Quentus123/Comy/sitemap-wiki.xml</loc>
+        <loc>https://quentus123.github.io/Comy/sitemap-wiki.xml</loc>
         <lastmod>2020-07-01</lastmod>
     </sitemap>
     <sitemap>
-        <loc>https://github.com/Quentus123/Comy/sitemap-sitemap.xml</loc>
+        <loc>https://quentus123.github.io/Comy/sitemap-sitemap.xml</loc>
         <lastmod>2020-07-01</lastmod>
     </sitemap>
     <sitemap>
-        <loc>https://github.com/Quentus123/Comy/sitemap-indices.xml</loc>
+        <loc>https://quentus123.github.io/Comy/sitemap-indices.xml</loc>
         <lastmod>2020-07-01</lastmod>
     </sitemap>
 </sitemapindex>

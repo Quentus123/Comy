@@ -15,11 +15,11 @@
                 "ownPages": [{
                   "reference": {
                     "path": "kotlindoc/comy",
-                    "baseUrl": "https://github.com/Quentus123/Comy",
+                    "baseUrl": "https://quentus123.github.io/Comy",
                     "fileName": "models/security/securitygroup",
                     "extension": "html",
                     "usePrettyUrl": true,
-                    "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/models/security/securitygroup"
+                    "link": "https://quentus123.github.io/Comy/kotlindoc/comy/models/security/securitygroup"
                   },
                   "description": "",
                   "title": "SecurityGroup",
@@ -29,11 +29,11 @@
               "ownPages": [{
                 "reference": {
                   "path": "kotlindoc/comy",
-                  "baseUrl": "https://github.com/Quentus123/Comy",
+                  "baseUrl": "https://quentus123.github.io/Comy",
                   "fileName": "models/security",
                   "extension": "html",
                   "usePrettyUrl": true,
-                  "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/models/security"
+                  "link": "https://quentus123.github.io/Comy/kotlindoc/comy/models/security"
                 },
                 "description": "",
                 "title": "models.security",
@@ -48,11 +48,11 @@
                   "ownPages": [{
                     "reference": {
                       "path": "kotlindoc/comy",
-                      "baseUrl": "https://github.com/Quentus123/Comy",
+                      "baseUrl": "https://quentus123.github.io/Comy",
                       "fileName": "models/jwt/usertokenverificationresult",
                       "extension": "html",
                       "usePrettyUrl": true,
-                      "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/models/jwt/usertokenverificationresult"
+                      "link": "https://quentus123.github.io/Comy/kotlindoc/comy/models/jwt/usertokenverificationresult"
                     },
                     "description": "",
                     "title": "UserTokenVerificationResult",
@@ -64,11 +64,11 @@
                   "ownPages": [{
                     "reference": {
                       "path": "kotlindoc/comy",
-                      "baseUrl": "https://github.com/Quentus123/Comy",
+                      "baseUrl": "https://quentus123.github.io/Comy",
                       "fileName": "models/jwt/userauthenticationresult",
                       "extension": "html",
                       "usePrettyUrl": true,
-                      "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/models/jwt/userauthenticationresult"
+                      "link": "https://quentus123.github.io/Comy/kotlindoc/comy/models/jwt/userauthenticationresult"
                     },
                     "description": "",
                     "title": "UserAuthenticationResult",
@@ -79,11 +79,11 @@
               "ownPages": [{
                 "reference": {
                   "path": "kotlindoc/comy",
-                  "baseUrl": "https://github.com/Quentus123/Comy",
+                  "baseUrl": "https://quentus123.github.io/Comy",
                   "fileName": "models/jwt",
                   "extension": "html",
                   "usePrettyUrl": true,
-                  "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/models/jwt"
+                  "link": "https://quentus123.github.io/Comy/kotlindoc/comy/models/jwt"
                 },
                 "description": "",
                 "title": "models.jwt",
@@ -98,11 +98,11 @@
                   "ownPages": [{
                     "reference": {
                       "path": "kotlindoc/comy",
-                      "baseUrl": "https://github.com/Quentus123/Comy",
+                      "baseUrl": "https://quentus123.github.io/Comy",
                       "fileName": "models/messages/executecommandmessage",
                       "extension": "html",
                       "usePrettyUrl": true,
-                      "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/models/messages/executecommandmessage"
+                      "link": "https://quentus123.github.io/Comy/kotlindoc/comy/models/messages/executecommandmessage"
                     },
                     "description": "",
                     "title": "ExecuteCommandMessage",
@@ -114,11 +114,11 @@
                   "ownPages": [{
                     "reference": {
                       "path": "kotlindoc/comy",
-                      "baseUrl": "https://github.com/Quentus123/Comy",
+                      "baseUrl": "https://quentus123.github.io/Comy",
                       "fileName": "models/messages/authenticatetokenmessage",
                       "extension": "html",
                       "usePrettyUrl": true,
-                      "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/models/messages/authenticatetokenmessage"
+                      "link": "https://quentus123.github.io/Comy/kotlindoc/comy/models/messages/authenticatetokenmessage"
                     },
                     "description": "",
                     "title": "AuthenticateTokenMessage",
@@ -130,11 +130,11 @@
                   "ownPages": [{
                     "reference": {
                       "path": "kotlindoc/comy",
-                      "baseUrl": "https://github.com/Quentus123/Comy",
+                      "baseUrl": "https://quentus123.github.io/Comy",
                       "fileName": "models/messages/message",
                       "extension": "html",
                       "usePrettyUrl": true,
-                      "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/models/messages/message"
+                      "link": "https://quentus123.github.io/Comy/kotlindoc/comy/models/messages/message"
                     },
                     "description": "",
                     "title": "Message",
@@ -146,11 +146,11 @@
                   "ownPages": [{
                     "reference": {
                       "path": "kotlindoc/comy",
-                      "baseUrl": "https://github.com/Quentus123/Comy",
+                      "baseUrl": "https://quentus123.github.io/Comy",
                       "fileName": "models/messages/refreshtokenmessage",
                       "extension": "html",
                       "usePrettyUrl": true,
-                      "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/models/messages/refreshtokenmessage"
+                      "link": "https://quentus123.github.io/Comy/kotlindoc/comy/models/messages/refreshtokenmessage"
                     },
                     "description": "",
                     "title": "RefreshTokenMessage",
@@ -162,11 +162,11 @@
                   "ownPages": [{
                     "reference": {
                       "path": "kotlindoc/comy",
-                      "baseUrl": "https://github.com/Quentus123/Comy",
+                      "baseUrl": "https://quentus123.github.io/Comy",
                       "fileName": "models/messages/needstatemessage",
                       "extension": "html",
                       "usePrettyUrl": true,
-                      "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/models/messages/needstatemessage"
+                      "link": "https://quentus123.github.io/Comy/kotlindoc/comy/models/messages/needstatemessage"
                     },
                     "description": "",
                     "title": "NeedStateMessage",
@@ -178,11 +178,11 @@
                   "ownPages": [{
                     "reference": {
                       "path": "kotlindoc/comy",
-                      "baseUrl": "https://github.com/Quentus123/Comy",
+                      "baseUrl": "https://quentus123.github.io/Comy",
                       "fileName": "models/messages/authenticateusermessage",
                       "extension": "html",
                       "usePrettyUrl": true,
-                      "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/models/messages/authenticateusermessage"
+                      "link": "https://quentus123.github.io/Comy/kotlindoc/comy/models/messages/authenticateusermessage"
                     },
                     "description": "",
                     "title": "AuthenticateUserMessage",
@@ -193,11 +193,11 @@
               "ownPages": [{
                 "reference": {
                   "path": "kotlindoc/comy",
-                  "baseUrl": "https://github.com/Quentus123/Comy",
+                  "baseUrl": "https://quentus123.github.io/Comy",
                   "fileName": "models/messages",
                   "extension": "html",
                   "usePrettyUrl": true,
-                  "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/models/messages"
+                  "link": "https://quentus123.github.io/Comy/kotlindoc/comy/models/messages"
                 },
                 "description": "",
                 "title": "models.messages",
@@ -212,11 +212,11 @@
                   "ownPages": [{
                     "reference": {
                       "path": "kotlindoc/comy",
-                      "baseUrl": "https://github.com/Quentus123/Comy",
+                      "baseUrl": "https://quentus123.github.io/Comy",
                       "fileName": "models/responses/serverstateresponse",
                       "extension": "html",
                       "usePrettyUrl": true,
-                      "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/models/responses/serverstateresponse"
+                      "link": "https://quentus123.github.io/Comy/kotlindoc/comy/models/responses/serverstateresponse"
                     },
                     "description": "",
                     "title": "ServerStateResponse",
@@ -228,11 +228,11 @@
                   "ownPages": [{
                     "reference": {
                       "path": "kotlindoc/comy",
-                      "baseUrl": "https://github.com/Quentus123/Comy",
+                      "baseUrl": "https://quentus123.github.io/Comy",
                       "fileName": "models/responses/serverinforesponse",
                       "extension": "html",
                       "usePrettyUrl": true,
-                      "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/models/responses/serverinforesponse"
+                      "link": "https://quentus123.github.io/Comy/kotlindoc/comy/models/responses/serverinforesponse"
                     },
                     "description": "",
                     "title": "ServerInfoResponse",
@@ -244,11 +244,11 @@
                   "ownPages": [{
                     "reference": {
                       "path": "kotlindoc/comy",
-                      "baseUrl": "https://github.com/Quentus123/Comy",
+                      "baseUrl": "https://quentus123.github.io/Comy",
                       "fileName": "models/responses/commandresponse",
                       "extension": "html",
                       "usePrettyUrl": true,
-                      "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/models/responses/commandresponse"
+                      "link": "https://quentus123.github.io/Comy/kotlindoc/comy/models/responses/commandresponse"
                     },
                     "description": "",
                     "title": "CommandResponse",
@@ -260,11 +260,11 @@
                   "ownPages": [{
                     "reference": {
                       "path": "kotlindoc/comy",
-                      "baseUrl": "https://github.com/Quentus123/Comy",
+                      "baseUrl": "https://quentus123.github.io/Comy",
                       "fileName": "models/responses/response",
                       "extension": "html",
                       "usePrettyUrl": true,
-                      "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/models/responses/response"
+                      "link": "https://quentus123.github.io/Comy/kotlindoc/comy/models/responses/response"
                     },
                     "description": "",
                     "title": "Response",
@@ -276,11 +276,11 @@
                   "ownPages": [{
                     "reference": {
                       "path": "kotlindoc/comy",
-                      "baseUrl": "https://github.com/Quentus123/Comy",
+                      "baseUrl": "https://quentus123.github.io/Comy",
                       "fileName": "models/responses/authenticationresponse",
                       "extension": "html",
                       "usePrettyUrl": true,
-                      "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/models/responses/authenticationresponse"
+                      "link": "https://quentus123.github.io/Comy/kotlindoc/comy/models/responses/authenticationresponse"
                     },
                     "description": "",
                     "title": "AuthenticationResponse",
@@ -291,11 +291,11 @@
               "ownPages": [{
                 "reference": {
                   "path": "kotlindoc/comy",
-                  "baseUrl": "https://github.com/Quentus123/Comy",
+                  "baseUrl": "https://quentus123.github.io/Comy",
                   "fileName": "models/responses",
                   "extension": "html",
                   "usePrettyUrl": true,
-                  "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/models/responses"
+                  "link": "https://quentus123.github.io/Comy/kotlindoc/comy/models/responses"
                 },
                 "description": "",
                 "title": "models.responses",
@@ -310,11 +310,11 @@
                   "ownPages": [{
                     "reference": {
                       "path": "kotlindoc/comy",
-                      "baseUrl": "https://github.com/Quentus123/Comy",
+                      "baseUrl": "https://quentus123.github.io/Comy",
                       "fileName": "models/users/securityconfiguration",
                       "extension": "html",
                       "usePrettyUrl": true,
-                      "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/models/users/securityconfiguration"
+                      "link": "https://quentus123.github.io/Comy/kotlindoc/comy/models/users/securityconfiguration"
                     },
                     "description": "",
                     "title": "SecurityConfiguration",
@@ -326,11 +326,11 @@
                   "ownPages": [{
                     "reference": {
                       "path": "kotlindoc/comy",
-                      "baseUrl": "https://github.com/Quentus123/Comy",
+                      "baseUrl": "https://quentus123.github.io/Comy",
                       "fileName": "models/users/user",
                       "extension": "html",
                       "usePrettyUrl": true,
-                      "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/models/users/user"
+                      "link": "https://quentus123.github.io/Comy/kotlindoc/comy/models/users/user"
                     },
                     "description": "",
                     "title": "User",
@@ -341,11 +341,11 @@
               "ownPages": [{
                 "reference": {
                   "path": "kotlindoc/comy",
-                  "baseUrl": "https://github.com/Quentus123/Comy",
+                  "baseUrl": "https://quentus123.github.io/Comy",
                   "fileName": "models/users",
                   "extension": "html",
                   "usePrettyUrl": true,
-                  "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/models/users"
+                  "link": "https://quentus123.github.io/Comy/kotlindoc/comy/models/users"
                 },
                 "description": "",
                 "title": "models.users",
@@ -360,11 +360,11 @@
                   "ownPages": [{
                     "reference": {
                       "path": "kotlindoc/comy",
-                      "baseUrl": "https://github.com/Quentus123/Comy",
+                      "baseUrl": "https://quentus123.github.io/Comy",
                       "fileName": "models/commands/synccommand",
                       "extension": "html",
                       "usePrettyUrl": true,
-                      "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/models/commands/synccommand"
+                      "link": "https://quentus123.github.io/Comy/kotlindoc/comy/models/commands/synccommand"
                     },
                     "description": "",
                     "title": "SyncCommand",
@@ -376,11 +376,11 @@
                   "ownPages": [{
                     "reference": {
                       "path": "kotlindoc/comy",
-                      "baseUrl": "https://github.com/Quentus123/Comy",
+                      "baseUrl": "https://quentus123.github.io/Comy",
                       "fileName": "models/commands/commandresultstatus",
                       "extension": "html",
                       "usePrettyUrl": true,
-                      "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/models/commands/commandresultstatus"
+                      "link": "https://quentus123.github.io/Comy/kotlindoc/comy/models/commands/commandresultstatus"
                     },
                     "description": "",
                     "title": "CommandResultStatus",
@@ -392,11 +392,11 @@
                   "ownPages": [{
                     "reference": {
                       "path": "kotlindoc/comy",
-                      "baseUrl": "https://github.com/Quentus123/Comy",
+                      "baseUrl": "https://quentus123.github.io/Comy",
                       "fileName": "models/commands/commandresult",
                       "extension": "html",
                       "usePrettyUrl": true,
-                      "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/models/commands/commandresult"
+                      "link": "https://quentus123.github.io/Comy/kotlindoc/comy/models/commands/commandresult"
                     },
                     "description": "",
                     "title": "CommandResult",
@@ -408,11 +408,11 @@
                   "ownPages": [{
                     "reference": {
                       "path": "kotlindoc/comy",
-                      "baseUrl": "https://github.com/Quentus123/Comy",
+                      "baseUrl": "https://quentus123.github.io/Comy",
                       "fileName": "models/commands/asynccommand",
                       "extension": "html",
                       "usePrettyUrl": true,
-                      "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/models/commands/asynccommand"
+                      "link": "https://quentus123.github.io/Comy/kotlindoc/comy/models/commands/asynccommand"
                     },
                     "description": "",
                     "title": "AsyncCommand",
@@ -427,11 +427,11 @@
                       "ownPages": [{
                         "reference": {
                           "path": "kotlindoc/comy",
-                          "baseUrl": "https://github.com/Quentus123/Comy",
+                          "baseUrl": "https://quentus123.github.io/Comy",
                           "fileName": "models/commands/params/booleancommandparameter",
                           "extension": "html",
                           "usePrettyUrl": true,
-                          "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/models/commands/params/booleancommandparameter"
+                          "link": "https://quentus123.github.io/Comy/kotlindoc/comy/models/commands/params/booleancommandparameter"
                         },
                         "description": "",
                         "title": "BooleanCommandParameter",
@@ -443,11 +443,11 @@
                       "ownPages": [{
                         "reference": {
                           "path": "kotlindoc/comy",
-                          "baseUrl": "https://github.com/Quentus123/Comy",
+                          "baseUrl": "https://quentus123.github.io/Comy",
                           "fileName": "models/commands/params/parameter",
                           "extension": "html",
                           "usePrettyUrl": true,
-                          "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/models/commands/params/parameter"
+                          "link": "https://quentus123.github.io/Comy/kotlindoc/comy/models/commands/params/parameter"
                         },
                         "description": "",
                         "title": "Parameter",
@@ -459,11 +459,11 @@
                       "ownPages": [{
                         "reference": {
                           "path": "kotlindoc/comy",
-                          "baseUrl": "https://github.com/Quentus123/Comy",
+                          "baseUrl": "https://quentus123.github.io/Comy",
                           "fileName": "models/commands/params/stringcommandparameter",
                           "extension": "html",
                           "usePrettyUrl": true,
-                          "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/models/commands/params/stringcommandparameter"
+                          "link": "https://quentus123.github.io/Comy/kotlindoc/comy/models/commands/params/stringcommandparameter"
                         },
                         "description": "",
                         "title": "StringCommandParameter",
@@ -475,11 +475,11 @@
                       "ownPages": [{
                         "reference": {
                           "path": "kotlindoc/comy",
-                          "baseUrl": "https://github.com/Quentus123/Comy",
+                          "baseUrl": "https://quentus123.github.io/Comy",
                           "fileName": "models/commands/params/intcommandparameter",
                           "extension": "html",
                           "usePrettyUrl": true,
-                          "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/models/commands/params/intcommandparameter"
+                          "link": "https://quentus123.github.io/Comy/kotlindoc/comy/models/commands/params/intcommandparameter"
                         },
                         "description": "",
                         "title": "IntCommandParameter",
@@ -490,11 +490,11 @@
                   "ownPages": [{
                     "reference": {
                       "path": "kotlindoc/comy",
-                      "baseUrl": "https://github.com/Quentus123/Comy",
+                      "baseUrl": "https://quentus123.github.io/Comy",
                       "fileName": "models/commands/params",
                       "extension": "html",
                       "usePrettyUrl": true,
-                      "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/models/commands/params"
+                      "link": "https://quentus123.github.io/Comy/kotlindoc/comy/models/commands/params"
                     },
                     "description": "",
                     "title": "models.commands.params",
@@ -506,11 +506,11 @@
                   "ownPages": [{
                     "reference": {
                       "path": "kotlindoc/comy",
-                      "baseUrl": "https://github.com/Quentus123/Comy",
+                      "baseUrl": "https://quentus123.github.io/Comy",
                       "fileName": "models/commands/command",
                       "extension": "html",
                       "usePrettyUrl": true,
-                      "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/models/commands/command"
+                      "link": "https://quentus123.github.io/Comy/kotlindoc/comy/models/commands/command"
                     },
                     "description": "",
                     "title": "Command",
@@ -522,11 +522,11 @@
                   "ownPages": [{
                     "reference": {
                       "path": "kotlindoc/comy",
-                      "baseUrl": "https://github.com/Quentus123/Comy",
+                      "baseUrl": "https://quentus123.github.io/Comy",
                       "fileName": "models/commands/commandinfos",
                       "extension": "html",
                       "usePrettyUrl": true,
-                      "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/models/commands/commandinfos"
+                      "link": "https://quentus123.github.io/Comy/kotlindoc/comy/models/commands/commandinfos"
                     },
                     "description": "",
                     "title": "CommandInfos",
@@ -537,11 +537,11 @@
               "ownPages": [{
                 "reference": {
                   "path": "kotlindoc/comy",
-                  "baseUrl": "https://github.com/Quentus123/Comy",
+                  "baseUrl": "https://quentus123.github.io/Comy",
                   "fileName": "models/commands",
                   "extension": "html",
                   "usePrettyUrl": true,
-                  "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/models/commands"
+                  "link": "https://quentus123.github.io/Comy/kotlindoc/comy/models/commands"
                 },
                 "description": "",
                 "title": "models.commands",
@@ -560,11 +560,11 @@
                 "ownPages": [{
                   "reference": {
                     "path": "kotlindoc/comy",
-                    "baseUrl": "https://github.com/Quentus123/Comy",
+                    "baseUrl": "https://quentus123.github.io/Comy",
                     "fileName": "dokka/samples/synccommandsamples",
                     "extension": "html",
                     "usePrettyUrl": true,
-                    "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/dokka/samples/synccommandsamples"
+                    "link": "https://quentus123.github.io/Comy/kotlindoc/comy/dokka/samples/synccommandsamples"
                   },
                   "description": "",
                   "title": "SyncCommandSamples",
@@ -576,11 +576,11 @@
                 "ownPages": [{
                   "reference": {
                     "path": "kotlindoc/comy",
-                    "baseUrl": "https://github.com/Quentus123/Comy",
+                    "baseUrl": "https://quentus123.github.io/Comy",
                     "fileName": "dokka/samples/asynccommandsamples",
                     "extension": "html",
                     "usePrettyUrl": true,
-                    "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/dokka/samples/asynccommandsamples"
+                    "link": "https://quentus123.github.io/Comy/kotlindoc/comy/dokka/samples/asynccommandsamples"
                   },
                   "description": "",
                   "title": "AsyncCommandSamples",
@@ -591,11 +591,11 @@
             "ownPages": [{
               "reference": {
                 "path": "kotlindoc/comy",
-                "baseUrl": "https://github.com/Quentus123/Comy",
+                "baseUrl": "https://quentus123.github.io/Comy",
                 "fileName": "dokka/samples",
                 "extension": "html",
                 "usePrettyUrl": true,
-                "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/dokka/samples"
+                "link": "https://quentus123.github.io/Comy/kotlindoc/comy/dokka/samples"
               },
               "description": "",
               "title": "dokka.samples",
@@ -617,11 +617,11 @@
                       "ownPages": [{
                         "reference": {
                           "path": "kotlindoc/comy",
-                          "baseUrl": "https://github.com/Quentus123/Comy",
+                          "baseUrl": "https://quentus123.github.io/Comy",
                           "fileName": "logic/jwt/jwtservices/usernotfoundexception",
                           "extension": "html",
                           "usePrettyUrl": true,
-                          "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/logic/jwt/jwtservices/usernotfoundexception"
+                          "link": "https://quentus123.github.io/Comy/kotlindoc/comy/logic/jwt/jwtservices/usernotfoundexception"
                         },
                         "description": "",
                         "title": "UserNotFoundException",
@@ -633,11 +633,11 @@
                       "ownPages": [{
                         "reference": {
                           "path": "kotlindoc/comy",
-                          "baseUrl": "https://github.com/Quentus123/Comy",
+                          "baseUrl": "https://quentus123.github.io/Comy",
                           "fileName": "logic/jwt/jwtservices/refreshtokenexception",
                           "extension": "html",
                           "usePrettyUrl": true,
-                          "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/logic/jwt/jwtservices/refreshtokenexception"
+                          "link": "https://quentus123.github.io/Comy/kotlindoc/comy/logic/jwt/jwtservices/refreshtokenexception"
                         },
                         "description": "",
                         "title": "RefreshTokenException",
@@ -649,11 +649,11 @@
                       "ownPages": [{
                         "reference": {
                           "path": "kotlindoc/comy",
-                          "baseUrl": "https://github.com/Quentus123/Comy",
+                          "baseUrl": "https://quentus123.github.io/Comy",
                           "fileName": "logic/jwt/jwtservices/claimnotfoundexception",
                           "extension": "html",
                           "usePrettyUrl": true,
-                          "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/logic/jwt/jwtservices/claimnotfoundexception"
+                          "link": "https://quentus123.github.io/Comy/kotlindoc/comy/logic/jwt/jwtservices/claimnotfoundexception"
                         },
                         "description": "",
                         "title": "ClaimNotFoundException",
@@ -664,11 +664,11 @@
                   "ownPages": [{
                     "reference": {
                       "path": "kotlindoc/comy",
-                      "baseUrl": "https://github.com/Quentus123/Comy",
+                      "baseUrl": "https://quentus123.github.io/Comy",
                       "fileName": "logic/jwt/jwtservices",
                       "extension": "html",
                       "usePrettyUrl": true,
-                      "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/logic/jwt/jwtservices"
+                      "link": "https://quentus123.github.io/Comy/kotlindoc/comy/logic/jwt/jwtservices"
                     },
                     "description": "",
                     "title": "JWTServices",
@@ -680,11 +680,11 @@
                   "ownPages": [{
                     "reference": {
                       "path": "kotlindoc/comy",
-                      "baseUrl": "https://github.com/Quentus123/Comy",
+                      "baseUrl": "https://quentus123.github.io/Comy",
                       "fileName": "logic/jwt/usersdatasource",
                       "extension": "html",
                       "usePrettyUrl": true,
-                      "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/logic/jwt/usersdatasource"
+                      "link": "https://quentus123.github.io/Comy/kotlindoc/comy/logic/jwt/usersdatasource"
                     },
                     "description": "",
                     "title": "UsersDataSource",
@@ -695,11 +695,11 @@
               "ownPages": [{
                 "reference": {
                   "path": "kotlindoc/comy",
-                  "baseUrl": "https://github.com/Quentus123/Comy",
+                  "baseUrl": "https://quentus123.github.io/Comy",
                   "fileName": "logic/jwt",
                   "extension": "html",
                   "usePrettyUrl": true,
-                  "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/logic/jwt"
+                  "link": "https://quentus123.github.io/Comy/kotlindoc/comy/logic/jwt"
                 },
                 "description": "",
                 "title": "logic.jwt",
@@ -711,11 +711,11 @@
               "ownPages": [{
                 "reference": {
                   "path": "kotlindoc/comy",
-                  "baseUrl": "https://github.com/Quentus123/Comy",
+                  "baseUrl": "https://quentus123.github.io/Comy",
                   "fileName": "logic/comyserver",
                   "extension": "html",
                   "usePrettyUrl": true,
-                  "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/logic/comyserver"
+                  "link": "https://quentus123.github.io/Comy/kotlindoc/comy/logic/comyserver"
                 },
                 "description": "",
                 "title": "ComyServer",
@@ -726,11 +726,11 @@
           "ownPages": [{
             "reference": {
               "path": "kotlindoc/comy",
-              "baseUrl": "https://github.com/Quentus123/Comy",
+              "baseUrl": "https://quentus123.github.io/Comy",
               "fileName": "logic",
               "extension": "html",
               "usePrettyUrl": true,
-              "link": "https://github.com/Quentus123/Comy/kotlindoc/comy/logic"
+              "link": "https://quentus123.github.io/Comy/kotlindoc/comy/logic"
             },
             "description": "",
             "title": "logic",
@@ -741,11 +741,11 @@
       "ownPages": [{
         "reference": {
           "path": "kotlindoc",
-          "baseUrl": "https://github.com/Quentus123/Comy",
+          "baseUrl": "https://quentus123.github.io/Comy",
           "fileName": "comy",
           "extension": "html",
           "usePrettyUrl": true,
-          "link": "https://github.com/Quentus123/Comy/kotlindoc/comy"
+          "link": "https://quentus123.github.io/Comy/kotlindoc/comy"
         },
         "description": "",
         "title": "comy",

@@ -4,227 +4,227 @@
     xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>https://github.com/Quentus123/Comy/kotlindoc/comy</loc>
+        <loc>https://quentus123.github.io/Comy/kotlindoc/comy</loc>
         <lastmod>2020-07-01</lastmod>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://github.com/Quentus123/Comy/kotlindoc/comy/dokka/samples</loc>
+        <loc>https://quentus123.github.io/Comy/kotlindoc/comy/dokka/samples</loc>
         <lastmod>2020-07-01</lastmod>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://github.com/Quentus123/Comy/kotlindoc/comy/dokka/samples/synccommandsamples</loc>
+        <loc>https://quentus123.github.io/Comy/kotlindoc/comy/dokka/samples/synccommandsamples</loc>
         <lastmod>2020-07-01</lastmod>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://github.com/Quentus123/Comy/kotlindoc/comy/dokka/samples/asynccommandsamples</loc>
+        <loc>https://quentus123.github.io/Comy/kotlindoc/comy/dokka/samples/asynccommandsamples</loc>
         <lastmod>2020-07-01</lastmod>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://github.com/Quentus123/Comy/kotlindoc/comy/logic</loc>
+        <loc>https://quentus123.github.io/Comy/kotlindoc/comy/logic</loc>
         <lastmod>2020-07-01</lastmod>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://github.com/Quentus123/Comy/kotlindoc/comy/logic/jwt</loc>
+        <loc>https://quentus123.github.io/Comy/kotlindoc/comy/logic/jwt</loc>
         <lastmod>2020-07-01</lastmod>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://github.com/Quentus123/Comy/kotlindoc/comy/logic/jwt/usersdatasource</loc>
+        <loc>https://quentus123.github.io/Comy/kotlindoc/comy/logic/jwt/usersdatasource</loc>
         <lastmod>2020-07-01</lastmod>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://github.com/Quentus123/Comy/kotlindoc/comy/logic/jwt/jwtservices</loc>
+        <loc>https://quentus123.github.io/Comy/kotlindoc/comy/logic/jwt/jwtservices</loc>
         <lastmod>2020-07-01</lastmod>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://github.com/Quentus123/Comy/kotlindoc/comy/logic/jwt/jwtservices/refreshtokenexception</loc>
+        <loc>https://quentus123.github.io/Comy/kotlindoc/comy/logic/jwt/jwtservices/refreshtokenexception</loc>
         <lastmod>2020-07-01</lastmod>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://github.com/Quentus123/Comy/kotlindoc/comy/logic/jwt/jwtservices/usernotfoundexception</loc>
+        <loc>https://quentus123.github.io/Comy/kotlindoc/comy/logic/jwt/jwtservices/usernotfoundexception</loc>
         <lastmod>2020-07-01</lastmod>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://github.com/Quentus123/Comy/kotlindoc/comy/logic/jwt/jwtservices/claimnotfoundexception</loc>
+        <loc>https://quentus123.github.io/Comy/kotlindoc/comy/logic/jwt/jwtservices/claimnotfoundexception</loc>
         <lastmod>2020-07-01</lastmod>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://github.com/Quentus123/Comy/kotlindoc/comy/logic/comyserver</loc>
+        <loc>https://quentus123.github.io/Comy/kotlindoc/comy/logic/comyserver</loc>
         <lastmod>2020-07-01</lastmod>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://github.com/Quentus123/Comy/kotlindoc/comy/models/jwt</loc>
+        <loc>https://quentus123.github.io/Comy/kotlindoc/comy/models/jwt</loc>
         <lastmod>2020-07-01</lastmod>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://github.com/Quentus123/Comy/kotlindoc/comy/models/jwt/usertokenverificationresult</loc>
+        <loc>https://quentus123.github.io/Comy/kotlindoc/comy/models/jwt/usertokenverificationresult</loc>
         <lastmod>2020-07-01</lastmod>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://github.com/Quentus123/Comy/kotlindoc/comy/models/jwt/userauthenticationresult</loc>
+        <loc>https://quentus123.github.io/Comy/kotlindoc/comy/models/jwt/userauthenticationresult</loc>
         <lastmod>2020-07-01</lastmod>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://github.com/Quentus123/Comy/kotlindoc/comy/models/messages</loc>
+        <loc>https://quentus123.github.io/Comy/kotlindoc/comy/models/messages</loc>
         <lastmod>2020-07-01</lastmod>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://github.com/Quentus123/Comy/kotlindoc/comy/models/messages/needstatemessage</loc>
+        <loc>https://quentus123.github.io/Comy/kotlindoc/comy/models/messages/needstatemessage</loc>
         <lastmod>2020-07-01</lastmod>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://github.com/Quentus123/Comy/kotlindoc/comy/models/messages/authenticateusermessage</loc>
+        <loc>https://quentus123.github.io/Comy/kotlindoc/comy/models/messages/authenticateusermessage</loc>
         <lastmod>2020-07-01</lastmod>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://github.com/Quentus123/Comy/kotlindoc/comy/models/messages/refreshtokenmessage</loc>
+        <loc>https://quentus123.github.io/Comy/kotlindoc/comy/models/messages/refreshtokenmessage</loc>
         <lastmod>2020-07-01</lastmod>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://github.com/Quentus123/Comy/kotlindoc/comy/models/messages/executecommandmessage</loc>
+        <loc>https://quentus123.github.io/Comy/kotlindoc/comy/models/messages/executecommandmessage</loc>
         <lastmod>2020-07-01</lastmod>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://github.com/Quentus123/Comy/kotlindoc/comy/models/messages/message</loc>
+        <loc>https://quentus123.github.io/Comy/kotlindoc/comy/models/messages/message</loc>
         <lastmod>2020-07-01</lastmod>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://github.com/Quentus123/Comy/kotlindoc/comy/models/messages/authenticatetokenmessage</loc>
+        <loc>https://quentus123.github.io/Comy/kotlindoc/comy/models/messages/authenticatetokenmessage</loc>
         <lastmod>2020-07-01</lastmod>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://github.com/Quentus123/Comy/kotlindoc/comy/models/security</loc>
+        <loc>https://quentus123.github.io/Comy/kotlindoc/comy/models/security</loc>
         <lastmod>2020-07-01</lastmod>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://github.com/Quentus123/Comy/kotlindoc/comy/models/security/securitygroup</loc>
+        <loc>https://quentus123.github.io/Comy/kotlindoc/comy/models/security/securitygroup</loc>
         <lastmod>2020-07-01</lastmod>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://github.com/Quentus123/Comy/kotlindoc/comy/models/responses</loc>
+        <loc>https://quentus123.github.io/Comy/kotlindoc/comy/models/responses</loc>
         <lastmod>2020-07-01</lastmod>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://github.com/Quentus123/Comy/kotlindoc/comy/models/responses/commandresponse</loc>
+        <loc>https://quentus123.github.io/Comy/kotlindoc/comy/models/responses/commandresponse</loc>
         <lastmod>2020-07-01</lastmod>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://github.com/Quentus123/Comy/kotlindoc/comy/models/responses/serverinforesponse</loc>
+        <loc>https://quentus123.github.io/Comy/kotlindoc/comy/models/responses/serverinforesponse</loc>
         <lastmod>2020-07-01</lastmod>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://github.com/Quentus123/Comy/kotlindoc/comy/models/responses/authenticationresponse</loc>
+        <loc>https://quentus123.github.io/Comy/kotlindoc/comy/models/responses/authenticationresponse</loc>
         <lastmod>2020-07-01</lastmod>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://github.com/Quentus123/Comy/kotlindoc/comy/models/responses/response</loc>
+        <loc>https://quentus123.github.io/Comy/kotlindoc/comy/models/responses/response</loc>
         <lastmod>2020-07-01</lastmod>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://github.com/Quentus123/Comy/kotlindoc/comy/models/responses/serverstateresponse</loc>
+        <loc>https://quentus123.github.io/Comy/kotlindoc/comy/models/responses/serverstateresponse</loc>
         <lastmod>2020-07-01</lastmod>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://github.com/Quentus123/Comy/kotlindoc/comy/models/users</loc>
+        <loc>https://quentus123.github.io/Comy/kotlindoc/comy/models/users</loc>
         <lastmod>2020-07-01</lastmod>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://github.com/Quentus123/Comy/kotlindoc/comy/models/users/securityconfiguration</loc>
+        <loc>https://quentus123.github.io/Comy/kotlindoc/comy/models/users/securityconfiguration</loc>
         <lastmod>2020-07-01</lastmod>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://github.com/Quentus123/Comy/kotlindoc/comy/models/users/user</loc>
+        <loc>https://quentus123.github.io/Comy/kotlindoc/comy/models/users/user</loc>
         <lastmod>2020-07-01</lastmod>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://github.com/Quentus123/Comy/kotlindoc/comy/models/commands</loc>
+        <loc>https://quentus123.github.io/Comy/kotlindoc/comy/models/commands</loc>
         <lastmod>2020-07-01</lastmod>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://github.com/Quentus123/Comy/kotlindoc/comy/models/commands/params</loc>
+        <loc>https://quentus123.github.io/Comy/kotlindoc/comy/models/commands/params</loc>
         <lastmod>2020-07-01</lastmod>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://github.com/Quentus123/Comy/kotlindoc/comy/models/commands/params/intcommandparameter</loc>
+        <loc>https://quentus123.github.io/Comy/kotlindoc/comy/models/commands/params/intcommandparameter</loc>
         <lastmod>2020-07-01</lastmod>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://github.com/Quentus123/Comy/kotlindoc/comy/models/commands/params/stringcommandparameter</loc>
+        <loc>https://quentus123.github.io/Comy/kotlindoc/comy/models/commands/params/stringcommandparameter</loc>
         <lastmod>2020-07-01</lastmod>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://github.com/Quentus123/Comy/kotlindoc/comy/models/commands/params/parameter</loc>
+        <loc>https://quentus123.github.io/Comy/kotlindoc/comy/models/commands/params/parameter</loc>
         <lastmod>2020-07-01</lastmod>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://github.com/Quentus123/Comy/kotlindoc/comy/models/commands/params/booleancommandparameter</loc>
+        <loc>https://quentus123.github.io/Comy/kotlindoc/comy/models/commands/params/booleancommandparameter</loc>
         <lastmod>2020-07-01</lastmod>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://github.com/Quentus123/Comy/kotlindoc/comy/models/commands/commandresult</loc>
+        <loc>https://quentus123.github.io/Comy/kotlindoc/comy/models/commands/commandresult</loc>
         <lastmod>2020-07-01</lastmod>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://github.com/Quentus123/Comy/kotlindoc/comy/models/commands/commandresultstatus</loc>
+        <loc>https://quentus123.github.io/Comy/kotlindoc/comy/models/commands/commandresultstatus</loc>
         <lastmod>2020-07-01</lastmod>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://github.com/Quentus123/Comy/kotlindoc/comy/models/commands/command</loc>
+        <loc>https://quentus123.github.io/Comy/kotlindoc/comy/models/commands/command</loc>
         <lastmod>2020-07-01</lastmod>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://github.com/Quentus123/Comy/kotlindoc/comy/models/commands/commandinfos</loc>
+        <loc>https://quentus123.github.io/Comy/kotlindoc/comy/models/commands/commandinfos</loc>
         <lastmod>2020-07-01</lastmod>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://github.com/Quentus123/Comy/kotlindoc/comy/models/commands/asynccommand</loc>
+        <loc>https://quentus123.github.io/Comy/kotlindoc/comy/models/commands/asynccommand</loc>
         <lastmod>2020-07-01</lastmod>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://github.com/Quentus123/Comy/kotlindoc/comy/models/commands/synccommand</loc>
+        <loc>https://quentus123.github.io/Comy/kotlindoc/comy/models/commands/synccommand</loc>
         <lastmod>2020-07-01</lastmod>
         <priority>0.5</priority>
     </url>

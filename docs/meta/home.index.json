@@ -4,11 +4,11 @@
     {
       "reference": {
         "path": "",
-        "baseUrl": "https://github.com/Quentus123/Comy",
+        "baseUrl": "https://quentus123.github.io/Comy",
         "fileName": "",
         "extension": "html",
         "usePrettyUrl": true,
-        "link": "https://github.com/Quentus123/Comy"
+        "link": "https://quentus123.github.io/Comy"
       },
       "description": "",
       "title": "Home",
@@ -17,11 +17,11 @@
     {
       "reference": {
         "path": "",
-        "baseUrl": "https://github.com/Quentus123/Comy",
+        "baseUrl": "https://quentus123.github.io/Comy",
         "fileName": "404",
         "extension": "html",
         "usePrettyUrl": false,
-        "link": "https://github.com/Quentus123/Comy/404.html"
+        "link": "https://quentus123.github.io/Comy/404.html"
       },
       "description": "",
       "title": "Not Found",

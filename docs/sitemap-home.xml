@@ -4,12 +4,12 @@
     xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>https://github.com/Quentus123/Comy</loc>
+        <loc>https://quentus123.github.io/Comy</loc>
         <lastmod>2020-07-01</lastmod>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://github.com/Quentus123/Comy/404.html</loc>
+        <loc>https://quentus123.github.io/Comy/404.html</loc>
         <lastmod>2020-07-01</lastmod>
         <priority>0.5</priority>
     </url>
