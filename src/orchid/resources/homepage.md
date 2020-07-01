@@ -4,7 +4,7 @@ components:
   - type: 'readme'
 ---
 
-![Test](file://Users/quentin/Documents/Programmation/Comy_Illustrations/logo_noir.png)
+![Test](https://github.com/Quentus123/Comy/blob/master/assets/logo.png?raw=true)
 
 # Comy
 Comy is a library that make server creation easier, a mobile application is provided with the server.
