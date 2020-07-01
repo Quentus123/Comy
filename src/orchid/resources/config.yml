@@ -1,0 +1,28 @@
+site:
+  about:
+    siteName: Comy
+    siteDescription: This is a short description of this project.
+Editorial:
+    primaryColor: '#DE9149'
+    social:
+        github: 'Quentus123/Comy'
+    metaComponents: # this is the replacement for the deprecated automatic search addition
+        - type: 'orchidSearch'
+    menu:
+        - type: 'separator'
+          title: 'API Docs'
+        - type: 'sourcedocPages'
+          moduleType: 'kotlindoc'
+          node: 'classes'
+          asSubmenu: true
+          submenuTitle: 'Classes'
+        - type: 'sourcedocPages'
+          moduleType: 'kotlindoc'
+          node: 'packages'
+          asSubmenu: true
+          submenuTitle: 'Packages'
+
+kotlindoc:
+    name: 'comy'
+    sourceDirs:
+        - './../../../../Comy/src/main/kotlin'

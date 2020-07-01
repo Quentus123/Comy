@@ -3,8 +3,8 @@ import models.commands.AsyncCommand
 import models.commands.SyncCommand
 import models.commands.params.BooleanCommandParameter
 import models.commands.params.IntCommandParameter
-import models.responses.CommandResult
-import models.responses.CommandResultStatus
+import models.commands.CommandResult
+import models.commands.CommandResultStatus
 import models.security.SecurityGroup
 import models.users.SecurityConfiguration
 import models.users.User

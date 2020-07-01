@@ -2,8 +2,8 @@ package dokka.samples
 
 import models.commands.SyncCommand
 import models.commands.params.IntCommandParameter
-import models.responses.CommandResult
-import models.responses.CommandResultStatus
+import models.commands.CommandResult
+import models.commands.CommandResultStatus
 import kotlin.random.Random
 
 class SyncCommandSamples {

@@ -2,6 +2,12 @@ package models.users
 
 import kotlin.random.Random
 
+/**
+ * Describe how the server manage security.
+ *
+ * @param isSecured Determine if logging is required.
+ * @param secretKey The secret key that will be used to create and verify json web tokens.
+ */
 data class SecurityConfiguration(
     val isSecured: Boolean,
     val secretKey: String = {

@@ -4,10 +4,7 @@ import com.beust.klaxon.Klaxon
 import kotlinx.coroutines.*
 import logic.jwt.JWTServices
 import logic.jwt.UsersDataSource
-import models.commands.AsyncCommand
-import models.commands.Command
-import models.commands.CommandInfos
-import models.commands.SyncCommand
+import models.commands.*
 import models.commands.params.BooleanCommandParameter
 import models.commands.params.IntCommandParameter
 import models.commands.params.Parameter
@@ -23,6 +20,19 @@ import org.java_websocket.server.WebSocketServer
 import java.net.InetSocketAddress
 import java.util.*
 import kotlin.concurrent.schedule
+
+/**
+ * Represent the server.
+ *
+ * @param name The server's name.
+ * @param commands The list of commands available. IMPORTANT: Commands must not have duplicates names. If two commands have the same name, an error will occur.
+ * @param timeout Optional: Timeout in milliseconds before AsyncCommands return an timeout result. Default value: 15000 = 15 seconds.
+ * @param securityConfiguration Optional: Represent how the server must manage security. Default value: No security.
+ *
+ * @see SyncCommand
+ * @see AsyncCommand
+ * @see SecurityConfiguration
+ */
 
 class ComyServer(val name: String,
                  var commands: Array<Command>,
@@ -73,16 +83,16 @@ class ComyServer(val name: String,
                         executeCommand(named = parsedMessage.commandName, token = parsedMessage.token, params = parsedMessage.params, conn = conn)
                     }
                 }
-                AuthentificateUserMessage.type -> {
-                    val parsedMessage = Klaxon().parse<AuthentificateUserMessage>(message)
+                AuthenticateUserMessage.type -> {
+                    val parsedMessage = Klaxon().parse<AuthenticateUserMessage>(message)
                     if(parsedMessage != null){
-                        authentificate(conn = conn, id = parsedMessage.id, password = parsedMessage.password)
+                        authenticate(conn = conn, username = parsedMessage.username, password = parsedMessage.password)
                     }
                 }
-                AuthentificateTokenMessage.type -> {
-                    val parsedMessage = Klaxon().parse<AuthentificateTokenMessage>(message)
+                AuthenticateTokenMessage.type -> {
+                    val parsedMessage = Klaxon().parse<AuthenticateTokenMessage>(message)
                     if(parsedMessage != null){
-                        authentificate(conn = conn, token = parsedMessage.token)
+                        authenticate(conn = conn, token = parsedMessage.token)
                     }
                 }
                 RefreshTokenMessage.type -> {
@@ -101,12 +111,23 @@ class ComyServer(val name: String,
         println(ex)
     }
 
+    /**
+     * Change commands of the server.
+     *
+     * @param commands The list of commands available. IMPORTANT: Commands must not have duplicates names. If two commands have the same name, an error will occur.
+     */
     fun changeCommands(commands: Array<Command>) {
         this.commands = commands
         require(assertNoDuplicate())
         sendState(conn = null, token = null)
     }
 
+
+    /**
+     * Assert that there is no commands with the same name.
+     *
+     * @return true if there is no duplicate, false else.
+     */
     private fun assertNoDuplicate(): Boolean {
         val commandsNames = commands.map { it.name }
         val commandsNamesDistinct = commandsNames.distinct()
@@ -114,23 +135,32 @@ class ComyServer(val name: String,
         return commandsNames.count() == commandsNamesDistinct.count()
     }
 
-    private fun authentificate(conn: WebSocket?, id: String, password: String) {
-        val authentificationResult = jwtServices.authentificateUser(id = id, password = password)
-        if (authentificationResult.token != null && authentificationResult.refreshToken != null && authentificationResult.userId != null) {
-            conn?.send(Klaxon().toJsonString(AuthentificationResponse(
-                token = authentificationResult.token,
-                refreshToken = authentificationResult.refreshToken,
-                userId = authentificationResult.userId,
+
+    /**
+     * Authenticate user with username and password.
+     * Send a success AuthenticationResponse when authentication succeeded with accessToken, refreshToken and user's username or an error AuthenticationResponse on fail.
+     *
+     * @param conn The client to send response.
+     * @param username The user's username.
+     * @param password The user's password.
+     */
+    private fun authenticate(conn: WebSocket?, username: String, password: String) {
+        val authenticationResult = jwtServices.authenticateUser(username = username, password = password)
+        if (authenticationResult.token != null && authenticationResult.refreshToken != null && authenticationResult.username != null) {
+            conn?.send(Klaxon().toJsonString(AuthenticationResponse(
+                token = authenticationResult.token,
+                refreshToken = authenticationResult.refreshToken,
+                username = authenticationResult.username,
                 message = "Successfully authentificated",
                 code = 200,
                 tokenExpiredError = false,
                 wrongCredentialsError = false
             )))
         } else {
-            conn?.send(Klaxon().toJsonString(AuthentificationResponse(
+            conn?.send(Klaxon().toJsonString(AuthenticationResponse(
                 token = null,
                 refreshToken = null,
-                userId = null,
+                username = null,
                 message = "Wrong credentials",
                 code = 401,
                 tokenExpiredError = false,
@@ -139,31 +169,46 @@ class ComyServer(val name: String,
         }
     }
 
-    private fun authentificate(conn: WebSocket?, token: String) {
-        val authentificationTokenResult = jwtServices.verifyUserToken(token)
-        if (authentificationTokenResult.user != null) {
-            conn?.send(Klaxon().toJsonString(AuthentificationResponse(
+    /**
+     * Authenticate user with accessToken.
+     * Send a success AuthenticationResponse when authentication succeeded or an error AuthenticationResponse on fail.
+     *
+     * @param conn The client to send response.
+     * @param token The user's accessToken.
+     */
+    private fun authenticate(conn: WebSocket?, token: String) {
+        val authenticationTokenResult = jwtServices.verifyUserToken(token)
+        if (authenticationTokenResult.user != null) {
+            conn?.send(Klaxon().toJsonString(AuthenticationResponse(
                 token = null,
                 refreshToken = null,
-                userId = authentificationTokenResult.user.username,
+                username = authenticationTokenResult.user.username,
                 message = "Successfully authentificated",
                 code = 200,
                 tokenExpiredError = false,
                 wrongCredentialsError = false
             )))
         } else {
-            conn?.send(Klaxon().toJsonString(AuthentificationResponse(
+            conn?.send(Klaxon().toJsonString(AuthenticationResponse(
                 token = null,
                 refreshToken = null,
-                userId = null,
+                username = null,
                 message = "Error with token",
                 code = 401,
-                tokenExpiredError = authentificationTokenResult.tokenExpired,
+                tokenExpiredError = authenticationTokenResult.tokenExpired,
                 wrongCredentialsError = false
             )))
         }
     }
 
+    /**
+     * Verify if user has permissions to continue.
+     *
+     * @param token user's accessToken, null means that user is not logged.
+     * @param securityGroups SecurityGroups allowed to execute the action. Just need to put groups with less permissions. User must be in one of the security group or a super group of them.
+     *
+     * @return A pair where first value is a boolean that indicates if user has permissions. Second value is the verification result, useful to tell, e.g, if accessToken is expired.
+     */
     private fun authorize(token: String?, securityGroups: Array<SecurityGroup>): Pair<Boolean, UserTokenVerificationResult?> {
         var authResult: UserTokenVerificationResult? = null
         if(token != null) {
@@ -205,23 +250,30 @@ class ComyServer(val name: String,
         }
     }
 
+    /**
+     * Refresh client's accessToken if refreshToken is valid.
+     * Send to client an success AuthenticationResponse which contains new accessToken if success. If refreshing fails, send to client an error AuthenticationResponse.
+     *
+     * @param conn The client to send response.
+     * @param refreshToken The client's refresh token.
+     */
     private fun refreshToken(conn: WebSocket?, refreshToken: String) {
         val newToken = jwtServices.refreshToken(refreshToken)
         if(newToken != null) {
-            conn?.send(Klaxon().toJsonString(AuthentificationResponse(
+            conn?.send(Klaxon().toJsonString(AuthenticationResponse(
                     token = newToken,
                     refreshToken = null,
-                    userId = null,
+                    username = null,
                     message = "refreshed token",
                     code = 200,
                     tokenExpiredError = false,
                     wrongCredentialsError = false
             )))
         } else {
-            conn?.send(Klaxon().toJsonString(AuthentificationResponse(
+            conn?.send(Klaxon().toJsonString(AuthenticationResponse(
                 token = null,
                 refreshToken = null,
-                userId = null,
+                username = null,
                 message = "error with refresh token",
                 code = 401,
                 tokenExpiredError = false,
@@ -230,6 +282,14 @@ class ComyServer(val name: String,
         }
     }
 
+    /**
+     * Execute a command for a client and send him the result.
+     *
+     * @param named The command's name.
+     * @param token The client's accessToken.
+     * @param params Command's params.
+     * @param conn The client to send result as CommandReponse.
+     */
     private fun executeCommand(named: String, token: String?, params: Map<String, Any>, conn: WebSocket?){
         if(!commands.map { it.name }.contains(element = named)){
             val result = CommandResult(message = "", status = CommandResultStatus(success = false, message = "Command named \"$named\" not found"))
@@ -244,10 +304,10 @@ class ComyServer(val name: String,
             val authorizeResult = authorize(token, command.securityGroups)
             if (!authorizeResult.first) {
                 val result = CommandResult(message = "", status = CommandResultStatus(success = false, message = "Permissions missing"))
-                val response = CommandResponse(commandName = named, result = result, authError = AuthentificationResponse(
+                val response = CommandResponse(commandName = named, result = result, authError = AuthenticationResponse(
                         token = token,
                         refreshToken = null,
-                        userId = null,
+                        username = null,
                         message = "Unauthorized",
                         code = 401,
                         tokenExpiredError = authorizeResult.second?.tokenExpired ?: false,
@@ -327,6 +387,12 @@ class ComyServer(val name: String,
         conn?.send(Klaxon().toJsonString(response))
     }
 
+    /**
+     * Send server's state to client or an error if client is not allowed.
+     *
+     * @param conn The client to send response.
+     * @param token The client's accessToken.
+     */
     private fun sendState(conn: WebSocket?, token: String?){
 
         val authorizedCommands: MutableList<Command> = mutableListOf()
@@ -342,10 +408,10 @@ class ComyServer(val name: String,
         }
 
         if (authorizedCommands.count() == 0) {
-            val stateResponse = ServerStateResponse(name = name, commands = arrayOf(), authError = AuthentificationResponse(
+            val stateResponse = ServerStateResponse(name = name, commands = arrayOf(), authError = AuthenticationResponse(
                     token = token,
                     refreshToken = null,
-                    userId = null,
+                    username = null,
                     message = "Unauthorized",
                     code = 401,
                     tokenExpiredError = isTokenExpirated,
@@ -360,6 +426,9 @@ class ComyServer(val name: String,
 
     }
 
+    /**
+     * @return A list of allowed users.
+     */
     override fun allowedUsers(): MutableList<User> = allowedUsers
 
     /**

@@ -2,7 +2,6 @@ package models.commands
 
 import com.beust.klaxon.Json
 import models.commands.params.Parameter
-import models.responses.CommandResult
 import models.security.SecurityGroup
 
 /**

@@ -1,7 +1,7 @@
 package dokka.samples
 
 import models.commands.AsyncCommand
-import models.responses.CommandResult
+import models.commands.CommandResult
 
 class AsyncCommandSamples {
 
