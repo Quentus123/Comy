@@ -3,10 +3,11 @@ plugins {
     id 'org.jetbrains.kotlin.jvm' version '1.3.72'
     id "com.eden.orchidPlugin" version "0.21.0"
     id 'org.jetbrains.dokka' version '0.10.1'
+    id 'maven-publish'
 }
 
-group 'org.example'
-version '1.0-SNAPSHOT'
+group 'com.github.quentus123'
+version '0.0.1-SNAPSHOT'
 
 repositories {
     jcenter()
@@ -30,7 +31,56 @@ dependencies {
 orchid {
     theme = "Editorial"
     baseUrl = "https://quentus123.github.io/Comy/"
-    version = "1.0.0"
+    version = "0.0.1-SNAPSHOT"
+}
+
+publishing {
+
+    repositories {
+        maven {
+            def releasesRepoUrl = "https://oss.sonatype.org/service/local/staging/deploy/maven2"
+            def snapshotsRepoUrl = "https://oss.sonatype.org/content/repositories/snapshots"
+            url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
+
+            credentials {
+                username nexusUsername
+                password nexusPassword
+            }
+        }
+    }
+
+    publications {
+        maven(MavenPublication) {
+            groupId = 'com.github.quentus123'
+            artifactId = 'comy'
+            version = '0.0.1-SNAPSHOT'
+            from components.java
+
+            pom {
+                name = 'Comy'
+                description = 'A library to make server creation easy.'
+                url = 'https://github.com/Quentus123/Comy'
+                licenses {
+                    license {
+                        name = 'GNU General Public License v3.0'
+                        url = 'https://www.gnu.org/licenses/gpl-3.0.fr.html'
+                    }
+                }
+                developers {
+                    developer {
+                        id = 'quentus123'
+                        name = 'Quentin Diebold'
+                        email = 'q.diebold@etu.unistra.fr'
+                    }
+                }
+                scm {
+                    connection = 'scm:git@github.com:Quentus123/Comy'
+                    developerConnection = 'scm:git@github.com:Quentus123/Comy'
+                    url = 'https://github.com/Quentus123/Comy'
+                }
+            }
+        }
+    }
 }
 
 compileKotlin {
