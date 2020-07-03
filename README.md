@@ -1,4 +1,5 @@
-# Comy
+![logo](https://github.com/Quentus123/Comy/blob/master/assets/logo_readme.png?raw=true)
+
 Comy is a library that make server creation easier, a mobile application is provided with the server.
 
 ## Features 
@@ -19,3 +20,6 @@ Beta version of Comy will be released soon (next week probably), feel free to me
 
 ## Mobile App
 Open Source iOS app is currently under devloppement, you can see code here : https://github.com/Quentus123/Comy-iOS
+
+## Documention
+You can see documentation here : https://quentus123.github.io/Comy/
