@@ -50,6 +50,7 @@ class ComyServer(val name: String,
 
     override fun onStart() {
         println("Server started on port ${this.port}")
+        println("Connect on iOS client with url : ws://<ip_of_this_device>:${this.port}")
     }
 
     override fun onOpen(conn: WebSocket?, handshake: ClientHandshake?) {
