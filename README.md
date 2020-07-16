@@ -408,7 +408,7 @@ server.addUser(adminUser)
 server.start()
 ```
 
-Don't forget `securityConfiguration` of `ComyServer` constructor and set `isSecured` to `true` everyone will have max permissions!
+Don't forget `securityConfiguration` of `ComyServer` constructor and set `isSecured` to `true` else everyone will have max permissions!
 
 # Mobile App
 Open Source iOS app is currently under devloppement, you can see code here : https://github.com/Quentus123/Comy-iOS
