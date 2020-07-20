@@ -1,6 +1,7 @@
 package logic
 
 import com.beust.klaxon.Klaxon
+import com.beust.klaxon.KlaxonException
 import kotlinx.coroutines.*
 import logic.jwt.JWTServices
 import logic.jwt.UsersDataSource
@@ -35,7 +36,7 @@ import kotlin.concurrent.schedule
  */
 
 class ComyServer(val name: String,
-                 var commands: Array<Command>,
+                 private var commands: Array<Command>,
                  val timeout: Long = 15000L,
                  val securityConfiguration: SecurityConfiguration = SecurityConfiguration(isSecured = false), port: Int) : WebSocketServer(InetSocketAddress(port)), UsersDataSource {
 
@@ -69,42 +70,48 @@ class ComyServer(val name: String,
             return
         }
 
-        val messageType = Klaxon().parse<Message>(message)?.type
-        if(messageType != null){
-            when(messageType){
-                NeedStateMessage.type -> {
-                    val parsedMessage = Klaxon().parse<NeedStateMessage>(message)
-                    if (parsedMessage != null){
-                        sendState(conn = conn, token = parsedMessage.token)
+        try {
+            val messageType = Klaxon().parse<Message>(message)?.type
+            if(messageType != null){
+                when(messageType){
+                    NeedStateMessage.type -> {
+                        val parsedMessage = Klaxon().parse<NeedStateMessage>(message)
+                        if (parsedMessage != null){
+                            sendState(conn = conn, token = parsedMessage.token)
+                        }
                     }
-                }
-                ExecuteCommandMessage.type -> {
-                    val parsedMessage = Klaxon().parse<ExecuteCommandMessage>(message)
-                    if(parsedMessage != null){
-                        executeCommand(named = parsedMessage.commandName, token = parsedMessage.token, params = parsedMessage.params, conn = conn)
+                    ExecuteCommandMessage.type -> {
+                        val parsedMessage = Klaxon().parse<ExecuteCommandMessage>(message)
+                        if(parsedMessage != null){
+                            executeCommand(named = parsedMessage.commandName, token = parsedMessage.token, params = parsedMessage.params, conn = conn)
+                        }
                     }
-                }
-                AuthenticateUserMessage.type -> {
-                    val parsedMessage = Klaxon().parse<AuthenticateUserMessage>(message)
-                    if(parsedMessage != null){
-                        authenticate(conn = conn, username = parsedMessage.username, password = parsedMessage.password)
+                    AuthenticateUserMessage.type -> {
+                        val parsedMessage = Klaxon().parse<AuthenticateUserMessage>(message)
+                        if(parsedMessage != null){
+                            authenticate(conn = conn, username = parsedMessage.username, password = parsedMessage.password)
+                        }
                     }
-                }
-                AuthenticateTokenMessage.type -> {
-                    val parsedMessage = Klaxon().parse<AuthenticateTokenMessage>(message)
-                    if(parsedMessage != null){
-                        authenticate(conn = conn, token = parsedMessage.token)
+                    AuthenticateTokenMessage.type -> {
+                        val parsedMessage = Klaxon().parse<AuthenticateTokenMessage>(message)
+                        if(parsedMessage != null){
+                            authenticate(conn = conn, token = parsedMessage.token)
+                        }
                     }
-                }
-                RefreshTokenMessage.type -> {
-                    val parsedMessage = Klaxon().parse<RefreshTokenMessage>(message)
-                    if(parsedMessage != null){
-                        refreshToken(conn = conn, refreshToken = parsedMessage.refreshToken)
+                    RefreshTokenMessage.type -> {
+                        val parsedMessage = Klaxon().parse<RefreshTokenMessage>(message)
+                        if(parsedMessage != null){
+                            refreshToken(conn = conn, refreshToken = parsedMessage.refreshToken)
+                        }
                     }
+                    else -> sendUnexpectedError(conn = conn)
                 }
-                else -> sendUnexpectedError(conn = conn)
             }
+        } catch(e: KlaxonException) {
+            sendUnexpectedError(conn = conn)
         }
+
+
 
     }
 
